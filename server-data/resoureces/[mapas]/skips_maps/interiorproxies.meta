@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SInteriorOrderData>
+  <startFrom value="3000" />
+  <proxies>
+	<Item>itau01</Item>
+	<Item>thelost_rockclub_milo_</Item>
+	<Item>imp_impexp_interior_placement_interior_1_impexp</Item>
+	<Item>courthouse2</Item>
+	<Item>direito</Item>
+	<item>int_luxury_milo_</item>
+    <item>slb2k11_jva_office_milo_</item>
+    <item>slb2k11_jva_entrance_milo_</item>
+    <Item>int_vesp_01_1_milo_</Item>
+	<Item>int_vesp_01_2_milo_</Item>
+	<Item>int_vesp_1_1_milo_</Item>
+	<Item>int_vesp_1_2_milo_</Item>
+	<Item>int_vesp_02_1_milo_</Item>
+	<Item>int_vesp_02_2_milo_</Item>
+	<Item>int_vesp_03_1_milo_</Item>
+	<Item>int_vesp_3_1_milo_</Item>
+	<Item>int_vesp_3_2_milo_</Item>
+	<Item>int_vesp_4_2_milo_</Item>
+	<Item>int_vesp_5_2_milo_</Item>
+	<Item>int_vesp_big_lift_milo_</Item>
+	<Item>int_vesp_big_stair_milo_</Item>
+	<Item>int_vesp_slift_milo_</Item>
+	<Item>int_vesp_smole_stair_milo_</Item>
+	<Item>gabz_pillbox_milo_</Item>
+	<Item>int_clawles_sheriff_milo_</Item>
+	<Item>ajaxon_barton_lsc_milo_</Item>
+  <Item>hei_ap1_04_interior_v_carmod_milo_</Item>
+  <Item>verpi_dv_school_milo_</Item>
+
+  <Item>bs_int</Item>
+		<Item>zn_fishing_mlo</Item>
+		<Item>lr_cs6_03_interior_v_carmod3_milo_</Item>
+		<Item>gabz_pillbox_dlc_milo_</Item>
+		<Item>int_genstore_milo_</Item>
+		<Item>rfc_mcbikers_milo_</Item>
+		<Item>v_clinick</Item>
+		<Item>brown_gunshop_milo_</Item>
+		<Item>gabz_mrpd_milo_</Item>
+		<Item>hei_dt1_19_interior_0_heist_police_dlc_milo_</Item>
+		<Item>sanhje_Prison_cafeteria_placement</Item>
+		<Item>sanhje_Prison_placement</Item>
+		<Item>sanhje_Prison_infirmary_placement</Item>
+		<Item>sanhje_prison_reception_placement</Item>
+		<Item>sanhje_parkranger_placement</Item>
+		<Item>denis3d_tunershop_milo_</Item>
+		<Item>int_shosp_milo_</Item>
+		<Item>np_town_hall_milo_</Item>
+		<Item>weazel_milo</Item>
+		<Item>int_italy2_milo_</Item>
+		<Item>interior_hospitalsandy_milo_</Item>
+		<Item>np_sandycloth_milo_</Item>
+		<Item>hedwig_sheriff_milo_</Item>
+		<Item>hedwig_sheriff_garage_milo</Item>
+		<Item>civilbc_milo</Item>
+		<Item>gcm_milo</Item>
+		<Item>upabc_mlo</Item>
+		<Item>center_mlo</Item>
+  </proxies>
+</SInteriorOrderData>
