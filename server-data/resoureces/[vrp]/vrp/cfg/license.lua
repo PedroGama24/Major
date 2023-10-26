@@ -1,0 +1,1 @@
+GlobalState.license = "SUA_LICENÇA"
