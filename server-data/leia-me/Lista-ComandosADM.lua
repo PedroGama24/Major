@@ -1,0 +1,52 @@
+#--=======================================================================--#
+#--=[ COMANDOS ADM ]======================================================--#
+#--=======================================================================--#
+
+- /allcmds -- aparece todos comandos da base
+- /players -- Ver quantos players online
+- /skin {id} {nome da skin} -- alterar skin do personagem -
+- /uncuff -- retira as algemas
+- /renomear --  Renomear o Player
+- /carcolor1 -- Altera a cor primaria do veiculo
+- /carcolor2 -- Altera a cor secundaria do veiculo
+- /hash -- Pega a hash dos veiculos
+- /status -- Verifica quantos players estão online de cada grupo
+- /tpall -- Puxa todos os players online para sua cordenada
+- /fix -- Fixa as batidas dos veiculos
+- /uservehs -- ve os veiculos do player
+- /limparinv {id} -- Limpa o inventario de alguem
+- /god -- Enche a vida e colete do player
+- /cargod -- Enche a vida e colete do player porém não sai do veiculos
+- /debug --  mostra as cordenadas e hash dos objetos e ped
+- /addcar {nome do carro} {id} -- Adicionada veiculo para algum player
+- /remcar {nome do carro} {id} --Remove o veiculo de algum player
+- /tuning --Tuna o veiculo no máximo
+- /addmoeda {id} {quantia} -- adiciona moedas para loja vip
+- /removermoeda {id} {quantia} -- remove moedas da loja vip
+- /coinstoall -- adiciona moedas para todos na loja vip
+- /adm -- envia notifacação com uma mensagem personalizada para todos
+- /wl {id} -- Libera a Whitelist 
+- /unwl {id} --Tira da whitelist
+- /kick {id} --Kika a pessoa do server
+- /ban {id} --Bani a pessoa do server
+- /money {quatia} --Spawna dinheiro
+- /nc --Fica invisivel
+- /tpcds --Teleporta para alguma coordenada
+- /cds --Gera a cordenada de onde vc está
+- /cds2 --Gera a cordenada de onde vc está
+- /cds3 --Gera a cordenada de onde vc está
+- /cds4 --Gera a cordenada de onde vc está
+- /group --Adiciona a pessoa em algum grupo
+- /ungroup --Remove a pessoa de algum grupo
+- /tptome {id} --Teleporta a pessoa para mim
+- /tpto {id} --teleportar para pessoa
+- /tpway --teleporta para marcação no mapa
+- /car {veiculo} --spawna veiculo
+- /ajuda --Para responder os tickets
+- /anuncio -- mensagem diferente para todos os players
+- /char -- desbuga o personagem
+- /limpachat -- remove todas mensagem do chat
+- /pft {mensagem} --manda mensagem no chat como prefeitura
+- /resetchar -- reseta o personagem
+- /setgroup {id} -- abre um painel com os grupos de setagem
+- /wall -- ativa o wall 
