@@ -1,0 +1,1 @@
+Editar Config.json, coloque seu WebHook para funcionar tudo certinho e coloque seu ip e porta na frente do ws// mencionado na Config... (TEM QUE SER O SEU IP E A MESMA PORTA DO SCRIPT DE CHAMADA DE VIDEO)

@@ -1,0 +1,334 @@
+{
+  "locale": "pt-BR",
+  "currency": "BRL",
+  "uber": {
+    "pricing": {
+      "base": 8,
+      "per_km": 1237
+    },
+    "common_places": [
+      { "name": "Praça", "location": [156.9, -1012.25, 29.4] },
+      { "name": "Hospital", "location": [-496.88, -333.84, 34.51] },
+      { "name": "Mecânica", "location": [867.89, -2119.61, 30.28] },
+      { "name": "Departamento Policial [PMESP]", "location": [1299.08, -720.75, 65.27] }
+    ],
+    "cancelable": 1
+  },
+  "food": {
+    "categories": [
+      { "id": 1, "name": "Restaurantes" },
+      { "id": 2, "name": "Bebidas" },
+      { "id": 3, "name": "Farmácias" }
+    ],
+    "stores": [
+      {
+        "id": 1,
+        "name": "BurguerShot",
+        "icon": "https://ih1.redbubble.net/image.2293502912.2530/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+        "category_id": 1,
+        "price": 1,
+        "fee": 250,
+        "location": [-1192.89, -907.98, 13.81],
+        "products": [
+          {
+            "id": 6,
+            "name": "Hotdog",
+            "description": "Pão, linguiça e o molho da casa!",
+            "price": 250,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/hotdog.png",
+            "items": {
+              "hotdog": 1
+            }
+          },
+          {
+            "id": 215,
+            "name": "X-Burguer",
+            "description": "Pão, salada, hamburguer e molho.",
+            "price": 300,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/xburguer.png",
+            "items": {
+              "xburguer": 1
+            }
+          },
+          {
+            "id": 216,
+            "name": "X-Tudo",
+            "description": "Pão, salada, hamburguer, bacon, ovos, frango e molho.",
+            "price": 400,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/xtudo.png",
+            "items": {
+              "xtudo": 1
+            }
+          },
+          {
+            "id": 7,
+            "name": "Pizza",
+            "description": "Fatia de pizza de calabresa",
+            "price": 200,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/pizza.png",
+            "items": {
+              "pizza": 1
+            }
+          },
+          {
+            "id": 8,
+            "name": "Salgadinho",
+            "description": "Salgadinho de queijo",
+            "price": 150,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/salgadinho.png",
+            "items": {
+              "salgadinho": 1
+            }
+          },
+          {
+            "id": 214,
+            "name": "Taco",
+            "description": "Taco mexicano, com muito molho e pimenta.",
+            "price": 150,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/taco.png",
+            "items": {
+              "taco": 1
+            }
+          },
+          {
+            "id": 217,
+            "name": "Batata Frita",
+            "description": "Batatinha frita, com olho vegetal.",
+            "price": 250,
+            "section": "Lanches",
+            "image": "http://181.215.253.55/vrp_itens/batatinha.png",
+            "items": {
+              "batatinha": 1
+            }
+          },
+
+          {
+            "id": 101,
+            "name": "Chocolate",
+            "description": "Barra de chocolate, 80% Cacau!",
+            "price": 150,
+            "section": "Doces",
+            "image": "http://181.215.253.55/vrp_itens/chocolate.png",
+            "items": {
+              "chocolate": 1
+            }
+          },
+
+          {
+            "id": 102,
+            "name": "Rosquinha",
+            "description": "Rosquinha deliciosa, adorada pelos policiais",
+            "price": 130,
+            "section": "Doces",
+            "image": "http://181.215.253.55/vrp_itens/rosquinha.png",
+            "items": {
+              "rosquinha": 1
+            }
+          },
+
+
+          {
+            "id": 10,
+            "name": "Água",
+            "description": "Agua natural, sem gás!",
+            "price": 140,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/agua.png",
+            "items": {
+              "agua": 1
+            }
+          },
+          {
+            "id": 204,
+            "name": "Café",
+            "description": "Café quentinho, feito agora!",
+            "price": 110,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/cafe.png",
+            "items": {
+              "cafe": 1
+            }
+          },
+          {
+            "id": 206,
+            "name": "Limonada",
+            "description": "Limonada, feita com os melhores limões",
+            "price": 130,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/limonada.png",
+            "items": {
+              "limonada": 1
+            }
+          },
+          {
+            "id": 207,
+            "name": "Refrigerante",
+            "description": "Refrigerante gaseificado com açucar",
+            "price": 130,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/refrigerante.png",
+            "items": {
+              "refrigerante": 1
+            }
+          },
+          {
+            "id": 205,
+            "name": "Energético",
+            "description": "O melhor para te deixar ativo durante as noites.",
+            "price": 150,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/energetico.png",
+            "items": {
+              "energetico": 1
+            }
+          }
+        ]
+      },
+
+
+
+
+      {
+        "id": 2,
+        "name": "Bahamas Bar",
+        "icon": "https://media.discordapp.net/attachments/974350926859100200/1011674694052753408/80a3733c-3370-4ea5-ab57-a4eb0b54979d.png",
+        "category_id": 2,
+        "price": 1,
+        "fee": 250,
+        "location": [-1391.82, -605.77, 30.32],
+        "products": [
+          {
+            "id": 208,
+            "name": "Cerveja",
+            "description": "Cerveja geladinha.",
+            "price": 50,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/cerveja.png",
+            "items": {
+              "cerveja": 1
+            }
+          },
+          {
+            "id": 209,
+            "name": "Tequila",
+            "description": "Garrafa de tequila, marca suiça",
+            "price": 200,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/tequila.png",
+            "items": {
+              "tequila": 1
+            }
+          },
+          {
+            "id": 210,
+            "name": "Vodka",
+            "description": "Vodka de marcas importadas",
+            "price": 300,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/vodka.png",
+            "items": {
+              "vodka": 1
+            }
+          },
+          {
+            "id": 211,
+            "name": "Whisky",
+            "description": "Whisky importado, marca desconhecida.",
+            "price": 250,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/whisky.png",
+            "items": {
+              "whisky": 1
+            }
+          },
+          {
+            "id": 212,
+            "name": "Conhaque",
+            "description": "A melhor para velhos experientes",
+            "price": 200,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/conhaque.png",
+            "items": {
+              "conhaque": 1
+            }
+          },
+          {
+            "id": 213,
+            "name": "Absinto",
+            "description": "90% de alcoól",
+            "price": 200,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/absinto.png",
+            "items": {
+              "absinto": 1
+            }
+          },
+          {
+            "id": 10,
+            "name": "Água",
+            "description": "Agua natural, sem gás!",
+            "price": 140,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/agua.png",
+            "items": {
+              "agua": 1
+            }
+          },
+          {
+            "id": 204,
+            "name": "Café",
+            "description": "Café quentinho, feito agora!",
+            "price": 110,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/cafe.png",
+            "items": {
+              "cafe": 1
+            }
+          },
+          {
+            "id": 206,
+            "name": "Limonada",
+            "description": "Limonada, feita com os melhores limões",
+            "price": 130,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/limonada.png",
+            "items": {
+              "limonada": 1
+            }
+          },
+          {
+            "id": 207,
+            "name": "Refrigerante",
+            "description": "Refrigerante gaseificado com açucar",
+            "price": 130,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/refrigerante.png",
+            "items": {
+              "refrigerante": 1
+            }
+          },
+          {
+            "id": 205,
+            "name": "Energético",
+            "description": "O melhor para te deixar ativo durante as noites.",
+            "price": 150,
+            "section": "Bebidas",
+            "image": "http://181.215.253.55/vrp_itens/energetico.png",
+            "items": {
+              "energetico": 1
+            }
+          }
+        ] 
+      }
+
+
+
+    ]
+  }
+}
