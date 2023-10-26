@@ -1,0 +1,233 @@
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(221, 221, 221, 0.205); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(215, 215, 215, 0.527); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #ffffffda; }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+body {
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+* {
+	overflow: hidden;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+.inventory {
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	position: fixed;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	background: rgba(0,0,0,0.55);
+}
+
+.innerInventory {
+	display: flex;
+	flex-direction: column;
+}
+
+.sections {
+	height: 589px;
+	display: flex;
+}
+
+.invLeft, .invRight {
+	row-gap: 3px;
+	display: grid;
+	column-gap: 3px;
+	overflow-y: scroll;
+	padding-right: 3px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.item {
+	width: 115px;
+	height: 145px;
+	display: flex;
+	border-radius: 4px;
+	flex-direction: column;
+	text-shadow: 1px 1px #000;
+	background: rgba(255, 255, 255, 0.13);
+	border: solid 0.1vw rgba(255, 255, 255, 0);
+}
+
+.populated {
+	background: rgba(255, 255, 255, 0.329);
+	border: solid 0.1vw rgba(255, 255, 255, 0.473);
+	background-size: 86% !important;
+}
+
+.populated:hover, .hoverControl {
+	background: rgba(215, 215, 215, 0.527);
+}
+
+.item .top {
+	display: flex;
+	color: #8c8c8c;
+	font-size: .70rem;
+	justify-content: space-between;
+}
+
+.itemAmount {
+	margin: 15px 15px 0 0;
+	
+}
+
+.itemWeight {
+	margin: 15px 0 0 15px;
+}
+
+.item .itemname {
+	margin-top: auto;
+	align-self: center;
+
+	width: 100%;
+	color: #d0d0d0;
+
+	padding: 8px 10px;
+	font-size: .68rem;
+	text-align: center;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+
+	/* background: rgba(71,79,106,0.5); */ 
+}
+
+.invMiddle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.invMiddle div, .invMiddle input {
+	border: 0;
+	width: 70%;
+	outline: none;
+	color: #afb8d2;
+	padding: 16px 0;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 4px;
+	margin-bottom: 12px;
+	letter-spacing: 1px;
+	background: rgba(221, 221, 221, 0.205);
+}
+
+#weight {
+	max-width: 1338px;
+}
+
+#weightTextLeft {
+	float: left;
+	color: #9c9c9c;
+	font-size: 12px;
+	min-width: 580px;
+	max-width: 580px;
+	text-align: right;
+	margin-right: 15px;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+}
+
+#weightBarLeft {
+	float: left;
+	min-height: 10px;
+	max-height: 10px;
+	min-width: 596px;
+	max-width: 596px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	background: rgba(215, 215, 215, 0.527);
+}
+
+#weightTextRight {
+	float: right;
+	color: #9c9c9c;
+	font-size: 12px;
+	min-width: 580px;
+	max-width: 580px;
+	text-align: left;
+	margin-left: 15px;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+}
+
+#weightBarRight {
+	float: right;
+	min-height: 10px;
+	max-height: 10px;
+	min-width: 596px;
+	max-width: 596px;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	background: rgba(215, 215, 215, 0.527);
+}
+
+#weightContent {
+	float: left;
+	min-height: 10px;
+	max-height: 10px;
+	max-width: 596px;
+	border-radius: 4px;
+	background: #ffffffda;
+	
+	transition: all 0.9s;
+}
+
+.invMiddle input, .invMiddle input::placeholder {
+	color: #ffffffda;
+	
+}
+
+.myInfos {
+	align-self: flex-start;
+	padding: 0 0 -30px 0px;
+}
+
+.infosContent {
+	padding-top: 12px;
+	font-size: .70rem;
+	color: #b3b3b3;
+}
+
+.infosContent span {
+	letter-spacing: 1px;
+	margin-right: 18px;
+}
+
+.myInfos b {
+	font-size: 1.5rem;
+	padding-bottom: 15px;
+}
+
+.myInfos i {
+	color: #b3b3b3;
+	font-weight: 300;
+}
+
+.myInfos s {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+.slotNumber {
+	width: 24px;
+	height: 24px;
+	padding: 6px 0 0;
+	font-size: 0.6rem;
+	text-align: center;
+	color: rgba(19,22,28,1.0);
+	background: rgba(255,255,255,0.75);
+}

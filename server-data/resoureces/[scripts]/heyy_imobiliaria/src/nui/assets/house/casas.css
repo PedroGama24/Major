@@ -1,0 +1,24 @@
+#houses-menu {
+	position: absolute;
+	top: 50%;
+	left: 30px;
+	transform: translateY(-50%);
+	min-width: 350px;
+	width: 60vw;
+	max-width: 500px;
+}
+
+.houses-menu-header h5 {
+	font-weight: 100;
+	letter-spacing: 5px;
+}
+
+.houses-menu-header i {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #f4f4f4dc;
+}
+
+.house-menu-selected {
+	background-color: rgba(0, 0, 0, 0.5);
+}

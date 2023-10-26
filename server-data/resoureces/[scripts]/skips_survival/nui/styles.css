@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  background: transparent;
+}
+
+@font-face {
+  font-family: 'Edo';
+  src: url('font/edosz.ttf');
+}
+
+.container {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#fainting {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: none;
+}
+
+#fainting .container_ {
+  width: 30%;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#Death {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: none;
+}
+
+#Death .container__ {
+  width: 30%;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Imagem */
+.img {
+  width: 150px;
+}
+
+/* Você */
+.fainting_title {
+  font-size: 3vw;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Desmaiou / Morreu */
+.fainting_title1 {
+  font-size: 4vw;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffc600;
+}
+.informationss .aviso {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(236, 231, 231, 0.658);
+  text-align: center;
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* TEMPO RESTANTE */
+.clock {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.048);
+  font-size: 25px;
+  color: #ffc600;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 12px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 98px;
+  padding: 4px;
+}
+
+/* BOTÃO DESISTIR */
+#fainting .container_ .botao {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 200px;
+  text-transform: uppercase;
+  width: 200px;
+  text-align: center;
+  padding: 3px;
+
+  background: #ffc600;
+  border-radius: 30px;
+  font-size: 20px;
+  color: rgb(19, 19, 19);
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: none;
+}
+
+/* Botão da Morte */
+.DeathB {
+  border: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 250px;
+  text-transform: uppercase;
+  width: 230px;
+  text-align: center;
+  padding: 3px;
+  background: #ffc600;
+  border-radius: 30px;
+  font-size: 16px;
+  color: rgb(19, 19, 19);
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Morte DIV */
+#Death {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  color: white;
+  border-radius: 2vw;
+  display: none;
+}
+
+.popup .overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.336);
+  z-index: 1;
+  display: none;
+}
+
+.popup .content {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(95, 18, 18, 0.13);
+  width: 50%;
+  max-width: 280px;
+  height: 128px;
+  border-radius: 21px;
+  z-index: 2;
+  text-align: right;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.popup .btn {
+  position: relative;
+  top: 10%;
+  left: -48%;
+  border-radius: 13px;
+  color: rgb(19, 19, 19);
+  font-family: 'Logostile', sans-serif;
+  outline: none !important;
+}
+
+.popup .btn2 {
+  position: relative;
+  top: -26%;
+  left: 7%;
+  border-radius: 13px;
+  color: rgb(19, 19, 19);
+  background: #ffc600;
+  font-size: 19px;
+  font-family: 'Logostile', sans-serif;
+  outline: none !important;
+}
+
+.popup .title {
+  position: relative;
+  font-size: 16px;
+  top: -5%;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.popup.active .overlay {
+  display: block;
+}
+
+.popup.active .content {
+  transition: all 300ms ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .warning {
+  float: left;
+  color: #ffc600;
+}
+
+.hello {
+  float: right;
+}
+
+.subtitle {
+  padding-left: 20px;
+  font-family: 'Logostile', sans-serif;
+  color: rgba(255, 255, 255, 0.962);
+}
+
+
+

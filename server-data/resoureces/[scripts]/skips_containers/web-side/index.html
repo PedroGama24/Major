@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - BOX</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <Transition>
+            <div id="container" v-if="opened">
+                <video playsinline style="display: none" id="video">
+                    <source src="https://cdn.discordapp.com/attachments/1024473663111708692/1038915470276972564/video-abrindo.mp4" type="video/mp4">
+                </video>
+                <div class="coins-container">
+                    <img src="./assets/images/coin.png" />
+                    <div class="coins-description">
+                        <p>Five COINS</p>
+                        <span>{{coins || 0}}</span>
+                    </div>
+                </div>
+                <div id="center-container">
+                    <div class="header-container">
+                        <img class="header-title" src="./assets/images/title.png" />
+                        <p class="header-description"><span>FIQUE ONLINE</span> PARA GANHAR <span>FIVE COINS</span> E ABRA OS CONTAINERS, TALVEZ A SORTE ESTEJA DO SEU LADO.</p>
+                        <div class="time-frame">
+                            <img src="./assets/images/clock.png" />
+                            <p>{{getDate()}}</p>
+                        </div>
+                    </div>
+                    <div id="boxes-container">
+                        <div class="selected-boxes-container">
+                            <div @mouseover="quantity = 1" :class="{'active-box': quantity === 1}" class="box">
+                                <img src="./assets/images/bg-active.png" />
+                                <div class="price-container">
+                                    <img src="./assets/images/coin.png" />
+                                    <p>|</p>
+                                    <span>25</span>
+                                </div>
+                                <div @click="openBox" :class="{'active-description-box': quantity === 1}" class="description-container">ABRIR <span>X1</span> CONTAINERS</div>
+                            </div>
+                            <div @mouseover="quantity = 5" :class="{'active-box': quantity === 5}" class="box">
+                                <img src="./assets/images/box2.png" />
+                                <div class="price-container">
+                                    <img src="./assets/images/coin.png" />
+                                    <p>|</p>
+                                    <span>125</span>
+                                </div>
+                                <div @click="openBox" :class="{'active-description-box': quantity === 5}" class="description-container">ABRIR <span>X5</span> CONTAINERS</div>
+                            </div>
+                        </div>
+                        <div class="items-boxes-container">
+                            <div class="items-frame">
+                                <div v-for="item in rewards[0].categorias[0].items" :key="item" class="item">
+                                    <div class="bar lendario"></div>
+                                    <div class="type lendario">{{item.type}}</div>
+                                    <div class="name-item">{{item.itemName}}</div>
+                                    <img :src="imageItem(item.item)" />
+                                </div>
+                                <div v-for="item in rewards[0].categorias[1].items" :key="item" class="item">
+                                    <div class="bar epico"></div>
+                                    <div class="type epico">{{item.type}}</div>
+                                    <div class="name-item">{{item.itemName}}</div>
+                                    <img :src="imageItem(item.item)" />
+                                </div>
+                                <div v-for="item in rewards[0].categorias[2].items" :key="item" class="item">
+                                    <div class="bar raro"></div>
+                                    <div class="type raro">{{item.type}}</div>
+                                    <div class="name-item">{{item.itemName}}</div>
+                                    <img :src="imageItem(item.item)" />
+                                </div>
+                                <div v-for="item in rewards[0].categorias[3].items" :key="item" class="item">
+                                    <div class="bar normal"></div>
+                                    <div class="type normal">{{item.type}}</div>
+                                    <div class="name-item">{{item.itemName}}</div>
+                                    <img :src="imageItem(item.item)" />
+                                </div>
+                                <div v-for="item in rewards[0].categorias[4].items" :key="item" class="item">
+                                    <div class="bar comum"></div>
+                                    <div class="type comum">{{item.type}}</div>
+                                    <div class="name-item">{{item.itemName}}</div>
+                                    <img :src="imageItem(item.item)" />
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div id="winners-container">
+                        <div class="title-frame">ÚLTIMOS GANHADORES</div>
+                        <div class="list-frame">
+                            <p v-if="winners" v-for="item in winners" :key="item"><span>{{item.nome}}</span> ganhou um <span>{{item.reward}}</span>!</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: none;" class="modal">
+                    <div class="container-items-modal">
+                        <div v-if="wonItem" v-for="item in wonItem" :key="item" class="item-modal">
+                            <img :src="imageItem(item.item)" />
+                            <p>{{item.itemName}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Transition>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3.1.1/dist/vue.global.prod.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

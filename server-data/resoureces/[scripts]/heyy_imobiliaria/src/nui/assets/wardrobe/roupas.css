@@ -1,0 +1,24 @@
+#wardrobe {
+	position: absolute;
+	top: 50%;
+	left: 30px;
+	transform: translateY(-50%);
+	min-width: 350px;
+	width: 60vw;
+	max-width: 500px;
+}
+
+.wardrobe-header h5 {
+	font-weight: 100;
+	letter-spacing: 5px;
+}
+
+.wardrobe-header i {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #f4f4f4dc;
+}
+
+.wardrobe-selected {
+	background-color: rgb(6, 36, 131);
+}

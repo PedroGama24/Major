@@ -1,0 +1,26 @@
+.ph-item {
+	height: 20px;
+	width: 100px;
+	background: linear-gradient(-45deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+	background-size: 400% 400%;
+	animation: placeholderAnimation 1s linear infinite;
+	border-radius: 5px;
+}
+
+.ph-item-2 {
+	height: 100px;
+	width: 400px;
+	background: linear-gradient(-45deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+	background-size: 400% 400%;
+	animation: placeholderAnimation 1s linear infinite;
+	border-radius: 5px;
+}
+
+@keyframes placeholderAnimation {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: -30% 50%;
+	}
+}

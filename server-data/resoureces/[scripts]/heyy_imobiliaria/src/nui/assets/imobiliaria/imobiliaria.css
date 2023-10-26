@@ -1,0 +1,30 @@
+#imobiliaria-menu {
+	top: 50%;
+	left: 50%;
+	/* width: 1200px; */
+	/* width: 1400px; */
+	width: 70vw;
+	max-width: 1400px;
+	height: 700px;
+	overflow: auto;
+
+	position: absolute;
+
+	border-top: 12px solid rgb(6, 36, 131);
+	border-left: 12px solid rgb(6, 36, 131);
+	border-right: 12px solid rgb(6, 36, 131);
+	border-bottom: 40px solid rgb(6, 36, 131);
+	border-radius: 12px;
+
+	transform: translate(-50%, -50%);
+}
+
+.navbar-brand {
+	transform: translateX(-50%);
+	left: 50%;
+	position: absolute;
+}
+
+.houseSelectable, .yourHousesSelectable {
+	cursor: pointer;
+}

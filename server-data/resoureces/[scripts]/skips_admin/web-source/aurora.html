@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/aurora.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/3f3417947e.js" crossorigin="anonymous"></script> 
+    <title>SkipS#1234</title>
+</head>
+<body>
+    <div class="background-main">
+        <div class="adjustment-container">
+            <div class="main-container">
+                <div class="left-side-content">
+                    <div class="watermark-container">
+                        <img src="media/watermark.png" alt="">
+                        <p> MENU ADMINISTRAÇÃO </p>
+                    </div>
+                    <div class="list general-button">
+                        <p> Geral </p> <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="list actions-button">
+                        <p> Ações </p> <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="actions-buttons-list">
+                        <div class="side-button b-notify" id="notify">
+                            <p> Notificar </p>
+                        </div>
+                        <div class="side-button b-teleport" id="teleport">
+                            <p> Teletransportar </p>
+                        </div>
+                        <div class="side-button b-coordinates" id="coordinates">
+                            <p> Pegar CDS </p>
+                        </div>
+                        <div class="side-button b-revive" id="yrevive">
+                            <p> Reviver-se </p>
+                        </div>
+                        <div class="side-button b-kill" id="ykill">
+                            <p> Se matar </p>
+                        </div>
+                        <div class="side-button b-kill" id="takeweapons">
+                            <p> Pegar armamento </p>
+                        </div>
+                    </div>
+                    <div class="general-buttons-list">
+                        <div class="side-button b-dashboard" id="begin">
+                            <p> Início </p>
+                        </div>
+                        <div class="side-button b-items" id="items">
+                            <p> Itens </p>
+                        </div>
+                        <div class="side-button b-groups" id="groups">
+                            <p> Grupos </p>
+                        </div>
+                        <div class="side-button b-players" id="vehicles">
+                            <p> Veículos </p>
+                        </div>
+                        <div class="side-button b-players" id="players">
+                            <p> Jogadores </p>
+                        </div>
+                        <div class="side-button b-money" id="economy">
+                            <p> Economia </p>
+                        </div>
+                        <div class="side-button b-whitelist" id="whitelist">
+                            <p> Whitelist </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-header">
+                    <div class="header-boxes">
+                        <div class="config-box">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="close-box">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="dashboard" id="main-dashboard">
+                        <div class="begin-content">
+                            <div class="dashboard-title">
+                                <p> Início </p>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="welcome-message">
+                                    <p class="welcome welcoming"> Bem-Vindo </p>
+                                    <p class="welcome administrator"> ao Menu Admin! </p>
+                                    <p class="sub-message"> Você está no INÍCIO, o que gostaria de fazer? </p>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-title">
+                                        <p> AÇÕES RÁPIDAS </p>
+                                    </div>
+                                    <div class="quick-act-buttons">
+                                        <div class="qa-button" id="kick-id">
+                                            <p> Expulsar ID </p>
+                                        </div>
+                                        <div class="qa-button" id="kick-all">
+                                            <p> Expulsar todos </p>
+                                        </div>
+                                        <div class="qa-button" id="ban-id">
+                                            <p> Banir ID </p>
+                                        </div>
+                                        <div class="qa-button" id="unban-id">
+                                            <p> Desbanir ID </p>
+                                        </div>
+                                        <div class="qa-button" id="add-wl">
+                                            <p> Adicionar à WL </p>
+                                        </div>
+                                        <div class="qa-button" id="remove-wl">
+                                            <p> Remover da WL </p>
+                                        </div>
+                                        <div class="qa-button" id="spawn-vehicle">
+                                            <p> Pegar Veículo </p>
+                                        </div>
+                                        <div class="qa-button" id="revive-id">
+                                            <p> Reviver ID </p>
+                                        </div>
+                                        <div class="qa-button" id="revive-all">
+                                            <p> Reviver a todos </p>
+                                        </div>
+                                        <div class="qa-button" id="kill-id">
+                                            <p> Matar ID </p>
+                                        </div>
+                                        <div class="qa-button" id="kill-all">
+                                            <p> Matar a todos </p>
+                                        </div>
+                                        <div class="qa-button" id="upgrade-veh">
+                                            <p> Melhorar veículo </p>
+                                        </div>
+                                    </div>
+                                </div>
+                               <!--  <div class="quick-tickets">
+                                    <div class="quick-title">
+                                        <p> ATENDIMENTO </p>
+                                    </div>
+                                    <div class="quick-act-buttons">
+                                        <div class="qa-button" id="action">
+                                            <p> Em breve </p>
+                                        </div>
+                                        <div class="qa-button" id="solved">
+                                            <p> Em breve </p>
+                                        </div>
+                                        <div class="qa-button" id="in-transit">
+                                            <p> Em breve </p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="groups-content">
+                            <div class="dashboard-title">
+                                <p> Grupos </p>
+                            </div>
+                            <div class="groups-place">
+                                <div class="groups-place-title">
+                                    <p> Grupos Cadastrados </p>
+                                </div>
+                                <div class="groups-place-content">
+                                    <div class="groups-box">
+                                        <div id="base-groups"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="addicional-group-options">
+                                <div class="add-to-group">
+                                    <p> <i class="fas fa-plus"></i> Adicionar </p>
+                                </div>
+                                <div class="rem-from-group">
+                                    <p> <i class="fas fa-times"></i> Remover </p>
+                                </div>
+                                <div class="group-search-box">
+                                    <i class="fas fa-search"></i> <input id="group-search" type="text" placeholder="Pesquisar..."/>
+                                </div>
+                                <div class="funnel-icon">
+                                    <i class="fas fa-filter"></i>
+                                </div>
+                                <div class="group-sort-box">
+                                    <div class="gp-input-sort">
+                                         <p> Selecionar </p> <i class="fas fa-caret-down"></i>
+                                    </div>
+                                    <div class="gp-sort-options" style="display: none;">
+                                        <div id="az-name">
+                                            <p> A-Z Nome </p>
+                                        </div>
+                                        <div id="az-id">
+                                            <p> A-Z Identificador </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-content">
+                            <div class="dashboard-title">
+                                <p> Itens </p>
+                            </div>
+                            <div class="items-place">
+                                <div class="items-place-title">
+                                    <p> Itens Cadastrados </p>
+                                </div>
+                                <div class="items-place-content">
+                                    <div id="base-items"></div>
+                                </div>
+                                <div class="addicional-item-options">
+                                    <div class="give-to-id" id="give-to-id">
+                                        <p><i class="fas fa-plus"></i> Adicionar a ID </p>
+                                    </div>
+                                    <div class="clear-id-inv">
+                                        <p><i class="fas fa-times"></i> Limpar ID </p>
+                                    </div>
+                                    <div class="items-search-box">
+                                        <i class="fas fa-search"></i> <input id="items-search" type="text" placeholder="Pesquisar..."/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vehicles-content">
+                            <div class="dashboard-title">
+                                <p> Veículos </p>
+                            </div>
+                            <div class="vehs-place">
+                                <div class="vehs-place-title">
+                                    <p class="main-place-title"> Veículos Cadastrados </p>
+                                    <div class="vehs-search-box">
+                                        <i class="fas fa-search"></i> <input id="vehs-search" type="text" placeholder="Pesquisar..."/>
+                                    </div>
+                                    <div class="veh-funnel-icon">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <div class="veh-sort-box">
+                                        <div class="veh-input-sort">
+                                             <p> Selecionar </p> <i class="fas fa-caret-down"></i>
+                                             
+                                        </div>
+                                        <div class="veh-sort-options" style="display: none;">
+                                            <div id="veh-az-name">
+                                                <p> A-Z Nome </p>
+                                            </div>
+                                            <div id="veh-az-id">
+                                                <p> A-Z Identificador </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vehs-place-content">
+                                    <div id="base-vehicles"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="playerlist-content">
+                            <div class="dashboard-title">
+                                <p> Jogadores </p>
+                            </div>
+                            <div class="players-place">
+                                <div class="players-place-title">
+                                    <p> Jogadores Online </p>
+                                </div>
+                                <div class="players-place-content">
+                                    <div id="online-players"></div>
+                                    <div class="player-details" id="player-details" style="display: none;">
+                                        <div class="player-ilustration">
+                                            <img src="https://cdn.discordapp.com/attachments/740912067095035955/857345332903936000/user.png" alt="">
+                                        </div>
+                                        <div class="det-back-button">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                        <div class="player-detail-name"> <p> <b><span class="detail-name"> Sample Text </span> - <span class="detail-id"> 0 </span></b> </p> </div>
+                                        <div class="details-grade-content">
+                                            <div class="buttons-grade-title">
+                                                <p> Ações </p>
+                                            </div>
+                                            <div class="details-buttons-grade">
+                                                <div class="det-button" id="det-ban"> <p> Banir Usuário </p> </div>
+                                                <div class="det-button" id="det-kick"> <p> Expulsar Usuário </p> </div>
+                                                <div class="det-button" id="det-revive"> <p> Reviver Usuário </p> </div>
+                                                <div class="det-button" id="det-kill"> <p> Matar Usuário </p> </div>
+                                                <div class="det-button" id="det-removewl"> <p> Remover da WL </p> </div>
+
+                                                <div class="det-button" id="det-tptome"> <p> Puxar para mim </p> </div>
+                                                <div class="det-button" id="det-giveweapon"> <p> Dar arma </p> </div>
+                                                <div class="det-button" id="det-remweapon"> <p> Rem. armas </p> </div>
+                                                <div class="det-button" id="det-clearinv"> <p> Limpar inventário </p> </div>
+                                                <div class="det-button" id="det-notify"> <p> Notificar </p> </div>
+
+                                                <div class="det-button" id="det-addbank"> <p> Adicionar ao banco </p> </div>
+                                                <div class="det-button" id="det-setbank"> <p> Definir banco </p> </div>
+                                                <div class="det-button" id="det-addwallet"> <p> Adicionar à carteira </p> </div>
+                                                <div class="det-button" id="det-setwallet"> <p> Definir carteira </p> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="playerlist-bottom-content">
+                                    <div class="playerlist-search-box">
+                                        <i class="fas fa-search"></i> <input id="playerlist-search" type="text" placeholder="Pesquisar..."/>
+                                    </div>
+                                    <div class="pl-funnel-icon">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <div class="playerlist-sort-box">
+                                        <div class="pl-input-sort">
+                                             <p> Selecionar </p> <i class="fas fa-caret-down"></i>
+                                        </div>
+                                        <div class="pl-sort-options" style="display:none;">
+                                            <div id="pl-az-name">
+                                                <p> A-Z Nome </p>
+                                            </div>
+                                            <div id="pl-az-id">
+                                                <p> A-Z Identificador </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pl-button-search-id">
+                                        <p><i class="fas fa-search"></i> Pesquisar ID </p>
+                                     </div>
+                                     <div class="online-amount">
+                                        <p> Online: Sample </p>
+                                     </div>
+                                    <div class="playerlist-refresh">
+                                        <i class="fas fa-redo"></i>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="economy-content">
+                            <div class="dashboard-title">
+                                <p> Economia </p>
+                            </div>
+                            <div class="moneydata-place">
+                                <div class="moneydata-title">
+                                    <p> Listagem </p>
+                                </div>
+                                <div class="moneydata-main-ct">
+                                    <div class="moneydata-infos">
+                                        <div class="mn-identifier mn-info"> <i class="fas fa-key"></i> Identificador </div>
+                                        <div class="mn-wallet mn-info"> <i class="fas fa-info-circle"></i> Carteira </div>
+                                        <div class="mn-bank mn-info"> <i class="fas fa-info-circle"></i> Banco </div>
+                                        <div class="mn-bank mn-info"> <i class="fas fa-dollar-sign"></i> Total </div>
+                                    </div>
+                                    <div class="moneydata-content">
+                                        <div id="money-main"></div>
+                                    </div>
+                                </div>
+                                <div class="mn-funnel-icon">
+                                    <i class="fas fa-filter"></i>
+                                </div>
+                                <div class="moneydata-sort-box">
+                                    <div class="mn-input-sort">
+                                         <p> Selecionar </p> <i class="fas fa-caret-down"></i>
+                                    </div>
+                                    <div class="mn-sort-options" style="display: none">
+                                        <div id="mn-sort-identifier" class="mn-sort-opt">
+                                            <p> 1-10 Identificador </p>
+                                        </div>
+                                        <div id="mn-sort-wallet" class="mn-sort-opt">
+                                            <p> 1-10 Carteira </p>
+                                        </div>
+                                        <div id="mn-sort-bank" class="mn-sort-opt">
+                                            <p> 1-10 Banco </p>
+                                        </div>
+                                        <div id="mn-sort-total" class="mn-sort-opt">
+                                            <p> 1-10 Total </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mn-search-box">
+                                    <i class="fas fa-search"></i> <input id="moneylist-search"  type="text" placeholder="Pesquisar ID..."/>
+                                </div>
+                            </div>
+                            <div class="moneydata-actions">
+                                <div class="moneydata-title">
+                                    <p> Ações (Diretas) </p>
+                                </div>
+                                <div class="moneydata-selfactions">
+                                    <div class="moneydata-selfactions-title">
+                                        <p> Si Mesmo </p>
+                                    </div>
+                                    <div class="moneydata-action-button" id="self-addbank"> <p> Adicionar ao banco </p> </div>
+                                    <div class="moneydata-action-button" id="self-addwallet"> <p> Adicionar à carteira </p> </div>
+                                    <div class="moneydata-action-button" id="self-setbank"> <p> Definir banco </p> </div>
+                                    <div class="moneydata-action-button md-bottom" id="self-setwallet"> <p> Definir carteira </p> </div>
+                                </div>
+                                <div class="moneydata-selfactions md-others">
+                                    <div class="moneydata-selfactions-title">
+                                        <p> Jogadores </p>
+                                    </div>
+                                    <div class="moneydata-action-button money-bank" id="ot-addbank"> <p> Adicionar ao banco </p> </div>
+                                    <div class="moneydata-action-button bank-add" id="ot-addwallet"> <p> Adicionar à carteira </p> </div>
+                                    <div class="moneydata-action-button" id="ot-setbank"> <p> Definir banco </p> </div>
+                                    <div class="moneydata-action-button md-bottom" id="ot-setwallet"> <p> Definir carteira </p> </div>
+                                </div>
+                                <div class="moneydata-player-details">
+                                    <div class="moneydata-player-details-title">
+                                        <p> Detalhes </p>
+                                    </div>
+                                    <div class="money-data-player-details-data">
+                                        <div class="money-data-player-details-detail" id="pld-name"> <p> Nome: </p> <span> Aguardando... </span> </div>
+                                        <div class="money-data-player-details-detail" id="pld-uid"> <p> ID: </p> <span> Aguardando... </span> </div>
+                                        <div class="money-data-player-details-detail" id="pld-wallet"> <p> Carteira: </p> <span> Aguardando... </span> </div>
+                                        <div class="money-data-player-details-detail" id="pld-bank"> <p> Banco: </p> <span> Aguardando... </span> </div>
+                                        <div class="money-data-player-details-detail" id="pld-total"> <p> Total: </p> <span> Aguardando... </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="whitelist-content" style="display: none;">
+                            <div class="dashboard-title">
+                                <p> Whitelist </p>
+                            </div>
+                            <div class="left-wl-content">
+                                <div class="left-wl-main-title">
+                                    <p> Whitelist </p>
+                                </div>
+                                <div class="wl-data-container">
+                                    <div class="moneydata-infos">
+                                        <div class="mn-identifier mn-info"> <i class="fas fa-key"></i> Identificador </div>
+                                        <div class="mn-wallet mn-info"> <i class="fas fa-info-circle"></i> Aprovado(a) </div>
+                                    </div>
+                                    <div class="whitelist-data-content">
+                                        <div id="whitelist-main"></div>
+                                    </div>
+                                </div>
+                                <div class="mn-search-box">
+                                    <i class="fas fa-search"></i> <input id="whitelist-search" value="" type="text" placeholder="Pesquisar ID ou WL"/>
+                                </div>
+                            </div>
+                            <div class="right-wl-content">
+                                <div class="left-wl-main-title">
+                                    <p> Não Aprovados </p>
+                                </div>
+                                <div class="wl-data-container">
+                                    <div class="moneydata-infos">
+                                        <div class="mn-identifier mn-info"> <i class="fas fa-key"></i> Identificador </div>
+                                        <div class="mn-wallet mn-info"> <i class="fas fa-info-circle"></i> Aprovado(a) </div>
+                                    </div>
+                                    <div class="whitelist-data-content">
+                                        <div id="non-whitelist-main"></div>
+                                    </div>
+                                </div>
+                                <div class="whitelist-actions">
+                                    <div class="whitelist-action-button" id="add-whitelist"> <p> Adicionar a WL </p> </div>
+                                    <div class="whitelist-action-button" id="rem-whitelist"> <p> Remover da WL </p> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notifications"></div>
+                </div>
+                <div class="item-list-bg">
+                    <div class="item-list-container">
+                        <div class="item-list-title">
+                            <p> Selecione um item </p>
+                        </div>
+                        <div class="addicional-content-il">
+                            <div class="il-id-to">
+                                <input type="text" placeholder="Coloque o ID" id="item-to-id" name="item-to-id"/>
+                            </div>
+                            <div class="add-button-il">
+                               <p><i class="fas fa-plus"></i> Adicionar </p>
+                            </div>
+                            <div class="il-amount">
+                                <input type="text" placeholder="Coloque a quantidade" id="item-list-amount" name="item-list-amount"/>
+                            </div>
+                        </div>
+                        <div class="item-content-container">
+                            <div id="item-list"></div>
+                        </div>
+                        <div class="item-list-search-box">
+                            <i class="fas fa-search"></i> <input id="item-list-search" type="text" placeholder="Pesquisar..."/>
+                        </div>
+                        <div class="item-list-close">
+                            <p><i class="fas fa-times"></i> Fechar </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weapon-list-bg">
+                    <div class="weapon-list-container">
+                        <div class="weapon-list-title">
+                            <p> Armamento </p>
+                        </div>
+                        <div class="wpl-search-bar">
+                            <i class="fas fa-search"></i> <input id="wpl-search" type="text" placeholder="Pesquisar..."/>
+                        </div>
+                        
+                        <div class="wpl-close-button">
+                            <p><i class="fas fa-times"></i> Fechar </p>
+                        </div>
+                        <div class="wpl-confirm-button">
+                            <p><i class="fas fa-check"></i> Confirmar </p>
+                        </div>
+                        
+                        <div class="weapon-list-content">
+                            <div class="weapon-list-content-container">
+                                <div id="weapon-list"></div>
+                            </div>
+                        </div>
+                        <div class="weapon-categories">
+                            <div class="category-filter-icon">
+                                <i class="fas fa-filter"> <i class="fas fa-arrow-right"></i> </i>
+                            </div>
+                            <div class="weapon-category-options" style="display:none">
+                                <div class="wpl-category" id="wp-melee">
+                                    <p> Brancas </p>
+                                </div>
+                                <div class="wpl-category" id="wp-handgun">
+                                    <p> Pistolas </p>
+                                </div>
+                                <div class="wpl-category" id="wp-submachine">
+                                    <p> SMG's </p>
+                                </div>
+                                <div class="wpl-category" id="wp-assault">
+                                    <p> R. de Assalto </p>
+                                </div>
+                                <div class="wpl-category" id="wp-shotgun">
+                                    <p> Shotguns </p>
+                                </div>
+                                <div class="wpl-category" id="wp-throwable">
+                                    <p> Arremessáveis </p>
+                                </div>
+                                <div class="wpl-category" id="wp-rifle">
+                                    <p> R. de Precisão </p>
+                                </div>
+                                <div class="wpl-category" id="wp-special">
+                                    <p> Especiais </p>
+                                </div>
+                                <div class="wpl-category" id="wp-all">
+                                    <p> Todos </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ammo-amount-bg">
+                        <div class="ammo-amount-container">
+                            <div class="ammo-amount-title">
+                                <p> Coloque a quantidade de munição </p>
+                            </div>
+                            <div class="ammo-amount-input">
+                                <input type="text" placeholder="Quantidade" id="ammo-amount">
+                            </div>
+                            <div class="ammo-amount-confirm-button confirm-button" id="ammo-confirm">
+                                <i class="fas fa-check"></i><p> Confirmar </p>
+                            </div>
+                            <div class="ammo-amount-confirm-button cancel-button" id="ammo-cancel">
+                                <i class="fas fa-times"></i><p> Cancelar </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="notify-bg">
+                    <div class="notify-container">
+                        <div class="notify-main-title">
+                            <p> Notificar Jogadores</p>
+                        </div>
+                        <div class="notify-main-content">
+                            <div class="above-content">
+                                <div class="specify-input">
+                                    <input type="checkbox" id="isSpecified"> <p> Especificar </p>
+                                </div>
+                                <div class="notify-back-button">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="notify-players-message">
+                                <textarea rows="11" cols="45" placeholder="Digite aqui a mensagem..." id="notify-player-message"></textarea>
+                            </div>
+                            <div class="notify-signature">
+                                <form autocomplete="off">
+                                    <div class="autocomplete">
+                                    <input id="signature" type="text" name="mySignature" placeholder="Assinatura">
+                                    </div>
+                                    <div class="notify-submit-button">
+                                        <p> Concluído </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notify-target-bg">
+                        <div class="notify-target-container">
+                            <div class="notify-target-title">
+                                <p> Coloque o ID a especificar </p>
+                            </div>
+                            <div class="notify-target-input">
+                                <input type="text" placeholder="ID" id="target-id">
+                            </div>
+                            <div class="notify-target-next" id="notify-next">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="teleport-bg">
+                    <div class="teleport-container">
+                        <div class="teleport-main-title">
+                            <p> Teletransportar </p>
+                        </div>
+                        <div class="teleport-action-area">
+                            <div class="tp-action-area-title">
+                                <p> Selecione a ação: </p>
+                            </div>
+                            <div class="tp-action-input">
+                                <p> Selecionar </p> <i class="fas fa-caret-down"></i>
+                            </div>
+                            <div class="tp-action-options" style="display: none;">
+                                <div id="tp-to-id" class="tp-action-option">
+                                    <p> TP para Jogador </p>
+                                </div>
+                                <div id="tp-way" class="tp-action-option">
+                                    <p> TP para Waypoint </p>
+                                </div>
+                                <div id="id-tp-to" class="tp-action-option">
+                                    <p> Puxar Jogador </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tp-action-content">
+                            <div class="tp-empty-action">
+                                <p> Ação não especificada. </p>
+                            </div>
+                        </div>
+                        <div class="tp-submit-button">
+                            <p><i class="fas fa-check"></i> Confirmar </p>
+                        </div>
+                        <div class="tp-close-button">
+                            <p><i class="fas fa-times"></i> Fechar </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="takeweapons-bg">
+                    <div class="takeweapons-container">
+                        <div class="takeweapons-main-title">
+                            <p> Pegar armamento </p>
+                        </div>
+                        <div class="takeweapons-categories">
+                            <div class="weapon-category" id="melee"> Brancas </div>
+                            <div class="weapon-category" id="handgun"> De Mão </div>
+                            <div class="weapon-category" id="submachine"> Sub Metralhadoras </div>
+                            <div class="weapon-category" id="assault"> R. de Assalto </div>
+                            <div class="weapon-category" id="shotgun"> Shotgun's </div>
+                            <div class="weapon-category" id="throwable"> Arremessáveis </div>
+                            <div class="weapon-category" id="rifle"> R. de Precisão</div>
+                            <div class="weapon-category" id="special"> Especiais </div>
+                            <div class="weapon-category" id="all"> Todos </div>
+                        </div>
+                        <div class="takeweapon-wpcontainer" id="wpcontainer"></div>
+                        <div class="search-bar-container">
+                            <i class="fas fa-search"></i> <input id="wpsearch" type="text" placeholder="Pesquisar..."/>
+                        </div>
+                        <div class="clear-weapons">
+                            <i class="fas fa-times"></i><p> Limpar Armas </p>
+                        </div>
+                    </div>
+                    <div class="wp-ammo-amount-bg">
+                        <div class="wp-ammo-amount-container">
+                            <div class="wp-ammo-amount-title">
+                                <p> Coloque a munição </p>
+                            </div>
+
+                            <div class="wp-ammo-amount-input">
+                                <input type="text" id="wp-ammo-amount" placeholder="Quantidade...">
+                            </div>
+
+                            <div class="wp-ammo-amount-confirm-button wp-confirm-button" id="wp-ammo-confirm">
+                                <i class="fas fa-check"></i><p> Confirmar </p>
+                            </div>
+                            <div class="wp-ammo-amount-confirm-button cancel-button" id="wp-ammo-cancel">
+                                <i class="fas fa-times"></i><p> Cancelar </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logs-bg">
+                    <div class="logs-main-container">
+                        <div class="logs-main-title">
+                            <p> Todos os registros </p>
+                        </div>
+                        <div class="logs-place-container">
+                            <div class="logs-place-infos">
+                                <div class="log-identifier log-info"> <i class="fas fa-key"></i> Identificador </div>
+                                <div class="log-name log-info"> <i class="fas fa-info-circle"></i> Nome & Sobrenome </div>
+                                <div class="log-log log-info"> <i class="fas fa-info-circle"></i> Registro </div>
+                                <div class="log-data log-info"> <i class="fas fa-table"></i> Data </div>
+                                <div class="log-data log-info"> <i class="far fa-clock"></i> Horário </div>
+                            </div>
+                            <div class="logs-place">
+                                <div class="logs-main" id="logs-main"></div>
+                            </div>
+                            <div class="logs-search-box">
+                                <i class="fas fa-search"></i> <input id="logs-search" type="text" placeholder="Pesquisar..."/>
+                            </div>
+                            <div class="logs-remove-button">
+                                <p> <i class="fas fa-times"></i> Remover Registro </p>
+                            </div>
+                            <div class="logs-remove-all-button">
+                                <p> <i class="fas fa-times"></i> Remover Todos </p>
+                            </div>
+                            <div class="logs-close-button">
+                                <p> <i class="fas fa-times"></i> Fechar </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="config-display">
+                    <div class="config-main">
+                        <div class="config-header">
+                            <div class="cfg-header-title"> 
+                                <p> CONFIGURAÇÕES </p> 
+                            </div>
+                            <div class="cfg-close-box">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="cfg-content-box">
+                            <div class="cfg-option">
+                                <div class="option-title">
+                                    <p> Caixa de Confirmação </p>
+                                </div>
+                                <div class="toggleBox">
+                                    <label class="switch">
+                                        <input type="checkbox" id="allow-confirm-box" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="cfg-option" id="open-logs">
+                                <div class="option-title">
+                                    <p> Ver Registros <i class="fas fa-arrow-right"></i> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-background">
+                    <div class="text-input-box">
+                        <div class="input-box-title">
+                            <p> Sample Text: </p>
+                        </div>
+                        <input type="text" onfocus="this.value=''" id="input-value" name="input-text"/>
+                        <div class="confirm-cancel-box">
+                            <div class="text-input-button confirm-button" id="text-input-confirm">
+                                <i class="fas fa-check"></i><p>Confirmar</p>
+                            </div>
+                            <div class="text-input-button cancel-button" id="text-input-cancel">
+                                <i class="fas fa-times"></i><p>Cancelar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="confirm-box-display">
+                    <div class="confirm-box">
+                        <div class="confirm-box-header">
+                            <div class="cb-header-content">
+                                <div class="cb-header-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="cb-main-text">
+                                    <p> Você gostaria de executar essa ação? <br> <b><span> SAMPLE TEXT </span></b></p>
+                                </div>
+                                <div class="confirm-box-button-box">
+                                    <div class="confirm-it confirm-box-button" id="confirm-box-confirm">
+                                        <p>Sim</p>
+                                    </div>
+                                    <div class="cancel-it confirm-box-button" id="confirm-box-cancel">
+                                        <p>Não</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="confirm-success">
+                                <div class="check_mark">
+                                    <div class="sa-icon sa-success animate">
+                                    <span class="sa-line sa-tip animateSuccessTip"></span>
+                                    <span class="sa-line sa-long animateSuccessLong"></span>
+                                    <div class="sa-placeholder"></div>
+                                    <div class="sa-fix"></div>
+                                    </div>
+                                </div>
+                                <div class="success-text">
+                                    <p><b> SUCESSO! </b></p> <span id="success-info"> Sample Text. </span>
+                                </div>
+                                <div class="ok-button">
+                                    <p>OK</p>
+                                </div>
+                            </div>
+
+                            <div class="confirm-fail">
+                                <div class="fail-bg-image">
+                                    <img src="https://cdn.discordapp.com/attachments/852408669890281512/854034455370530826/error2.png" alt="ERROR">
+                                </div>
+                                <div class="fail-text">
+                                    <p><b> ERRO! </b></p> <span id="fail-info"> Sample Text. </span>
+                                </div>
+                                <div class="ok-button">
+                                    <p>OK</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ticket-bg-main">
+        <div class="ticket-main-container">
+            <div class="ticket-main-title">
+                <p> Painel de Ajuda </p>
+            </div>
+            <div class="">
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+                <p> EM BREVE. </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/aurora.js"></script>
+</body>
+</html>

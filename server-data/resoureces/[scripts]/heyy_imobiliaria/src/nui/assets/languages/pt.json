@@ -1,0 +1,63 @@
+{
+	"myHouses": "Meus imóveis",
+	"yourHouses": "Seus imóveis",
+	"availableHouses": "Imóveis disponíveis",
+	"recommendedHouses": "Imóveis recomendados",
+
+	"weightUnit": "kg",
+	"default": "Padrão",
+	"yes": "Sim",
+	"no": "Não",
+	"back": "Voltar",
+
+	"buyHouse": "Comprar",
+	"visitHouse": "Visitar",
+	"administrateHouse": "Administrar",
+	"payTax": "Pagar Taxa",
+	"sellHouse": "Vender",
+
+	"enterHouse": "Entrar",
+	"askEnterHouse": "Pedir p/ Entrar",
+	"stealHouse": "Roubar",
+	"invadeHouse": "Invadir",
+	"exitHouse": "Sair",
+
+	"houseAvailable": "A venda",
+	"houseOwner": "Proprietário",
+	"houseVisitor": "Visitante",
+	"alreadyOwned": "Esta residência já possui um proprietário!",
+
+	"pendentTax": "Taxa pendente",
+	"paidTax": "Taxa paga",
+
+	"comeCloserDoor": "Aproxime-se da porta para sair da residência",
+	"useExitButton": "Clique em <b>\"SAIR\"</b> para sair da residência",
+
+	"yourPresets": "Seus trajes",
+	"saveClothingPreset": "Salvar",
+	"useClothingPreset": "Utilizar",
+	"deleteClothingPreset": "Excluir",
+
+	"garagePermission": "Permissão de Garagem",
+	"garagePermissionDescription": "Adicionar/remover permissão de garagem",
+
+	"generalPermission": "Permissão Geral",
+	"generalPermissionDescription": "Adicionar/remover permissão geral na residência (baú, entrada livre)",
+
+	"chestLevel": "Nível do Baú",
+	"chestLevelDescription": "Adicionar/remover permissão geral na residência (baú, entrada livre)",
+
+	"managementSave": "Salvar",
+	"managementClose": "Cancelar",
+
+	"sellHouseConfirmTitle": "Vender residência - {houseName}",
+	"sellHouseConfirm": "Você deseja vender sua residência {houseName} para <b>alguém</b> ou diretamente para a <b>imobiliária</b>?",
+	"sellHouseConfirmToPlayer": "Para alguém",
+	"sellHouseConfirmToShop": "Para a imobiliária",
+
+	"addedPlayers": "Pessoas adicionadas",
+	"taxExpireIn": "Vencimento da Taxa",
+	"nonePlayersAdded": "Nenhum jogador adicionado",
+	"noNearHouse": "Nenhuma residência próxima",
+	"noPresets": "Nehum traje salvo"
+}

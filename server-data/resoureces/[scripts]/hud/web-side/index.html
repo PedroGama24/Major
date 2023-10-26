@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="transitions.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body style="display: none;">
+    <!--      <body>
+     -->       
+        <img class = 'logo' src="https://cdn.discordapp.com/attachments/974350926859100200/1016513458285596682/logofb.png" alt="">
+        <header>
+
+            <div class = 'infoText location'>
+                <div class="direction"><div>Oeste</div></div>
+                <ion-icon name="location-outline"></ion-icon>
+                <p>Vespucci Boulevard</p> 
+            </div>
+
+            <div class = 'infoFooter-container'>
+                <div class = 'infoText radio' style = 'margin-right: 8px;opacity: 1;'>
+                <ion-icon name="radio-outline"></ion-icon>
+                <p> 69.00<span> MHz</span></p>
+                </div>
+                <div class = 'infoText'  >
+                <ion-icon name="time-outline"></ion-icon>
+                <p class = 'hour'>12:30</p>
+                </div>
+            </div>
+            <footer>
+            <p class = 'talkText'>SUSSURRANDO</p>
+            <div>
+                <div class = 'qTalk' id ='v1'></div>
+                <div class = 'qTalk' id ='v2'></div>
+                <div class = 'qTalk' id ='v3'></div>                
+                <div class = 'qTalk' id ='v4'></div>
+            </div>
+        </footer>
+        </header>
+        <div class = 'carHud-container'>
+            <!-- <div class = 'gasText'>
+                <p class = 'gasAmount'>90<span>%</span></p>
+                <img src="images/gas.svg" alt="">
+            </div> -->
+            <div class="veloBar" clipPathUnits="objectBoundingBox">
+                <div class = 'veloFill'></div>
+            </div>
+            <div class = 'veloText'>
+                <img src="images/seatbelt.svg" class ='opacity seatbelt' alt="">
+                <h1 class = 'velo'><span class = 'defaultVelo'>0</span>96<span class = 'kmText'>KM/H</span></h1>
+            </div>
+        </div>
+
+        <main class = 'normalContainer'>
+            <div class="vlCtrl">
+                <div class="icon">
+                    <ion-icon name="heart-outline" class="fa-heartbeat"></ion-icon>
+                </div>
+
+                <svg viewBox="0 0 103 27" xmlns="http://www.w3.org/2000/svg"class="healthlight" >
+                    <line id="ctrlLineB" class="volElem " stroke="#ffc600" x1="1" y1="5" x2="101" y2="5" opacity="0.3"/>
+                    <line id="ctrlLineF" class="volElem lifeFill " stroke="#ffc600" x1="1" y1="5" x2="51" y2="5"/>
+                   
+                </svg>
+            </div>
+            <div class="vlCtrl">
+                <div class="icon">
+                    <ion-icon name="shield-outline" class="fa-shield-alt"></ion-icon>
+                </div>
+
+                <svg viewBox="0 0 103 27" xmlns="http://www.w3.org/2000/svg" class="light">
+                    <line id="ctrlLineB" class="volElem" stroke="#fff" x1="1" y1="5" x2="101" y2="5" opacity="0.3"/>
+                    <line id="ctrlLineF" class="volElem shieldFill" stroke="#fff" x1="1" y1="5" x2="51" y2="5"/>
+                   
+                </svg>
+            </div>
+            <div class="bottomContainer">
+                <div class = 'normal-hud'>
+                    <svg class = 'svgCircle'>
+                        <circle class = 'circleBack' r = '16' cx="50%" cy="50%"  ></circle>
+                        <circle class = 'light waterFill circleFill' r = '16' cx="50%" cy="50%"   ></circle>
+                    </svg>
+
+                    <ion-icon name="water-outline"></ion-icon>
+                </div>
+                <div class = 'normal-hud'>
+                    <svg class = 'svgCircle'>
+                        <circle class = 'circleBack' r = '16' cx="50%" cy="50%"  ></circle>
+                        <circle class = 'light foodFill circleFill' r = '16' cx="50%" cy="50%"   ></circle>
+                    </svg>
+
+                    <ion-icon name="fast-food-outline"></ion-icon>
+                </div>
+         
+                <div class = 'normal-hud' id="dive" >
+                    <svg class = 'svgCircle'>
+                        <circle class = 'circleBack ' r = '16' cx="50%" cy="50%"  ></circle>
+                        <circle class = 'light diveFill circleFill ' r = '16' cx="50%" cy="50%"   ></circle>
+                    </svg>
+
+                   <ion-icon name="fish-outline"></ion-icon>
+                </div>
+                <div class = 'normal-hud' id="progress">
+                    <svg class = 'svgCircle'>
+                        <circle class = 'circleBack ' r = '16' cx="50%" cy="50%"  ></circle>
+                        <circle class = 'light progressFill circleFill ' r = '16' cx="50%" cy="50%"   ></circle>
+                    </svg>
+
+                   <span class="progressnumber">12</span>
+                </div>
+            </div>
+        </main>
+
+        <hotkey>
+            <div class="itemkey sss">
+                <div class="key">U</div>
+                <span>Fechar atalhos</span>
+            </div>
+            <div class="line"></div>
+            <div class="itemkey">
+                <div class="key">K</div>
+                <span>Celular</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">``</div>
+                <span>Inventario</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">E</div>
+                <span>Interagir</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">T</div>
+                <span>Chat</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">F6</div>
+                <span>Cancelar Animações</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">F</div>
+                <span>Entrar em veiculos</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">G</div>
+                <span>Veiculo / Colocar cinto</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">H</div>
+                <span>Veiculo / Ligar Luzes</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">Z</div>
+                <span>Veiculo / Ligar Motor</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">L</div>
+                <span>Veiculo / Alarme</span>
+            </div>
+            <div class="itemkey">
+                <div class="key">HOME</div>
+                <span>Altura do Voip</span>
+            </div>
+        </hotkey>
+
+        <script src="script.js"></script>
+    </body>
+</html>

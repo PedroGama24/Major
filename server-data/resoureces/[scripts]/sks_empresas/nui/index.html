@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Centro de Investimentos - SkipS</title>
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="actionmenu" style="display: none;">
+		<div id="actionmenu">
+            <div class="conteudo">
+                <div class="menu">
+				<div class="menu2">
+                    <img src="imags/mz.png">
+                </div>
+				    <div class="categorias">
+                        <section class="sessaoCategorias">
+                            <div class="secCat">
+                                <div class="catSessao item-category category_item" category="baixo">
+                                    <p><b>Baixo Padrão</b></p>
+                                </div>
+                                <div class="catSessao item-category category_item" category="medio">
+                                    <p><b>Médio Padrão</b></p>
+                                </div>
+								<div class="catSessao item-category category_item" category="alto">
+                                    <p><b>Alto Padrão</b></p>
+                                </div>
+								<div class="catSessao item-category category_item" category="vender">
+                                    <p><b>Vender</b></p>
+                                </div>
+                            </div>
+                        </section>     
+                    </div>
+                </div>
+                <div class="itens">
+                    <section class="sessaoItens">
+                        <div class="conteudoSessao">
+
+                            <div class="itemSessao item-item" category="medio">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/AMM.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                       <p><b>Ammunation</b> - R$1.260.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-ammo" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="baixo">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/LDR.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Loja de Roupas</b> - R$530.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-ldr" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="baixo">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/TATTO.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Tatto</b> - R$500.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-tatto" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>	
+							
+                            <div class="itemSessao item-item" category="baixo">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/mercado.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Mercado</b> - R$480.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-mercado" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>
+
+                            <div class="itemSessao item-item" category="medio">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/TQ.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Tequila-la</b> - R$1.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-tequila" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>	
+
+                            <div class="itemSessao item-item" category="alto">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/posto.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Posto de Combustivel</b> - R$1.860.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-posto" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>								
+
+                            <div class="itemSessao item-item" category="alto">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/CONCE.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Concessionaria</b> - R$4.300.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-conce" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="medio">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/LS.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>LS Customs</b> - R$1.450.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-ls" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>
+
+                            <div class="itemSessao item-item" category="alto">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/JL.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Joalheiria</b> - R$4.000.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-jl" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>		
+
+                            <div class="itemSessao item-item" category="alto">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/BNK.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Banco Flecca</b> - R$5.600.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="comprar-bnk" class="menuoption">COMPRAR</button>
+                                </div>
+                            </div>								
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/AMM.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                       <p><b>Ammunation</b> - R$900.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-ammo" class="menuoption">VENDER</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/LDR.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Loja de Roupas</b> - R$360.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-ldr" class="menuoption">VENDER</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/TATTO.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Tatto</b> - R$300.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-tatto" class="menuoption">VENDER</button>
+                                </div>
+                            </div>	
+							
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/mercado.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Mercado</b> - R$350.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-mercado" class="menuoption">VENDER</button>
+                                </div>
+                            </div>
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/TQ.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Tequila-la</b> - R$890.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-tequila" class="menuoption">VENDER</button>
+                                </div>
+                            </div>	
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/posto.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Posto de Combustivel</b> - R$1.390.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-posto" class="menuoption">VENDER</button>
+                                </div>
+                            </div>								
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/CONCE.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Concessionaria</b> - R$3.610.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-conce" class="menuoption">VENDER</button>
+                                </div>
+                            </div>
+							
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/LS.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>LS Customs</b> - R$910.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-ls" class="menuoption">VENDER</button>
+                                </div>
+                            </div>
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/JL.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Joalheiria</b> - R$3.410.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-jl" class="menuoption">VENDER</button>
+                                </div>
+                            </div>		
+
+                            <div class="itemSessao item-item" category="vender">
+                                <div class="item-info">
+                                    <div class="fotoItem">
+                                        <img src="imags/BNK.png">
+                                    </div>
+                                    <div class="tituloItem">
+                                        <p><b>Banco Flecca</b> - R$4.100.000</p>
+                                    </div>
+                                </div>
+                                <div class="pagamento">
+                                    <button data-action="vender-bnk" class="menuoption">VENDER</button>
+                                </div>
+                            </div>								
+
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+        </div>
+        <script src="script.js" type="text/javascript"></script>
+    </body>
+</html>

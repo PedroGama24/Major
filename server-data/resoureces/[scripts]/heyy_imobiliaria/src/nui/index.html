@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>HeyyImobiliária</title>
+
+	<link rel="stylesheet" type="text/css" href="./assets/_general/general.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/_general/buttons.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/_general/placeholder.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/imobiliaria/imobiliaria.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/house/casas.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/wardrobe/roupas.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+	<!-- Imobiliária -->
+	<div id="imobiliaria-menu" class="bg-dark" style="display: none">
+		<div id="insideTablet">
+			<!-- Navbar  -->
+			<nav class="bg-dark2 position-fixed container-fluid" style="height: 65px; box-shadow: 0px 16px 19px 5px rgba(0, 0, 0, 0.4)">
+				<div class="col-12">
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="d-none d-md-inline col-4 justify-content-center">
+							<img class="navbar-brand" src="./imgs/logo.png" alt="HeyyImobiliária" height="65" />
+						</div>
+						<div class="col-4">
+							<a href="#suas-casas" class="mt-3 btn btn-danger px-4" style="border-radius: 20px">
+								<i class="fas fa-home mt-1"></i>
+								<span data-lang-token="myHouses">Meus imóveis</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<!-- Center image -->
+			<div style="box-shadow: 0px 16px 19px 5px rgba(0, 0, 0, 0.4); padding: 120px; height: 100px; width: auto; background-image: url('./imgs/background.png'); background-position: center; background-size: cover"></div>
+
+			<!-- Carregador -->
+			<div id="preload-imobiliaria" class="position-absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%)">
+				<img class="mx-auto" src="./imgs/loading.svg" alt="Loading icon" height="100" />
+			</div>
+
+			<!-- Body -->
+			<div style="padding-bottom: 100px; display: none" id="imobiliaria-body" class="mx-5">
+				<!-- Lista de casas -->
+				<div class="container-fluid" id="imob-houses">
+					<!-- Casas recomendadas -->
+					<div class="mt-5">
+						<h4 class="row-recommended text-light" style="font-weight: 300 !important" data-lang-token="recommendedHouses">Casas recomendadas</h4>
+						<div class="row-recommended bg-dark2 p-3 row justify-content-center" style="border-radius: 15px" id="recommended-houses"></div>
+					</div>
+
+					<!-- My Houses -->
+					<div class="mt-5" id="suas-casas">
+						<h4 class="row-yourhouses text-light" style="font-weight: 300 !important" data-lang-token="yourHouses">Suas casas</h4>
+						<div class="row-yourhouses bg-dark2 p-3 row justify-content-center" style="border-radius: 15px" id="your-houses"></div>
+					</div>
+
+					<!-- House List -->
+					<div class="mt-5">
+						<h4 class="row-houselist text-light" style="font-weight: 300 !important" data-lang-token="availableHouses">Casas disponíveis</h4>
+						<div class="row-houselist bg-dark2 p-3 row justify-content-center" style="border-radius: 15px" id="house-list"></div>
+					</div>
+				</div>
+
+				<!-- Comprar casa -->
+				<div class="container-fluid" id="imob-housedetails" style="display: none">
+					<div class="mt-5">
+						<a href="#" class="d-flex text-white text-decoration-none" id="housedetails-back">
+							<i class="fas fa-long-arrow-alt-left mt-1" style="padding-right: 10px"></i>
+							<p data-lang-token="back">Voltar</p>
+						</a>
+					</div>
+
+					<div class="row mt-5">
+						<div class="col-12">
+							<img class="w-100 h-100" id="housedetails-image" src="https://via.placeholder.com/1000x400" alt="" />
+						</div>
+						<div class="col-12 mt-5">
+							<div class="row">
+								<div class="col-4 text-white">
+									<h3 id="housedetails-name" class="mb-3">DEFAULT</h3>
+									<h5 id="housedetails-price" class="text-success">DEFAULT</h5>
+									<div id="housedetails-description">
+										<p>DEFAULT</p>
+										<ul>
+											<li>DEFAULT 1</li>
+											<li>DEFAULT 2</li>
+											<li>DEFAULT 3</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-8 justify-content-end d-flex">
+									<div id="imobDetailsButtons">
+										<a href="#" class="heyy-btn btn-green w-25 mx-2" data-lang-token="buyHouse" id="buyHouse">Comprar</a>
+										<a href="#" class="heyy-btn btn-blue w-25 mx-2" data-lang-token="visitHouse" id="visitHouse">Visitar</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Menu entrar/sair -->
+	<div id="houses-menu" style="display: none">
+		<div class="bg-dark2">
+			<div class="houses-menu-header bg-dark3 text-center pt-5 pb-2">
+				<i class="fas fa-home"></i>
+				<h5 class="text-light" data-lang-token="yourHouses">Suas casas</h5>
+			</div>
+			<div class="houses-menu-body p-5 py-4 container" id="houses-menu-list">
+				<!-- Card home -->
+				<div class="rounded bg-dark3 houseCard enterExitSelectable row my-3" style="height: 120px">
+					<div class="col-6 p-0">
+						<img class="rounded" style="max-width: 100%; height: 120px" src="http://localhost/imagens/imob/online01.jpg" alt="FH32" />
+					</div>
+					<div class="col-6 d-flex">
+						<div class="mx-2 my-auto">
+							<h4 class="text-light">FH32</h4>
+							<h5 class="text-success" data-lang-token="paidTax">Taxa paga</h5>
+						</div>
+					</div>
+				</div>
+				<!-- /Card home -->
+				<!-- Card home -->
+				<div class="rounded bg-dark3 houseCard enterExitSelectable row my-3" style="height: 120px">
+					<div class="col-6 p-0">
+						<img class="rounded" style="max-width: 100%; height: 120px" src="http://localhost/imagens/imob/online01.jpg" alt="FH32" />
+					</div>
+					<div class="col-6 d-flex">
+						<div class="mx-2 my-auto">
+							<h4 class="text-light">FH32</h4>
+							<h5 class="text-success" data-lang-token="paidTax">Taxa paga</h5>
+						</div>
+					</div>
+				</div>
+				<!-- /Card home -->
+			</div>
+			<div class="houses-menu-buttons bg-dark3" id="houses-menu-btns">
+				<div class="d-flex" style="height: 50px">
+					<div class="mx-auto my-auto" id="houses-menu-btn-list">
+						<a href="#" class="heyy-btn btn-green w-25 mx-2" data-lang-token="enterHouse">Entrar</a>
+						<a href="#" class="heyy-btn btn-red w-25 mx-2" data-lang-token="invadeHouse">Invadir</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Guarda-roupas da casa -->
+	<div id="wardrobe" style="height: 600px; width: 35vw; max-width: 400px; display: none">
+		<div class="bg-dark2">
+			<div class="wardrobe-header bg-dark3 text-center pt-5 pb-2">
+				<i class="fas fa-home"></i>
+				<h5 class="text-light" data-lang-token="yourPresets">Suas roupas</h5>
+			</div>
+			<div class="wardrobe-body p-5 py-4 container" id="clothing-menu-list">
+				<!-- Card clothing -->
+				<div class="rounded bg-dark3 houseCard clothingSelectable row my-3" data-clothingname="Bandidão" style="height: 70px">
+					<div class="col-12 d-flex">
+						<div class="mx-2 my-auto">
+							<h4 class="text-light">Bandidão</h4>
+						</div>
+					</div>
+				</div>
+				<!-- /Card clothing -->
+				<!-- Card clothing -->
+				<div class="rounded bg-dark3 houseCard clothingSelectable row my-3" data-clothingname="Testeeeh" style="height: 70px">
+					<div class="col-12 d-flex">
+						<div class="mx-2 my-auto">
+							<h4 class="text-light">Testeeeh</h4>
+						</div>
+					</div>
+				</div>
+				<!-- /Card clothing -->
+			</div>
+			<div class="wardrobe-buttons bg-dark3" id="wardrobe-btns">
+				<div class="d-flex" style="height: 50px">
+					<div class="mx-auto my-auto" id="clothing-menu-btn-list">
+						<a href="#" class="heyy-btn btn-blue w-25 mx-2">Usar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal manage house -->
+	<div class="modal fade" id="manageModal" tabindex="-1" role="dialog" aria-labelledby="manageModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header border-bottom-0">
+					<h5 class="modal-title" id="manageModalLabel">Administrar - </h5>
+				</div>
+				<form>
+					<div class="modal-body">
+						<div class="form-group">
+							<label data-lang-token="garagePermission" for="name">Garagem</label>
+							<input type="number" class="form-control" id="garage" aria-describedby="garageHelp" placeholder="Passaporte" />
+							<small data-lang-token="garagePermissionDescription" id="garageHelp" class="form-text text-muted">Adicionar/remover permissão de garagem</small>
+						</div>
+						<div class="form-group">
+							<label data-lang-token="generalPermission" for="name" data-lang-token="generalPermission">Permissão geral</label>
+							<input type="number" class="form-control" id="permission" aria-describedby="generalHelp" placeholder="Passaporte" />
+							<small data-lang-token="generalPermissionDescription" id="generalHelp" class="form-text text-muted">Adicionar/remover permissão geral na residência (baú, entrada livre)</small>
+						</div>
+						<div class="form-group">
+							<label data-lang-token="chestLevel" for="name" data-lang-token="generalPermission">Nível do Baú</label>
+							<input type="number" class="form-control" id="chestlevel" aria-describedby="chestLevelHelp" placeholder="Nível" />
+							<small id="chestLevelHelp" class="form-text text-muted">
+								Evoluir o nível do baú<br />
+								<b>Níveis disponíveis:</b><br />
+								<span id="chestLevelsList">
+
+								</span>
+							</small>
+						</div>
+					</div>
+					<div class="modal-footer border-top-0 d-flex justify-content-center">
+						<button type="button" class="btn btn-danger" id="manage-close" data-lang-token="managementClose">Fechar</button>
+						<button type="button" class="btn btn-success" id="manage-save" data-lang-token="managementSave">Salvar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js" integrity="sha512-RdSPYh1WA6BF0RhpisYJVYkOyTzK4HwofJ3Q7ivt/jkpW6Vc8AurL1R+4AUcvn9IwEKAPm/fk7qFZW3OuiUDeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+	<script src="./assets/config.js" type="text/javascript"></script>
+	<script src="./assets/general.js" type="text/javascript"></script>
+</body>
+
+</html>

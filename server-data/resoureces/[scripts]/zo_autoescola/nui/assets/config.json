@@ -1,0 +1,56 @@
+{
+    "min_questions_correct": 4,
+    
+    "questions": [
+        {
+            "question": "As motocicletas em movimento são difíceis de ser percebidas no trânsito pelos motoristas; portanto, um comportamento considerado inadequado por parte do condutor do veículo é:",
+            "options": [
+                { "option": "a", "resp": "mudar bruscamente de faixa sem utilização da seta; afinal, a preferência é sempre dos carros" },
+                { "option": "b", "resp": "prestar atenção ao ruído do motor ou à luz do farol das motos antes de mudar de faixa ou de direção na via" },
+                { "option": "c", "resp": "observar constantemente a presença de motos, utilizando os espelhos retrovisores interno e externos" },
+                { "option": "d", "resp": "sinalizar com antecedência sua intenção de mudar de faixa, além de olhar nos espelhos retrovisores" }
+            ],
+            "resp_question": "a"
+        },
+        {
+            "question": "Em caso de acidente de trânsito com vítima(s), podemos dizer que primeiros socorros são:",
+            "options": [
+                { "option": "a", "resp": "as providências tomadas no local, iniciais e temporárias, até a chegada de socorro" },
+                { "option": "b", "resp": "o pronto atendimento da(s) vítima(s) em substituição às equipes da saúde" },
+                { "option": "c", "resp": "as ações que só podem ser realizadas por equipes profissionais" },
+                { "option": "d", "resp": "procedimentos de competência exclusiva de médicos no local do acidente" }
+            ],
+            "resp_question": "a"
+        },
+        {
+            "question": "A distância percorrida pelo veículo do momento em que o condutor tira o pé do acelerador e o coloca sobre o pedal do freio é denominada:",
+            "options": [
+                { "option": "a", "resp": "distância de reação" },
+                { "option": "b", "resp": "distância de frenagem" },
+                { "option": "c", "resp": "distância de seguimento" },
+                { "option": "d", "resp": "distância de parada" }
+            ],
+            "resp_question": "a"
+        },
+        {
+            "question": "Quando o motorista estacionar junto de hidrantes de incêndio devidamente identificados, terá como medida administrativa",
+            "options": [
+                { "option": "a", "resp": "remoção do veículo" },
+                { "option": "b", "resp": "recolhimento do CRLV" },
+                { "option": "c", "resp": "retenção do veículo" },
+                { "option": "d", "resp": "recolhimento da CNH" }
+            ],
+            "resp_question": "a"
+        },
+        {
+            "question": "A velocidade mínima permitida em vias nas quais não exista sinalização regulamentadora é de:",
+            "options": [
+                { "option": "a", "resp": "30 km/h" },
+                { "option": "b", "resp": "20 km/h" },
+                { "option": "c", "resp": "50 km/h" },
+                { "option": "d", "resp": "40 km/h" }
+            ],
+            "resp_question": "a"
+        }
+    ]
+}

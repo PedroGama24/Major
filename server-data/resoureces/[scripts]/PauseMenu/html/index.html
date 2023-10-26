@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro-v6/18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+		<title>Pause Menu</title>
+    </head>
+<body>
+	<div class="container" style="display: none;">
+		<div class="background">
+			<div class="animationstart" aria-hidden="true">	
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				<div class="snowflake">
+				<img src="https://cdn.discordapp.com/attachments/1003961871885418516/1004442535822884864/unknown.png" style="height: 20px;width: 20px;" />
+				</div>
+				
+				<div>
+					<center>
+						<img id="logo" src="https://cdn.discordapp.com/attachments/1001361166125248573/1029224642709303306/hudlogo.png?width=500&height=150" />
+					</center>
+					<button id="resume" class="options" style="color: rgb(245, 233, 0);text-shadow: 0px 0px 10px rgb(245, 233, 0);">VOLTAR</button><br/>
+					<button id="map" class="options">MAPA</button><br/>
+					<button id="settings" class="options">CONFIGS</button><br/>
+					<button id="updates" class="options">UPDATES</button><br/>
+					<button id="rules" class="options">REGRAS</button><br/>
+					<button id="exit" class="options">SAIR</button><br/>
+					
+					<div class="mainscreen">
+						<div id="showupdates" style="display: none; height:100% width: 100%;">
+							<div class="title">ATUALIZAÇÕES RECENTES:</div>
+							<div class="updatescreen">
+								<div class="itemup">
+									<div style="font-size: 20px; color: white;padding-top: 9px; padding-left: 9px;">Patch v6.2</div>
+									<img src="https://cdn.discordapp.com/attachments/1001361166125248573/1029097475694403615/concessionaria.png" style="height: 150px; width: 250px; padding: 9px;"/>
+									<div style="width: 500px; position: relative; top: -80%;left: 30%;font-size: 20px; color: white;"><span style="text-decoration: underline;">NOVA CONCESSIONÁRIA ADICIONADA:</span><br/>
+									Novo layout para nossa concessionária, design totalmente inovador e exclusivo, com preview dos veiculos!</div>
+								</div>
+								<div class="itemup">
+									<div style="font-size: 20px; color: white;padding-top: 9px; padding-left: 9px;">Patch v6.2</div>
+									<img src="https://cdn.discordapp.com/attachments/1001361166125248573/1029098006466809916/detran.png" style="height: 150px; width: 250px; padding: 9px;"/>
+									<div style="width: 500px; position: relative; top: -80%;left: 30%;font-size: 20px; color: white;"><span style="text-decoration: underline;">ATUALIZAÇÃO NO DETRAN:</span><br/>
+									Agora o Detran recebeu uma nova base, e também chegou a opção de tirar a carteira para moto, caminhão e onibus!</div>
+								</div>
+								<div class="itemup">
+									<div style="font-size: 20px; color: white;padding-top: 9px; padding-left: 9px;">Patch v6.2</div>
+									<img src="https://cdn.discordapp.com/attachments/1001361166125248573/1029098023520829600/praca.png" style="height: 150px; width: 250px; padding: 9px;"/>
+									<div style="width: 500px; position: relative; top: -80%;left: 30%;font-size: 20px; color: white;"><span style="text-decoration: underline;">NOVA PRAÇA:</span><br/>
+									Recebemos também uma nova praça, totalmente otimizada com uma aparencia inovadora</div>
+								</div>
+								<div class="itemup">
+									<div style="font-size: 20px; color: white;padding-top: 9px; padding-left: 9px;">Patch v6.2</div>
+									<img src="https://cdn.discordapp.com/attachments/1001361166125248573/1029098310163763230/skate.png" style="height: 150px; width: 250px; padding: 9px;"/>
+									<div style="width: 500px; position: relative; top: -80%;left: 30%;font-size: 20px; color: white;"><span style="text-decoration: underline;">MODO TONY HAWK:</span><br/>
+									Agora você pode comprar o seu skate na loja e sair mandando as manobras pela rua!</div>
+								</div>
+								<div class="itemup">
+									<div style="font-size: 20px; color: white;padding-top: 9px; padding-left: 9px;">Patch v6.2</div>
+									<img src="https://cdn.discordapp.com/attachments/1001361166125248573/1029098325070323722/pichar.png" style="height: 150px; width: 250px; padding: 9px;"/>
+									<div style="width: 500px; position: relative; top: -80%;left: 30%;font-size: 20px; color: white;"><span style="text-decoration: underline;">PIXAÇÃO:</span><br/>
+									Nessa nova atualização agora é possivel pixar a cidade com a escrita e fonte que você mais gostar, mas cuidado com a policia ein..</div>
+								</div>
+							</div>
+						</div>
+						<div id="showabout" style="display: none; height:100% width: 100%;">
+							<div class="title">REGRAS</div>
+							<div class="updatescreen">
+								<div class="ruletext">
+								<b>1) Essa cidade é full RP</b><br/>
+
+								Procuramos pessoas com apetite, cenários imaginativos e criativos para ROLEPLAY e não pessoas que queiram jogar [GTA online].
+								O que lhe pedimos antes de entrar no servidor é que tenha lido e entendido as regras.
+								É muito importante conhecer as regras porque assim você pode evitar erros dentro de um momento de rp.
+								O chat de voz é obrigatório. O que gostaríamos é que você soasse certo e claro.<br/>
+								<br/>
+								
+								<b>2) Cortesia/Respeito</b><br/>
+
+								As duas coisas mais importantes no servidor.
+								Não queremos que os novos jogadores do servidor aceitem [bullying] em hipótese alguma.
+								Sua antiguidade no servidor não lhe dá o direito de usar linguagem imprópria e ser rude.
+								Se algo semelhante chegar ao nosso conhecimento, haverá sérias punições.
+								Por fim, faremos uma declaração sobre o tema do respeito. Como você entende, haverá pessoas mais velhas no servidor,
+								o que significa que, mesmo em um cenário de rp, queremos que você tenha cuidado com o que diz e faz.
+								<br/>
+								<br/>
+								<b>3) OOC (Fora do personagem)</b><br/>
+
+								Você não tem permissão para sair do personagem dentro de um momento. Continue o RO até o final e deixe que haja erros.
+								Quando o cenário estiver concluído pode fazer um relatório onde deverá explicar os motivos que o levaram a fazer o relatório.
+								Nenhum relatório de motivo será ignorado.
+								Por fim, se precisar de informações sobre a parte técnica do servidor, peço que faça via discord, pedindo ajuda
+								alguns staff ativo e não através dos jogadores do jogo.<br/>
+								<br/>
+								<b>4) Power Gaming</b><br/>
+
+								Nenhum jogo de poder de qualquer tipo será aceito, como acelerar em uma perseguição e bater em perseguição
+								saia do seu veículo e continue como se nada tivesse acontecido.
+								<br/>
+								 <br/>
+								<b>5) RDM/VDM</b><br/>
+
+								É proibido matar seus concidadãos de qualquer forma sem um cenário conhecido como RDM/VDM.
+								É proibido roubar alguém se cooperar e depois matá-lo! Será considerado RDM.
+								<br/>
+								<br/>
+								<b>6) Valor a vida</b><br/>
+
+								Você deve respeitar e valorizar a vida do personagem que interpreta como se só tivesse um.<br/>
+								<br/>
+								<b>7) Regra de Nova Vida</b><br/>
+
+								Se por algum motivo você acabar morto, sua memória será completamente apagada
+								para evitar a possibilidade de vingança. A única maneira de se vingar é testemunhar o incidente
+								que lhe dará informações sobre o que aconteceu sem explicar as circunstâncias em que você foi encontrado morto.
+								<br/>
+								<br/>
+								<b>8) Baiting na policia/médicos</b><br/>
+
+								É estritamente proibido perturbar a força policial ou o hospital da prefeitura, causando-lhes ou perturbando-os ou colocando em risco sua integridade física.
+								integridade [NÃO IMPORTA].
+								É proibido roubar/usar veículos da polícia e hospital. Exceto se precedido por um cenário RP.
+								<br/>
+								<br/>
+								<b>9) Meta Gaming</b><br/>
+
+								Nós não transferimos nenhuma informação sobre a dramatização dos jogadores do jogo via discord ou stream porque desta forma o cenário do RP é estragado
+								que cada jogador criou. Haverá sérias consequências!
+								<br/>
+								<br/>
+								<b>10) Combat log</b><br/>
+
+								O [combat log] é proibido. Ou seja, no momento em que um cenario de RP é feito, sair do servidor. [Isso vale se você estiver vivo ou morto].
+								</div>
+							</div>
+						</div>
+					</div>
+					<button id="discordinv" class="discord"><i class="fa-brands fa-discord"></i></button>
+					<button id="ig" class="discord"><i class="fa-brands fa-instagram"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
