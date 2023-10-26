@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
 			DrawMarker(31,581.75, 2434.4, 58.8-0.6,0,0,0,0.0,0,0,0.8,0.8,0.8,255, 255, 0,100,0,0,0,1)
 		if distance <= 1 then
 			skips = 1
-			DrawText3Ds(581.75, 2434.4, 58.8+0.5,"PRESSIONE ~r~E~w~ PARA COMEÇAR MISSÃO")
+			DrawText3Ds(581.75, 2434.4, 58.8+0.5,"PRESSIONE ~r~E~w~ PARA COMEÇAR ROTA")
             if IsControlJustPressed(0,38) then	-- COMEÇAR MISSÃO
 				TriggerEvent('entrega_metafetamina:permissao') 
 				TriggerEvent("Notify","sucesso","Você pegou a rota de serviço, vá até o local para vender!")
