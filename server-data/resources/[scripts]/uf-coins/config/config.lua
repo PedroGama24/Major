@@ -2,7 +2,7 @@ cfg = cfg or {}
 
  local isServer = IsDuplicityVersion()
 
-cfg.storeUrl = "https://discord.gg/fivembrasil"
+cfg.storeUrl = "https://discord.gg/hwMTUCk4xK"
 
 cfg.columnName = "coins"
 
@@ -531,23 +531,6 @@ cfg.products = {
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
           TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma CB 500x!",8000)
-         vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-        end
-      end
-      
-    },
-
-    {
-      productType = "car",
-      model = "sultanrs",
-      name = "Sultan RS",
-      price = 200,
-      onBuy = function(source,user_id)
-        if isServer then 
-          local veiculo = "sultanrs"
-          local ipva = 0 
-          local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu um Sultan RS!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end

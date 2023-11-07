@@ -122,42 +122,6 @@ function GetPlayers()
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- MANCAR DANO
------------------------------------------------------------------------------------------------------------------------------------------
-local hurt = false
-Citizen.CreateThread(function()
-	while true do
-		w = 1000
-		if GetEntityHealth(GetPlayerPed(-1)) <= 150 then
-			w = 3
-			setHurt()
-			DisableControlAction(0, 21, true) -- desabilita corrida
-			DisableControlAction(0, 22, true) -- desabilita os pulos
-
-		elseif hurt and GetEntityHealth(GetPlayerPed(-1)) > 199 then
-			setNotHurt()
-		end
-		Citizen.Wait(w)
-	end
-end)
-
-function setHurt()
-	hurt = true
-	RequestAnimSet("move_m@injured")
-	SetPedMovementClipset(GetPlayerPed(-1), "move_m@injured", true)
-	
-end
-
-function setNotHurt()
-	hurt = false
-	ResetPedMovementClipset(GetPlayerPed(-1))
-	ResetPedWeaponMovementClipset(GetPlayerPed(-1))
-	ResetPedStrafeClipset(GetPlayerPed(-1))
-end
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------
 -- ESTOURAR OS PNEUS
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
@@ -1359,15 +1323,6 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------
--- GETHANDCUFF
------------------------------------------------------------------------------------------------------------------------------------------
-function src.getHandcuff()
-	return handcuff
-end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TOGGLEHANDCUFF
 -----------------------------------------------------------------------------------------------------------------------------------------

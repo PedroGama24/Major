@@ -130,7 +130,7 @@ body {
     font-size: 4.2vw;
     font-family: "Monument Extended Ultrabold";
     text-transform: uppercase;
-    color: orange;
+    color: rgb(255, 0, 0);
     line-height: 90%;
     text-align: right;
     word-break: normal;
@@ -162,7 +162,7 @@ body {
     font-family: "Monument Extended Ultrabold";
     color: white;
     text-transform: uppercase;
-    background-color: orange;
+    background-color: rgb(255, 0, 0);
     border-radius: 15px;
     outline: none;
     border: none;
@@ -176,7 +176,7 @@ body {
 }
 
 .menu-vehicle-buy-btn:hover {
-    background-color:  #bb6a00;
+    background-color:  #bb0000;
 }
 
 .menu-vehicle-buy-btn:active {
@@ -213,11 +213,11 @@ body {
 }
 
 .menu-change-vehicle-button:active {
-    background-color: orange;
+    background-color: rgb(255, 0, 0);
 }
 
 .menu-change-vehicle-button-focus {
-    background-color: orange;
+    background-color: rgb(255, 0, 0);
 }
 
 
@@ -269,8 +269,8 @@ body {
 
 
 .middle {
-    border-left: solid 2px  #ffc400;
-    border-right: solid 2px  #ffc400;
+    border-left: solid 2px  #ff0000;
+    border-right: solid 2px  #ff0000;
 }
 
 
@@ -368,8 +368,8 @@ body {
     margin: auto;
     height  : 100%;
     width   : 12%;
-    border-top: 2px solid  orange;
-    border-bottom: 2px solid  orange;
+    border-top: 2px solid  rgb(255, 0, 0);
+    border-bottom: 2px solid  rgb(255, 0, 0);
   }
 
 
@@ -383,7 +383,7 @@ body {
 }
 
 .mais-procurados-title {
-    color: #ffae00;
+    color: #ff0000;
     font-size: 2.5vw;
     text-transform: uppercase;
     font-family: "Monument Extended Ultrabold";
@@ -453,7 +453,7 @@ body {
     font-family: "DINPro-Black";
     font-size: .8vw;
     line-height: 80%;
-    color: rgb(255, 166, 0)F;
+    color: rgb(255, 0, 0)F;
     text-transform: uppercase;
     margin: auto 5%;
     word-break: normal;
@@ -495,7 +495,7 @@ body {
     font-size: .5vw;
     letter-spacing: 1px;
     color: white;
-    background-color: rgb(255, 166, 0);
+    background-color: rgb(255, 0, 0);
     border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem;
     bottom: 0;
     overflow: hidden;
@@ -505,7 +505,7 @@ body {
     position: absolute;
     width: 40%;
     height: 100%;
-    background-color: #a37803;
+    background-color: #a30303;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -548,7 +548,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #60b64f;
+    background-color: #29bd0c;
     color: white;
     font-size: .7vw;
 }
@@ -607,7 +607,7 @@ body {
 
 .menu-compra-back-container p:hover {
     transform: scale(1.1);
-    color: #ffc400;
+    color: #ff0000;
 }
 
 .menu-compra-vehicle-container {
@@ -690,7 +690,7 @@ body {
     font-family: "Monument Extended Ultrabold";
     color: rgb(48, 48, 48);
     text-transform: uppercase;
-    background-color:  #db9600;
+    background-color:  #db0000;
     border-radius: 15px;
     outline: none;
     border: none;
@@ -703,7 +703,7 @@ body {
 }
 
 .menu-compra-buy:hover {
-    background-color: #a16e00;
+    background-color: #a10000;
 }
 
 .menu-compra-buy:active {
@@ -721,7 +721,7 @@ body {
     font-family: "Monument Extended Ultrabold";
     color: rgb(48, 48, 48);
     text-transform: uppercase;
-    background-color:  #dba800;
+    background-color:  #db0000;
     border-radius: 15px;
     outline: none;
     border: none;
@@ -743,7 +743,7 @@ body {
 }
 
 .menu-compra-test:hover {
-    background-color: #a16e00;
+    background-color: #a10000;
 }
 
 .menu-compra-test:active {
@@ -760,7 +760,7 @@ body {
     font-family: "Monument Extended Ultrabold";
     color: rgb(48, 48, 48);
     text-transform: uppercase;
-    background-color:  rgb(219, 179, 0);
+    background-color:  rgb(219, 0, 0);
     border-radius: 15px;
     outline: none;
     border: none;
@@ -777,7 +777,7 @@ body {
 }
 
 .menu-compra-alugar:hover {
-    background-color: #a16e00;
+    background-color: #a10000;
 }
 
 .menu-compra-alugar:active {
@@ -833,7 +833,7 @@ body {
 }
 
 .relacionados-title {
-    color: orange;
+    color: rgb(255, 0, 0);
     font-size: 2.5vw;
     text-transform: uppercase;
     font-family: "Monument Extended Ultrabold";
@@ -984,7 +984,7 @@ body {
     margin: auto;
     outline: none;
     border: none;
-    background-color: #ffbb00;
+    background-color: #ff0000;
     border-radius: 15px;
     color: white;
     font-size: 1vw;
@@ -996,7 +996,7 @@ body {
 }
 
 .continuar-btn:hover {
-    background-color: #a07500;
+    background-color: #494949;
 }
 
 .continuar-btn:active {
@@ -1197,7 +1197,7 @@ body {
 
 .close-btn:hover {
     transform: scale(1.1);
-    color: rgb(255, 174, 0);
+    color: rgb(255, 0, 0);
 }
 
 .close-btn:active {
@@ -1268,7 +1268,7 @@ body {
 
 .mode-btn:hover  {
     transform: scale(1.1);
-    color: rgb(255, 187, 0);
+    color: rgb(255, 0, 0);
 }
 
 .mode-btn:active {
@@ -1323,7 +1323,7 @@ body {
 .searchBox {
     position: absolute;
     top: 20%; right: 10%;
-    background-color: orange;
+    background-color: rgb(255, 0, 0)55, 166, 0, 0.911);
     width: 10%;
     padding: 0 .8%;
     height: 3%;
@@ -1337,7 +1337,7 @@ body {
 }
 
 .searchBox:focus-within{
-    filter: drop-shadow(2px 2px 5px #fbff00);
+    filter: drop-shadow(2px 2px 5px #ff0000);
     transform: scale(1.1);
 }
 
@@ -1364,7 +1364,7 @@ body {
 .filterContainer {
     position: absolute;
     top: 20%; right: 23%;
-    background-color: orange;
+    background-color: rgb(255, 0, 0);
     width: fit-content;
     font-family: "DINPro-Bold";
     color: rgba(255, 255, 255, .7);
@@ -1403,8 +1403,8 @@ body {
     transition: filter .5s, border-color .5s;
 }
 .myvehicles-container:hover {
-    filter: drop-shadow(2px 2px 5px orange);
-    border-color: orange;
+    filter: drop-shadow(2px 2px 5px rgb(255, 0, 0));
+    border-color: rgb(255, 0, 0);
 }
 
 .myvehicles{
@@ -1439,7 +1439,7 @@ body {
     margin: auto;
     text-align: center;
     font-family: "Monument Extended Ultrabold";
-    text-shadow: 2px 2px orange;
+    text-shadow: 2px 2px rgb(255, 0, 0);
     text-transform: uppercase;
     letter-spacing: 1px;
     color: rgb(236, 236, 236);
@@ -1457,8 +1457,8 @@ body {
     margin: auto;
     height  : 100%;
     width   : 12%;
-    border-top: 2px solid  orange;
-    border-bottom: 2px solid  orange;
+    border-top: 2px solid  rgb(255, 0, 0);
+    border-bottom: 2px solid  rgb(255, 0, 0)5, 217, 0);
   }
 
 
@@ -1489,7 +1489,7 @@ body {
     color:white;
     text-transform: uppercase;
     border: solid 4px transparent;
-    background-image: linear-gradient(90deg,#10131B,#10131B), linear-gradient(90deg, #ffbe0d 0%, #fffb00 100%);
+    background-image: linear-gradient(90deg,#10131B,#10131B), linear-gradient(90deg, #ffbe0d 0%, #ff0000 100%);
     background-origin: padding-box, border-box;
     background-clip: content-box, border-box;
     border-radius: 15px;
@@ -1506,12 +1506,12 @@ body {
     position: relative;
     top: 5%;
     line-height: 10%;
-    text-shadow: 2px 2px #ff9900;
+    text-shadow: 2px 2px #ff0000;
 }
 
 .timer {
     position: relative;
-    background-image: linear-gradient(90deg, #ffbe0d 0%, #fffb00 100%);
+    background-image: linear-gradient(90deg, #ff0d0d 0%, #ff0000 100%);
     width: fit-content;
     height: fit-content;
     padding: 0 5%;
@@ -1523,7 +1523,7 @@ body {
 }
 
 .timer p {
-    text-shadow: 5px 2px 5px #ffa600;
+    text-shadow: 5px 2px 5px #ff0000;
     top: 0;
     font-family: 'Orbitron', sans-serif;
 }
@@ -1550,7 +1550,7 @@ body {
     left: 0; right: 0; top: 0; bottom: 0;
     margin: auto;
     border: solid 7px transparent;
-    background-image: linear-gradient(#10131B,#262b38), linear-gradient(90deg, #ffbe0d 0%, #fffb00 100%);
+    background-image: linear-gradient(#10131B,#262b38), linear-gradient(90deg, #ff0d0d 0%, #ff0000 100%);
     background-origin: padding-box, border-box;
     background-clip: content-box, border-box;
     border-radius: .5rem;
@@ -1562,7 +1562,7 @@ body {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1px;
-    text-shadow: 2px 2px #babd00;
+    text-shadow: 2px 2px #bd0000;
 
     display: none;
 }

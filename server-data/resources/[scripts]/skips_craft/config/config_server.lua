@@ -21,7 +21,7 @@ config.weebdump = "" -- WEEBHOOK QUANDO NEGO TENTAR DUMPAR DESLIGANDO A INTERNET
 config.weebhook = {
     logo = "https://cdn.discordapp.com/attachments/1001361166125248573/1029223970785992806/Logo_sem_fundo.png", -- LOGO do Servidor
     color =  6356736,
-    footer = "FiveMBrasil",
+    footer = "MAJOR",
 }
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

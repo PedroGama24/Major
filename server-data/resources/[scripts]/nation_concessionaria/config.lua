@@ -6,7 +6,7 @@ config = {}
 Proxy.addInterface("nation_concessionaria", config)
 
 
-config.imgDir = "http://COLOQUESEUIP/skips/vehicles/" -- DIRETORIO DAS IMAGENS DOS VEÍCULOS
+config.imgDir = "http://127.0.0.1/vrp_images/" -- DIRETORIO DAS IMAGENS DOS VEÍCULOS
 
 -- LISTA DOS VEÍCULOS EM DESTAQUE
 
@@ -15,7 +15,7 @@ config.topVehicles = {
 	"italigto"
 }
 
-config.logo = "https://cdn.discordapp.com/attachments/760919789065207910/877278304007254066/fivembrasil3.png" -- LOGO DO SERVIDOR
+config.logo = "https://media.discordapp.net/attachments/1148611885256691753/1166452683511693323/logo_major.png?ex=6553c537&is=65415037&hm=c8e5a667055c0a66f5b981735af81701d8ff22a6ea1214fc675811221cefeedb&=" -- LOGO DO SERVIDOR
 
 config.defaultImg = "https://cdn.discordapp.com/attachments/760919789065207910/879443659706236958/carro.png" -- IMAGEM DEFAULT (SERÁ EXIBIDA QUANDO NÃO EXISTIR A IMAGEM DE ALGUM VEÍCULO NO DIRETÓRIO ESPECIFICADO)
 
