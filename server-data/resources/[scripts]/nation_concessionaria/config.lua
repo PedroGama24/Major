@@ -422,6 +422,9 @@ config.vehList = {
 	{ hash = GetHashKey("x6m"), name = 'x6m', price = 3100000, banido = false, modelo = 'BMW x6M', capacidade = 60, tipo = 'import' },
 	{ hash = GetHashKey("teslax"), name = 'teslax', price = 3100000, banido = false, modelo = 'Tesla Model X', capacidade = 50, tipo = 'import' },
 	{ hash = GetHashKey("ttrs"), name = 'ttrs', price = 2000000, banido = false, modelo = 'Audi TT', capacidade = 30, tipo = 'import' },
+	{ hash = GetHashKey("armoredvelar"), name = 'armoredvelar', price = 2000000, banido = false, modelo = 'Velar blindado', capacidade = 95, tipo = 'import' },
+	{ hash = GetHashKey("armoredgle"), name = 'armoredgle', price = 2000000, banido = false, modelo = 'Gle blindado', capacidade = 95, tipo = 'import' },
+	{ hash = GetHashKey("armoredx6"), name = 'armoredx6', price = 2000000, banido = false, modelo = 'X6m blindado', capacidade = 95, tipo = 'import' },
 
 }
 
