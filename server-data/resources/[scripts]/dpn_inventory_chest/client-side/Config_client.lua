@@ -463,7 +463,7 @@ ConfigClient = {
         },
 
         ['Bau-Policia'] = {
-            loc = {1317.99, -774.66, 65.67},
+            loc = {2529.08,-335.76,101.9},
             weight = 50000, 
             perm = "policia.permissao",
             slots = 200, 

@@ -2,7 +2,7 @@ mds = {}
 
 mds.cloackroom = {
     ["| Camisas"] = {
-        coords = vec3(1320.58, -773.19, 65.67 ),
+        coords = vec3(2515.12, -346.27,101.9),
         perm = "pmesp.permissao",
         ["Soldado"] = {
             perm = "pmesp.permissao",
@@ -344,14 +344,14 @@ mds.cloackroom = {
 
 
     ["| Moletom"] = {
-        coords = vec3(1321.53, -771.34, 65.67 ),
+        coords = vec3(2516.41,-347.39,101.9 ),
         perm = "pmesp.permissao",
         ["Capitão"] = {
             perm = "pmesp.permissao",
             [1885233650] = {
                 [1] = {0,0,0}, --[[ Mascara ]]
                 [2] = {0,0,0},
-                [3] = {0,0,0}, --[[ Maos ]]
+                [3] = {1,0,0}, --[[ Maos ]]
                 [4] = {87,0,0}, --[[ Calça ]]
                 [5] = {0,0,0}, --[[ Paraquedas ]]
                 [6] = {25,0,0}, --[[ Sapatos ]]
@@ -462,11 +462,11 @@ mds.cloackroom = {
 
 
     ["| Manga Longa"] = {
-        coords = vec3(1323.26, -772.25, 65.67 ),
-        perm = "grpae.permissao",
+        coords = vec3( 2516.71, -345.14, 101.9),
+        perm = "pmesp.permissao",
       
         ["GRPAE Atirador"] = {
-            perm = "grpae.permissao",
+            perm = "pmesp.permissao",
             [1885233650] = {
                 [1] = {0,0,2},
                 [2] = {4,0,0},
@@ -503,7 +503,7 @@ mds.cloackroom = {
             }
         },
         ["GRPAE Piloto"] = {
-            perm = "grpae.permissao",
+            perm = "pmesp.permissao",
             [1885233650] = {
                 [1] = {0,0,2},
                 [2] = {4,0,0},
