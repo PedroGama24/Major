@@ -6,10 +6,10 @@ Config[0] = {
   colorBlue = 0,
   colorLetter = 'y',
   colorBlip = 5,
-  CoordenadaX = 1325.65,
-  CoordenadaY = -768.35,
-  CoordenadaZ = 65.67,
-  --  1325.65, -768.35, 65.67
+  CoordenadaX = 2512.33,
+  CoordenadaY = -429.42,
+  CoordenadaZ = 94.59,
+  --  ['x'] = 2512.33, ['y'] = -429.42, ['z'] = 94.59
   rota = {
     [1] = { ['x'] = -788.09, ['y'] = -829.39, ['z'] = 21.11 },
     [2] = { ['x'] = -333.17, ['y'] = -852.02, ['z'] = 31.63 },
@@ -62,10 +62,10 @@ Config[1] = {
   colorBlue = 205,
   colorLetter = 'b',
   colorBlip = 3,
-  CoordenadaX = 1323.79,
-  CoordenadaY = -767.71,
-  CoordenadaZ = 65.67,
-  -- 1323.79, -767.71, 65.67
+  CoordenadaX = 2511.19,
+  CoordenadaY = -428.13,
+  CoordenadaZ = 94.59,
+  -- ['x'] = 2511.19, ['y'] = -428.13, ['z'] = 94.59
   rota = {
     [1] = { ['x'] = -694.8, ['y'] = -828.66, ['z'] = 23.4 },
     [2] = { ['x'] = -856.56, ['y'] = -777.95, ['z'] = 20.16 },
@@ -120,10 +120,10 @@ Config[2] = {
   colorBlue = 0,
   colorLetter = 'r',
   colorBlip = 49,
-  CoordenadaX = 1322.22,
-  CoordenadaY = -767.05,
-  CoordenadaZ = 65.67,
-  -- 1322.22, -767.05, 65.67
+  CoordenadaX = 2510.1,
+  CoordenadaY = -427.03,
+  CoordenadaZ = 94.59,
+  -- ['x'] = 2510.01, ['y'] = -427.03, ['z'] = 94.59
   rota = {
     [1] = { ['x'] = 402.73, ['y'] = -971.13, ['z'] = 29.09 },
     [2] = { ['x'] = 503.25, ['y'] = -873.08, ['z'] = 25.0 },

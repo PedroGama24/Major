@@ -7,7 +7,7 @@ emP = Tunnel.getInterface("emp_policia_rotas")
 local blips = false
 local servico = false
 local targetDistance = 0
-local maxSpeed = 81
+local maxSpeed = 200
 local selecionado = 0
 local id = false
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ Citizen.CreateThread(function()
 				DrawMarker(21, Config[id].rota[selecionado].x, Config[id].rota[selecionado].y, Config[id].rota[selecionado].z+0.30,0,0,0,0,180.0,130.0,2.0,2.0,1.0,255,80,0,90,1,0,0,1)
 				if distance <= 2.5 then
 					if emP.checkPermission() then
-						if IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("golpmesp")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("duster21cgp1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("SpinCGP")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("spacepm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("traildpm")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("xre2019pm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("t800pm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4ft2019")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("trailpm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("africaprf")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("TrailblazerRotaCamuflada")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4rota1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("trailrota2")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4revrota1")) then
+						if IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("a80")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("duster21cgp1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("SpinCGP")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("spacepm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("traildpm")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("xre2019pm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("t800pm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4ft2019")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("trailpm1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("africaprf")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("TrailblazerRotaCamuflada")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4rota1")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("trailrota2")) or IsVehicleModel(GetVehiclePedIsUsing(PlayerPedId()),GetHashKey("sw4revrota1")) then
 							RemoveBlip(blips)
 
 							-- Verifica se o blip é o último da rota

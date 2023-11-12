@@ -463,49 +463,9 @@ ConfigClient = {
         },
 
         ['Bau-Policia'] = {
-            loc = {2529.08,-335.76,101.9},
-            weight = 50000, 
+            loc = {2520.25, -325.58, 101.9},
+            weight = 5000, 
             perm = "policia.permissao",
-            slots = 200, 
-            webhook = "",
-        },
-
-        ['Bau-FT'] = {
-            loc = {1301.4, -766.38, 65.67},
-            weight = 50000, 
-            perm = "ft.permissao",
-            slots = 200, 
-            webhook = "",
-        },
-
-        ['Bau-BAEP'] = {
-            loc = {55.5, 6542.53, 32.5},
-            weight = 50000, 
-            perm = "baep.permissao",
-            slots = 200, 
-            webhook = "",
-        },
-
-        ['Bau-PoliciaCivil'] = {
-            loc = {278.0, -349.27, 49.58},
-            weight = 50000, 
-            perm = "policia.permissao",
-            slots = 200, 
-            webhook = "",
-        },
-
-        ['Bau-Rota'] = {
-            loc = {-2009.71, -503.87, 12.23},
-            weight = 50000, 
-            perm = "rota.permissao",
-            slots = 200, 
-            webhook = "",
-        },
-
-        ['Bau-FT'] = {
-            loc = {106.06, 6546.5, 32.5},
-            weight = 50000, 
-            perm = "ft.permissao",
             slots = 200, 
             webhook = "",
         },
@@ -518,7 +478,7 @@ ConfigClient = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- LOCAIS
 -----------------------------------------------------------------------------------------------------------------------------------------
-local marcacoes = {
+--[[ local marcacoes = {
 	vec3(25.65,-1346.58,29.49-1.20),
 	vec3(2556.75,382.01,108.62-1.20),
 	vec3(1163.54,-323.04,69.20-1.20),
@@ -583,7 +543,7 @@ Citizen.CreateThread(function()
 				if distance < 10 then 
 					idle = 3
 					if distance < 2.0 then 
-						DrawText3Ds(marcacoes[i].x,marcacoes[i].y,marcacoes[i].z +1.25,"~p~APERTE~w~ ~g~[']~w~ | Acessar a Loja")
+						DrawText3Ds(marcacoes[i].x,marcacoes[i].y,marcacoes[i].z +1.25,"~p~APERTE~w~ ~g~[e]~w~ | Acessar a Loja")
 						if IsControlJustPressed(0,9999) then
 							ToggleActionMenu()
 						end
@@ -593,7 +553,7 @@ Citizen.CreateThread(function()
 		end
 		Wait(idle)
 	end
-end)
+end) ]]
 
 function DrawText3Ds(x,y,z,text)
     local onScreen,_x,_y=World3dToScreen2d(x,y,z)
