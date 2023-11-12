@@ -484,7 +484,7 @@ config.vehList = {
 	{ hash = GetHashKey("raptor2017"), name = 'raptor2017', price = 2200000, banido = false, modelo = 'Raptor', capacidade = 70, tipo = 'import' },
 	{ hash = GetHashKey("rs6c8"), name = 'rs6c8', price = 2600000, banido = false, modelo = 'Audi RS6 Sedan', capacidade = 60, tipo = 'import' },
 	{ hash = GetHashKey("teslaprior"), name = 'teslaprior', price = 3100000, banido = false, modelo = 'Tesla Prior', capacidade = 50, tipo = 'import' },
-	{ hash = GetHashKey("toyotasupra"), name = 'toyotasupra', price = 2000000, banido = false, modelo = 'Toyota Supra', capacidade = 40, tipo = 'import' },
+	
 	{ hash = GetHashKey("velociraptor"), name = 'velociraptor', price = 3000000, banido = false, modelo = 'Velociraptor', capacidade = 70, tipo = 'import' },
 	{ hash = GetHashKey("rrst"), name = 'rrst', price = 1800000, banido = false, modelo = 'Range Rover', capacidade = 70, tipo = 'import' },
 	{ hash = GetHashKey("bmwg7"), name = 'bmwg7', price = 2800000, banido = false, modelo = 'Bmw X7', capacidade = 70, tipo = 'import' },

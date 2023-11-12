@@ -1,22 +1,22 @@
 @echo off
 
 
-echo		[------------- Produto adquirido em / PROIBIDO a revenda -----------------]
-echo		[---         ##   FiveM Brasil:  discord.gg/ZzjSfmdaVG   ##            ---]
+echo		[-------------------------------------------------------------------------]
+echo		[---             ##   Major:  discord.gg/4xnQFpHMgM   ##               ---]
 echo		[-------------------------------------------------------------------------] 
 echo.
 echo         [-------------------------  Creditos de Dev  -----------------------------]
-echo         [---                    Base: vRPEx São Paulo v6.3                   ---]
-echo    	[---                    Developed by: SkipS#1234                       ---]
-echo		[-------------------------------------------------------------------------] 
+echo         [---                    Base: Major_City                               ---]
+echo    	[---                    Developed by: Nomadd, Guxtavo, Cabral           ---]
+echo		[--------------------------------------------------------------------------] 
 echo.
 echo         [--------------------------  Redes Sociais  ------------------------------]
-echo    	[---             Discord: discord.gg/ZzjSfmdaVG / SkipS#1234           ---]
-echo    	[---                    Site: www.fivembrasil.com                      ---]
-echo    	[---                   Instagram: @fivembrasill                        ---]
-echo		[-------------------------------------------------------------------------] 
+echo    	[---                 Discord: discord.gg/4xnQFpHMgM                     ---]
+echo    	[---                 Site:                                              ---]
+echo    	[---                 Instagram: @majorcity_oficial                      ---]
+echo		[--------------------------------------------------------------------------] 
 echo.
-echo    	[---       Para suporte gratuito, consultar discord de clientes!       ---]
+echo    	
 echo.
 echo.
 

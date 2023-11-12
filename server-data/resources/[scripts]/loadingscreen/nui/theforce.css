@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	color: orange;
+	color: red;
 
 }
 
@@ -23,7 +23,7 @@ h1 {
 	font-size: 13pt;
 	font-weight: 600;
 	text-transform: uppercase;
-	color: rgba(255, 166, 0, 0.5);
+	color: rgba(255, 0, 0, 0.5);
 
 }
 
@@ -42,7 +42,7 @@ h2 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13pt;
 	font-weight: 300;
-	color: rgba(255, 166, 0, 0.5);
+	color: rgba(255, 0, 0, 0.5);
 
 }
 
@@ -166,7 +166,7 @@ h2 {
 #slider #elapsed {
 	width: 0px;
 	height: 4px;
-	background: #EACB66;
+	background: #A4011E;
 	border-radius: 2px;
 }
 
@@ -216,11 +216,11 @@ h2 {
 }
 
 #play:hover g {
-	stroke: #EACB66;
+	stroke: #A4011E;
 }
 
 #play:hover g path {
-	fill: #EACB66;
+	fill: #A4011E;
 }
 
 .step-backward {
@@ -255,7 +255,7 @@ h2 {
 }
 
 #pause:hover rect {
-	fill: #EACB66;
+	fill: #A4011E;
 }
 
 .expend {
@@ -263,7 +263,7 @@ h2 {
 }
 
 .expend svg:hover g polygon {
-	fill: #EACB66;
+	fill: #A4011E;
 }
 
 .slider {
@@ -276,7 +276,7 @@ h2 {
 .slider .volume {
 	width: 69px;
 	height: 4px;
-	background: rgba(255, 166, 0);
+	background: #A4011E;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 	position: inherit;
@@ -349,19 +349,19 @@ input[type="range"]::-ms-thumb {
 input[type="range"]::-webkit-slider-thumb:hover,
 input[type="range"]::-webkit-slider-thumb:focus,
 input[type="range"]::-webkit-slider-thumb:active {
-	background-color: #EACB66;
+	background-color: #A4011E;
 }
 
 input[type="range"]::-moz-range-thumb:hover,
 input[type="range"]::-moz-range-thumb:focus,
 input[type="range"]::-moz-range-thumb:active {
-	background-color: #EACB66;
+	background-color: #A4011E;
 }
 
 input[type="range"]::-ms-thumb:hover,
 input[type="range"]::-ms-thumb:focus,
 input[type="range"]::-ms-thumb:active {
-	background-color: #EACB66;
+	background-color: #A4011E;
 }
 
 @keyframes load {
