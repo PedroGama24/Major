@@ -135,3 +135,23 @@ data_file "AUDIO_WAVEPACK" "audio/kc32ducavr4/dlc_kc32ducavr4"
 data_file "AUDIO_WAVEPACK" "audio/lfasound/dlc_lfasound"
 data_file "AUDIO_GAMEDATA" "audio/lfasound/lfasound_game.dat"
 data_file "AUDIO_SOUNDDATA" "audio/lfasound/lfasound_sounds.dat"
+
+data_file "AUDIO_SYNTHDATA" "audio/bmwm3/s55b30_amp.dat"
+data_file "AUDIO_GAMEDATA" "audio/bmwm3/s55b30_game.dat"
+data_file "AUDIO_SOUNDDATA" "audio/bmwm3/s55b30_sounds.dat"
+data_file "AUDIO_WAVEPACK" "audio/bmwm3/dlc_s55b30"
+
+data_file "AUDIO_SYNTHDATA" "audio/bmwm5/s63b44_amp.dat"
+data_file "AUDIO_GAMEDATA" "audio/bmwm5/s63b44_game.dat"
+data_file "AUDIO_SOUNDDATA" "audio/bmwm5/s63b44_sounds.dat"
+data_file "AUDIO_WAVEPACK" "audio/bmwm5/dlc_s63b44"
+
+data_file "AUDIO_SYNTHDATA" "audio/e63/mbnzc63eng_amp.dat"
+data_file "AUDIO_GAMEDATA" "audio/e63/mbnzc63eng_game.dat"
+data_file "AUDIO_SOUNDDATA" "audio/e63/mbnzc63eng_sounds.dat"
+data_file "AUDIO_WAVEPACK" "audio/e63/dlc_mbnzc63eng"
+
+data_file "AUDIO_SYNTHDATA" "audio/jettagli/ea888_amp.dat"
+data_file "AUDIO_GAMEDATA" "audio/jettagli/ea888_game.dat"
+data_file "AUDIO_SOUNDDATA" "audio/jettagli/ea888_sounds.dat"
+data_file "AUDIO_WAVEPACK" "audio/jettagli/dlc_ea888"
