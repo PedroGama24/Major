@@ -627,7 +627,7 @@ config.perm_EditLogs = {
 -- images directory for item list
 config.ItemDirectory = "http://181.215.253.55/skips/inventario"
 -- images directory for vehicle list
-config.VehicleDirectory = "http://181.215.253.55/skips/vehicles"
+config.VehicleDirectory = "http://127.0.0.1/vrp_images/"
 -- images directory for weapon list
 config.WeaponDirectory = "http://181.215.253.55/skips/inventario/armas"
 
