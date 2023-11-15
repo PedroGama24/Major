@@ -645,7 +645,7 @@ vehs.vehglobal = {
 	["rmodjesko"] = { ['name'] = "jesko", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodjesko"), ['banned'] = false },
 	["rmodmartin"] = { ['name'] = "Aston Martin DBS", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodmartin"), ['banned'] = false },
 	["rmodsianr"] = { ['name'] = "Sianr", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodsianr"), ['banned'] = false },
-	["rs7c821"] = { ['name'] = "ram226x6", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rs7c821"), ['banned'] = false },
+	["ram226x6"] = { ['name'] = "Ram226x6", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("ram226x6"), ['banned'] = false },
 	["rs520"] = { ['name'] = "rs520", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rs520"), ['banned'] = false },
 	["s10"] = { ['name'] = "S10", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("s10"), ['banned'] = false },
 	["s1000rr"] = { ['name'] = "s1000rr", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("s1000rr"), ['banned'] = false },
@@ -662,8 +662,8 @@ vehs.vehglobal = {
 	["armoredgle"] = { ['name'] = "armoredgle", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("armoredgle"), ['banned'] = false },
 
 
-	--==== PM SP
-	["xt2017pm"] = { ['name'] = "xt2017pm", ['price'] = 1000, ['tipo'] = "work",  ['hash'] = GetHashKey("xt2017pm"), ['banned'] = false },
+	--==== PM MAJOR
+	--[[ ["xt2017pm"] = { ['name'] = "xt2017pm", ['price'] = 1000, ['tipo'] = "work",  ['hash'] = GetHashKey("xt2017pm"), ['banned'] = false }, ]]
 	["as350"] = { ['name'] = "as350", ['price'] = 1000, ['tipo'] = "work",  ['hash'] = GetHashKey("as350"), ['banned'] = false },
 	["as350pc"] = { ['name'] = "as350pc", ['price'] = 1000, ['tipo'] = "work",  ['hash'] = GetHashKey("as350pc"), ['banned'] = false },
 	["s10sap"] = { ['name'] = "s10sap", ['price'] = 1000, ['tipo'] = "work",  ['hash'] = GetHashKey("s10sap"), ['banned'] = false },

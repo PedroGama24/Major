@@ -684,7 +684,7 @@ config.vehList = {
 	{ hash = GetHashKey("rmodjesko"), name = 'rmodjesko', price = 800000, banido = false, modelo = 'Jesko', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("rmodmartin"), name = 'rmodmartin', price = 800000, banido = false, modelo = 'Aston Martin DBS', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("rmodsianr"), name = 'rmodsianr', price = 800000, banido = false, modelo = 'Sianr', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("rs7c821"), name = 'rs7c821', price = 800000, banido = false, modelo = 'ram226x6', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("ram226x6"), name = 'ram226x6', price = 800000, banido = false, modelo = 'ram226x6', capacidade = 130, tipo = 'carros' },
 	{ hash = GetHashKey("rs520"), name = 'rs520', price = 800000, banido = false, modelo = 'Rs520', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("s10"), name = 's10', price = 800000, banido = false, modelo = 's10', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("s1000rr"), name = 's1000rr', price = 800000, banido = false, modelo = 's1000rr', capacidade = 30, tipo = 'carros' },
