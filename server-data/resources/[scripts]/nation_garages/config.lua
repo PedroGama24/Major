@@ -696,6 +696,17 @@ config.vehList = {
 	{ hash = GetHashKey("tenere1200"), name = 'tenere1200', price = 800000, banido = false, modelo = 'tenere1200', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("xj6"), name = 'xj6', price = 800000, banido = false, modelo = 'xj6', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("xt660vip"), name = 'xt660vip', price = 800000, banido = false, modelo = 'xt660vip', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("a45flkpolice"), name = 'a45flkpolice', price = 800000, banido = false, modelo = 'a45flkpolice', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("wrsgle63"), name = 'wrsgle63', price = 800000, banido = false, modelo = 'Gle63', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("wrsm760"), name = 'wrsm760', price = 800000, banido = false, modelo = 'bmw760', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("wrsurus"), name = 'wrsurus', price = 800000, banido = false, modelo = 'Urus', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("bmwm3"), name = 'bmwm3', price = 800000, banido = false, modelo = 'bmwm3', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("bmwm4"), name = 'bmwm4', price = 800000, banido = false, modelo = 'bmwm4', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("bmwm5"), name = 'bmwm5', price = 800000, banido = false, modelo = 'bmwm5', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("jettagli"), name = 'jettagli', price = 800000, banido = false, modelo = 'jettagli', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("nkamarok"), name = 'nkamarok', price = 800000, banido = false, modelo = 'nkamarok', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("tiger"), name = 'tiger', price = 800000, banido = false, modelo = 'tiger', capacidade = 30, tipo = 'carros' },
+
 
 }
 ----------------------------------------------
@@ -839,24 +850,23 @@ config.garages = {
 	},
 
 	
-	[11] = { type = 'service', coords = vec3(1334.35, -727.66, 65.67), perm = 'pmesp.permissao',
+	[11] = { type = 'service', coords = vec3(2540.21,-336.15,94.13), perm = 'pmesp.permissao',
 	  vehiclePositions = {
-		[1] = { vec3(1336.65, -721.15, 65.06), h = 334.33 },
-		[2] = { vec3(1330.4, -718.81, 65.06), h = 330.67 },
+		[1] = { vec3(  2538.57,  -372.1,  93.0), h = 350.36 },
 	  },
 	  vehicles = {
-		{ vehicle = 'golpm', modelo = 'Gol' },
-		{ vehicle = 'pbus', modelo = 'Ônibus' },
-		{ vehicle = 'basepm2', modelo = 'Van' },
-		{ vehicle = 'duster20pm', modelo = 'Duster' },
-		{ vehicle = 'spin15pm', modelo = 'Spin' },
-		{ vehicle = 'spacepm1', modelo = 'Space' },
-		{ vehicle = 'trailcpm', modelo = 'Trail' },
+		{ vehicle = 'a45flkpolice', modelo = 'a45flkpolice' },
+		{ vehicle = 'wrsgle63', modelo = 'Gle63' },
+		{ vehicle = 'wrsm760', modelo = 'Bwm760' },
+		{ vehicle = 'wrsurus', modelo = 'Urus' },
+		{ vehicle = 'bmwm3', modelo = 'bmwm3' },
+		{ vehicle = 'bmwm4', modelo = 'bmwm4' },
+		{ vehicle = 'bmwm5', modelo = 'bmwm5' },
 	--	{ vehicle = 'paliopmrp1', modelo = 'Palio' },
 		
-		{ vehicle = 'xt2017pm', modelo = 'XT ROCAM' },
-		{ vehicle = 'xre2020pm', modelo = 'XRE ROCAM' },
-		{ vehicle = 'tiger800pm', modelo = 'T800 ROCAM' },
+		{ vehicle = 'jettagli', modelo = 'jettagli' },
+		{ vehicle = 'nkamarok', modelo = 'nkamarok' },
+		{ vehicle = 'tiger', modelo = 'tiger' },
 	  }
 	},
 	[12] = { type = 'service', coords = vec3(1294.92, -749.1, 65.51), perm = 'grpae.permissao',
