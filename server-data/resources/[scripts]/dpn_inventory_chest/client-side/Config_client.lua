@@ -339,7 +339,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "anonymous.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175212749721632/EkJ2qDMhU9Itp_gD2EMwvgGBMUaMofLp8q5lJ_2PVxEYSWbwU3Izbz_hFsNh8L1Kmr-q",
         },      
 		
         ['Bau-Verdes'] = {
@@ -347,7 +347,7 @@ ConfigClient = {
             weight = 500, 
             perm = "verdes.permissao",
             slots = 30, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175292298899476/YmVZR4NKNTTusJ8puuji7xEW02ezavp59ronMnxJRlD1SEW3qWaV2PxtYZyhVG9Sn9Ca",
         },
 
         ['Bau-Verdes2'] = {
@@ -355,7 +355,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "verdes.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175292298899476/YmVZR4NKNTTusJ8puuji7xEW02ezavp59ronMnxJRlD1SEW3qWaV2PxtYZyhVG9Sn9Ca",
         },
 
         ['Bau-Roxos'] = {
@@ -363,7 +363,7 @@ ConfigClient = {
             weight = 500, 
             perm = "roxos.permissao",
             slots = 30, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175487501799494/2TJH0CuSpdsQURP_9QVNpo23PymSc51JAQJiIMN1usWV8wX0OZlEp8TlSJIXqgodENXT",
         },
 
         ['Bau-Roxos2'] = {
@@ -371,7 +371,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "roxos.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175487501799494/2TJH0CuSpdsQURP_9QVNpo23PymSc51JAQJiIMN1usWV8wX0OZlEp8TlSJIXqgodENXT",
         },
 
         ['Bau-Amarelos'] = {
@@ -379,7 +379,7 @@ ConfigClient = {
             weight = 500, 
             perm = "amarelos.permissao",
             slots = 30, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175652866441216/0lGGXypwEoAs4O0UQ6mQeR6ZU2UhO5Exiqaso22P3OX6geg8P4y1Uu2JWOTVUKrLXmr2",
         },
 
         ['Bau-Amarelos2'] = {
@@ -387,7 +387,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "amarelos.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175652866441216/0lGGXypwEoAs4O0UQ6mQeR6ZU2UhO5Exiqaso22P3OX6geg8P4y1Uu2JWOTVUKrLXmr2",
         },
 
         ['Bau-Casino'] = {
@@ -395,7 +395,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "casino.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175751709392966/NhR4f44PNC-jz2Myncp0VgA0AgDGY3TI_9NM_RpbM9zNovQLPnwdRw8xRJDeMvwYQKAl",
         },
 
         ['Bau-Bratva'] = {
@@ -403,7 +403,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "bratva.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175836711161936/-9u4Ru4WObQ-ORYmjisBE0dv97O3dt4f658DMNNyCRgTZT9GZogE__lEQ40hIu-0ZZJr",
         },	
 
         ['Bau-Cartel'] = {
@@ -411,7 +411,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "cartel.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174175932936880258/Dz3NW2agtr25koYv9pqRxgp9fGEyc2P8iDGimb6YPRaxlFihToEexR3kfgKzF7Y2Uk6n",
         },	
 
         ['Bau-Farc'] = {
@@ -419,7 +419,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "farc.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176142081667103/4HTlZrqOy757zc8b6TjPZsIn-oRZAK7aiVzptDCvlAf0SXb_Qu-v_MDBoQzBXYqZwQIm",
         },	
 
         ['Bau-TheLost'] = {
@@ -427,7 +427,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "thelost.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176215561682954/2T1aGVCn4q5R_59EhqDFFJHdTgCBX4Z3wlk4YQOF5X3jkGGZNiIKdu44i49ztIRWlRkI",
         },
 
         ['Bau-SOA'] = {
@@ -435,7 +435,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "soa.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176288194433044/odTG3apHPKth7Fsjac2vCTOnRB_Zn9YZflY8JamgYI9d1sNZtUzYq7Xxkj1UQZdMSs9W",
         },
 
         ['Bau-Vanilla'] = {
@@ -443,7 +443,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "vanilla.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176380125184021/4MzPsbYo9BHGPOEK_nfN93jYhdCmd8aJ2NyAnVMVbuB7d1wa7ZaVuzntSFIoyXuEFilO",
         },
        
         ['Bau-DriftKing'] = {
@@ -451,7 +451,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "driftking.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176457438806066/UNuDrR5Wwljfz8usYGFelf-_yJmfc-iK37ls5xCfmeBETaMf5zgJzaQUbtcUNBhAbVpc",
         },
 
         ['Bau-Burguershot'] = {
@@ -459,7 +459,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "burguershot.permissao",
             slots = 100, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176593342627910/eDDWla7JEXn6j46thK5ICVz4RXWnTHqyOQIxhYTux97veh0W7FD6BKd5ax7vcz6hRDiE",
         },
 
         ['Bau-Policia'] = {
@@ -467,7 +467,7 @@ ConfigClient = {
             weight = 5000, 
             perm = "policia.permissao",
             slots = 200, 
-            webhook = "",
+            webhook = "https://discord.com/api/webhooks/1174176700796514374/nKgKQ8K04BBAFu5VGdRha2kadTKs-qWK3NScyN7xyACD7P4fK2v9tEwD0FQkx5G2KN5X",
         },
 
         

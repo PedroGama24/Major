@@ -2,7 +2,7 @@
     "token": "",
     "client": {
         "bankType": "nubank",
-        "uploadServer": "https://discord.com/api/webhooks/974350968307216454/NWvq9vFtsqLTAkYqDdBA9HW07QT7ObQExj4qjXdOgU5XAcSnTJsahIpmKChI_GuRIyE1",
+        "uploadServer": "https://discord.com/api/webhooks/1174171340375326761/cCRG8XYP-6Jl4EZYKHUV9qOcfHNKsDMXsIReHEfYXG_6_tpugBWgimAWusjd1MGkJdHc",
         "allowUnsafeURL": true,
         "videoServer": "ws://SEUIP:8080/",
         "case": "iphonexs",
@@ -27,7 +27,7 @@
         } 
     },
     "call_mode": "pma-voice",
-    "webhookURL": "https://discord.com/api/webhooks/1031666228047122482/rxsSd5wgbE3qV1fL0SdwYhbiEGJqiCVnEVtfooIiCK1q8OBVtsHbYHRlOYR4-16hE5U3",
+    "webhookURL": "https://discord.com/api/webhooks/1174171340375326761/cCRG8XYP-6Jl4EZYKHUV9qOcfHNKsDMXsIReHEfYXG_6_tpugBWgimAWusjd1MGkJdHc",
     "instagram_verify": "instagram.verificado",
     "weazel_tags": "admin.permissao",
     "instagram_accounts": {

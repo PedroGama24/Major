@@ -570,10 +570,10 @@ cfg.identity = {
 cfg.onlyNotifyPlayersOnStore = true --
 
 cfg.webhooks = {
-  buy = "https://discord.com/api/webhooks/943742295440752671/TtN2i5-Zm_HwfQqPVjWqfdYplq0QMmg2oRlcnKLfvZE4W4vUojcINX4r_myYC0Bf_i5H",
-  roulette = "https://discord.com/api/webhooks/943742295440752671/TtN2i5-Zm_HwfQqPVjWqfdYplq0QMmg2oRlcnKLfvZE4W4vUojcINX4r_myYC0Bf_i5H",
-  commands = "https://discord.com/api/webhooks/943742295440752671/TtN2i5-Zm_HwfQqPVjWqfdYplq0QMmg2oRlcnKLfvZE4W4vUojcINX4r_myYC0Bf_i5H",
-  onremove = "https://discord.com/api/webhooks/943742295440752671/TtN2i5-Zm_HwfQqPVjWqfdYplq0QMmg2oRlcnKLfvZE4W4vUojcINX4r_myYC0Bf_i5H",
+  buy = "https://discord.com/api/webhooks/1174187184971063326/3kKi_NOPhvtt7M7fZahEzc7neZQQte5OdhiCTHx2K5QQJT9r2q9CHZsX3aQNTbIZ3mWC",
+  roulette = "https://discord.com/api/webhooks/1174187184971063326/3kKi_NOPhvtt7M7fZahEzc7neZQQte5OdhiCTHx2K5QQJT9r2q9CHZsX3aQNTbIZ3mWC",
+  commands = "https://discord.com/api/webhooks/1174187184971063326/3kKi_NOPhvtt7M7fZahEzc7neZQQte5OdhiCTHx2K5QQJT9r2q9CHZsX3aQNTbIZ3mWC",
+  onremove = "https://discord.com/api/webhooks/1174187184971063326/3kKi_NOPhvtt7M7fZahEzc7neZQQte5OdhiCTHx2K5QQJT9r2q9CHZsX3aQNTbIZ3mWC",
   info = {
     title  = 'VIP',
     footer = ''

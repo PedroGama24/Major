@@ -13,13 +13,13 @@ Config.logo = 'https://cdn.discordapp.com/attachments/1001361166125248573/102760
 
 --[ WEBHOOKS ]--------------------------------------------------------------------------------------------------------------------
 
-Config.webhookCriarBoletim = '' -- Webhook para criação de boletins;
+Config.webhookCriarBoletim = 'https://discord.com/api/webhooks/1174173225362661428/oR2Qp2ESF5YaPb1sQoqr4F0_FSqe5MNJ9QQz4plFlkT4ir6PihnaQ6xHeFQRdtuBMsBf' -- Webhook para criação de boletins;
 
-Config.webhookDelBoletim = '' -- Webhook para o deletamento de boletins de ocorrência;
+Config.webhookDelBoletim = 'https://discord.com/api/webhooks/1174173225362661428/oR2Qp2ESF5YaPb1sQoqr4F0_FSqe5MNJ9QQz4plFlkT4ir6PihnaQ6xHeFQRdtuBMsBf' -- Webhook para o deletamento de boletins de ocorrência;
 
-Config.webhookPrender = '' -- Webhook quando um boletim for finalizado e o criminoso preso;
+Config.webhookPrender = 'https://discord.com/api/webhooks/1174173225362661428/oR2Qp2ESF5YaPb1sQoqr4F0_FSqe5MNJ9QQz4plFlkT4ir6PihnaQ6xHeFQRdtuBMsBf' -- Webhook quando um boletim for finalizado e o criminoso preso;
 
-Config.webhookDelCadastro = '' -- Webhook quando um administrador, deletar um cadastro;
+Config.webhookDelCadastro = 'https://discord.com/api/webhooks/1174173225362661428/oR2Qp2ESF5YaPb1sQoqr4F0_FSqe5MNJ9QQz4plFlkT4ir6PihnaQ6xHeFQRdtuBMsBf' -- Webhook quando um administrador, deletar um cadastro;
 
 --[ COMANDO ]--------------------------------------------------------------------------------------------------------------------
 

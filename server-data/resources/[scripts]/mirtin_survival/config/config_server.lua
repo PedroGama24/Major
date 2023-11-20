@@ -13,7 +13,7 @@ vCLIENT = Tunnel.getInterface("mirtin_survival")
 cfg = {}
 
 cfg.license = "" -- não mexa aqui ( isso server para updates exclusivos )
-cfg.weebhook = "" -- WEEBHOOK
+cfg.weebhook = "https://discord.com/api/webhooks/1174184493481996358/_xmQhDf0cMLoL9i8EOk87PtJ_lBjmW2xbR9MTinyb27O6u-BXGFL6qhGw0Yzv-3V9Ww_" -- WEEBHOOK
 cfg.logo = "https://media.discordapp.net/attachments/969257137127690240/970327158276898826/PERFIL_AMSTERDAM.gif" -- IMAGEM DO WEEBHOOK
 cfg.color = 6356736 -- COR DO WEEBHOOK
 
@@ -57,7 +57,7 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- COMANDOS
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local webhooksocorro = "https://discord.com/api/webhooks/978496575619887144/6N3zUa5Qu7tOdFQ-ctSFbJ7hVejqNxC2aPo8cgYiC2aRfwKPQG437E4eTxTiyUiuqllb"
+local webhooksocorro = "https://discord.com/api/webhooks/1174184493481996358/_xmQhDf0cMLoL9i8EOk87PtJ_lBjmW2xbR9MTinyb27O6u-BXGFL6qhGw0Yzv-3V9Ww_"
 
 RegisterCommand('socorro',function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
@@ -97,7 +97,7 @@ end)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- LOG DEATH
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local weebhookitens = "https://discord.com/api/webhooks/978496677755379763/Omgs72NMxYLhUU8ZLFYCyufW-A5YKAcDM0SkQT8K7EX_bZ7MgsL2fmHk6fPNVxkwj5lD"
+local weebhookitens = "https://discord.com/api/webhooks/1174184493481996358/_xmQhDf0cMLoL9i8EOk87PtJ_lBjmW2xbR9MTinyb27O6u-BXGFL6qhGw0Yzv-3V9Ww_"
 
 src.sendItensDeath = function()
     local source = source

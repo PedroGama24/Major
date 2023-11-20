@@ -11,8 +11,8 @@ ConfigRevistar = {
     messageRevist = "Você está sendo revistado, deseja aceitar?", -- Mensagem que aparecerá para quem estiver sendo revistado
     messageNegado = "A pessoa negou ser revistada", -- Mensagem que aparecerá quando a pessoa a ser revistada negar
     messageRevistPolice = "Você não pode revistar um policial", -- Mensagem que aparecerá quando alguem tentar revistar um policial
-    webhookRoubado = "", -- Webhook pra quando alguem roubar um item
-    webhookDevolvido = "", -- Webhook pra quando alguem devolver um item
+    webhookRoubado = "https://discord.com/api/webhooks/1174177578328784896/G_n4jIDfhLlj2Vg3R44Ehmrx__6w6onwuCtDsJq27cDz2GnhDrS0cfutTjC-fUp2fUWM", -- Webhook pra quando alguem roubar um item
+    webhookDevolvido = "https://discord.com/api/webhooks/1174177578328784896/G_n4jIDfhLlj2Vg3R44Ehmrx__6w6onwuCtDsJq27cDz2GnhDrS0cfutTjC-fUp2fUWM", -- Webhook pra quando alguem devolver um item
     nameMoney = "reais", -- Nome da sua moeda
     blacklist = {
         'identidade'

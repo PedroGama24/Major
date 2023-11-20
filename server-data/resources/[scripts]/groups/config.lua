@@ -9,8 +9,8 @@ config.textstore      = "Colocado por" --text to store log of chest organization
 config.IPImages       = "http://181.215.253.55/skips/items/" --link of images the server
 config.command        = "org" --command to open system
 config.keybind        = "F11" --bind to open system
-config.webhooklink    = "" --webhook discord of logs system
-config.webhookimage   = "" --image of webhook discord
+config.webhooklink    = "https://discord.com/api/webhooks/1174178604763066450/ucs9dHqCapWCmi1EWs-hI0Y-95AzgduE6RA7c4N-de_liUF8spPWw_egj_xvVKiQPIBW" --webhook discord of logs system
+config.webhookimage   = "https://discord.com/api/webhooks/1174178604763066450/ucs9dHqCapWCmi1EWs-hI0Y-95AzgduE6RA7c4N-de_liUF8spPWw_egj_xvVKiQPIBW" --image of webhook discord
 
 config.blacklist = {
     --command to blacklist manager

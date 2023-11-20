@@ -16,14 +16,14 @@ config.precoPromoBox = 17 --Quantas coins pra abrir 6 BOX de uma vez
 config.comandoAddCoins = 'addcoins'
 config.permComandoAddCoins = 'admin.permissao' -- Permissão para utilizar o /addcoins
 config.permAbrirLonge = 'containers.permissao' -- Permissão para utilizar o /containers
-config.webhookAddCoins = ""
+config.webhookAddCoins = "https://discord.com/api/webhooks/1174186482500636752/XWKdxJEiz1l-_fqreu8J4TLZ8jDHFWwt1-fW-NqvIp78x1m7UogTrhxD_EAFO-MTu7QN"
 
 config.comandoAbrirMenu= 'box' --Comando retorna uma notify mostrando a quanto tempo que a pessoa está no servidor
 config.comandoTempoOnline = 'online' --Comando retorna uma notify mostrando a quanto tempo que a pessoa está no servidor
 config.comandoComprar = 'comprarbox'  --Comando compra 25 coins(1BOX) caso as configs abaixo estejam habilitadas
 config.venderInGame = false --true: ativa / false: desativa
 config.precoBoxInGame = 3000000 -- valor para comprar 25 coins, estipulei 3kk
-config.webhookBuyInGame = ""
+config.webhookBuyInGame = "https://discord.com/api/webhooks/1174186482500636752/XWKdxJEiz1l-_fqreu8J4TLZ8jDHFWwt1-fW-NqvIp78x1m7UogTrhxD_EAFO-MTu7QN"
 
 config.execute = false
 config.prepare = {

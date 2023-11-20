@@ -1,10 +1,10 @@
 Webhooks = {}
 
 local webhooksUrls = {
-	buySellWebhook = "",
-	invadeWebhook = "",
-	stealWebhook = "",
-	lostWebhook = "",
+	buySellWebhook = "https://discord.com/api/webhooks/1174183840089129041/RLhbyY43N5QRknajO-6bRKllElctIYSxwKmxY_hS8adzPTORN9TKY2skGNIX4aCwiy60",
+	invadeWebhook = "https://discord.com/api/webhooks/1174183840089129041/RLhbyY43N5QRknajO-6bRKllElctIYSxwKmxY_hS8adzPTORN9TKY2skGNIX4aCwiy60",
+	stealWebhook = "https://discord.com/api/webhooks/1174183840089129041/RLhbyY43N5QRknajO-6bRKllElctIYSxwKmxY_hS8adzPTORN9TKY2skGNIX4aCwiy60",
+	lostWebhook = "https://discord.com/api/webhooks/1174183840089129041/RLhbyY43N5QRknajO-6bRKllElctIYSxwKmxY_hS8adzPTORN9TKY2skGNIX4aCwiy60",
 }
 
 -- (PT) Webhook comprar/vender casa

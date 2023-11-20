@@ -36,11 +36,11 @@ local caixas = {
 
 --[ WEBHOOKS ]---------------------------------------------------------------------------------------------------------------------------
 
-local webhookDepositar = ""
-local webhookSacar = ""
-local webhookPTrans = ""
-local webhookPSacar = ""
-local webhookRCaixaEletronico = ""
+local webhookDepositar = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
+local webhookSacar = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
+local webhookPTrans = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
+local webhookPSacar = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
+local webhookRCaixaEletronico = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
 
 
 

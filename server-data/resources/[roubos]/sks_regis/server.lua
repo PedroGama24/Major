@@ -16,7 +16,7 @@ local blips = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- WEBHOOK
 -----------------------------------------------------------------------------------------------------------------------------------------
-local webhookregistradora = "WEEBHOOKREGISTRADORA"
+local webhookregistradora = "https://discord.com/api/webhooks/1174171923891105924/f4cMJTmtpOOSAJeQiUR1wwWZC2JZYm74ntPjqOBW6jZzB8r5xrg60E7I1mOzhM0hUa0z"
 
 function SendWebhookMessage(webhook,message)
 	if webhook ~= nil and webhook ~= "" then

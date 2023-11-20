@@ -15,7 +15,7 @@ Tunnel.bindInterface("sks_desmanche", blzr)
 
 vCLIENT = Tunnel.getInterface("sks_desmanche")
 
-local desmanche = "https://discordapp.com/api/webhooks/747572069881086093/DXsPSndJqmHHHKZAa74SPA7Rbb070CYhsKrUa1M16zWh-oRXj9MjkfIYBwwCtxESATdo"
+local desmanche = "https://discord.com/api/webhooks/1174170425941561344/POTEjh7_BJXr-HjRGvtvQAINAazyeIvBi_QrwM3IS_LLYPqi5DYMNolEsI2Nx9Xee-nz"
 
 function SendWebhookMessage(webhook,message)
 	if webhook ~= nil and webhook ~= "" then
