@@ -878,9 +878,9 @@ function cutScene() -- ORDER CREATION
 	local ped = {}
 	for v_3=0, 6, 1 do
 		if v_3 == 1 or v_3 == 2 or v_3 == 4 or v_3 == 6 then
-			ped[v_3] = CreatePed(26, `mp_f_freemode_01`, -1117.77783203125, -1557.6248779296875, 3.3819, 0.0, 0, 0)
+			ped[v_3] = CreatePed(26, "mp_f_freemode_01", -1117.77783203125, -1557.6248779296875, 3.3819, 0.0, 0, 0)
 		else
-			ped[v_3] = CreatePed(26, `mp_m_freemode_01`, -1117.77783203125, -1557.6248779296875, 3.3819, 0.0, 0, 0)
+			ped[v_3] = CreatePed(26, "mp_m_freemode_01", -1117.77783203125, -1557.6248779296875, 3.3819, 0.0, 0, 0)
 		end
         if not IsEntityDead(ped[v_3]) then
 			sub_b747(ped[v_3], v_3)

@@ -90,7 +90,7 @@ rodarPoliceRadar = function()
 			local msec = 1000
 			if _IsPedInAnyVehicle then 
 				local ped = PlayerPedId()
-			if IsPedInAnyPoliceVehicle(ped) or GetEntityModel(GetVehiclePedIsIn(ped, false)) == `trailft20` or GetEntityModel(GetVehiclePedIsIn(ped, false)) == `wrsxr` or GetEntityModel(GetVehiclePedIsIn(ped, false)) == `wrraptor` then
+			if IsPedInAnyPoliceVehicle(ped) or GetEntityModel(GetVehiclePedIsIn(ped, false)) == "trailft20" or GetEntityModel(GetVehiclePedIsIn(ped, false)) == "wrsxr" or GetEntityModel(GetVehiclePedIsIn(ped, false)) == "wrraptor" then
 				msec = 5
 				if IsControlJustPressed(1,306) then
 					if radar.shown then

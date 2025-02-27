@@ -3,19 +3,19 @@
 
 --Caso o arquivo seja client bote a seguinte linha abaixo de
 
-	vRP.setCustomization...
+	--[[ vRP.setCustomization... ]]
 
 --Linha a ser colocada
 
-	TriggerServerEvent('dpn_tattoo:setPedClient')
+	--[[ TriggerServerEvent('dpn_tattoo:setPedClient') ]]
 
 --Caso o arquivo seja server coloque a seguinte linha abaixo de
 
-	vRPclient._setCustomization...
+	--[[ vRPclient._setCustomization... ]]
 
 --Linha a ser colocada
 
-	TriggerEvent('dpn_tattoo:setPedServer',source)
+	--[[ TriggerEvent('dpn_tattoo:setPedServer',source) ]]
 
 
 --Caso achem mais bugs relatam em algum ticket em 

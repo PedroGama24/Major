@@ -41,7 +41,7 @@
             <inheritdoc cref="M:CitizenFX.Core.Func.ConstructCommandRemapped(System.Object,System.Reflection.MethodInfo)"/>
         </member>
         <member name="T:CitizenFX.Core.KeyMapAttribute">
-            <summary>Does nothing on server side</summary>
+            <summary>Does nothing on server side or RedM</summary>
         </member>
         <member name="P:CitizenFX.Core.KeyMapAttribute.RemapParameters">
             <returns></returns>
@@ -64,6 +64,9 @@
             Register this method to listen for the given <see cref="P:CitizenFX.Core.EventHandlerAttribute.Event"/> when this <see cref="T:CitizenFX.Core.BaseScript"/> is loaded
             </summary>
             <remarks>Only works on <see cref="T:CitizenFX.Core.BaseScript"/> inherited class methods</remarks>
+        </member>
+        <member name="T:CitizenFX.Core.NuiCallbackAttribute">
+            <summary>Does nothing on server side</summary>
         </member>
         <member name="T:CitizenFX.Core.ExportAttribute">
             <summary>
@@ -141,6 +144,18 @@
             </example>
             <param name="msecs">The amount of time by which to delay scheduling this interval function.</param>
             <returns>An awaitable task.</returns>
+        </member>
+        <member name="M:CitizenFX.Core.BaseScript.RegisterNuiCallback(System.String,System.Delegate)">
+            <summary>Does nothing on server side</summary>
+        </member>
+        <member name="M:CitizenFX.Core.BaseScript.UnregisterNuiCallback(System.String)">
+            <summary>Does nothing on server side</summary>
+        </member>
+        <member name="M:CitizenFX.Core.BaseScript.AddNuiCallback(System.String,System.Delegate)">
+            <summary>Does nothing on server side</summary>
+        </member>
+        <member name="M:CitizenFX.Core.BaseScript.RemoveNuiCallback(System.String)">
+            <summary>Does nothing on server side</summary>
         </member>
         <member name="M:CitizenFX.Core.BaseScript.RegisterScript(CitizenFX.Core.BaseScript)">
             <summary>
@@ -577,6 +592,14 @@
             Should only be called by <see cref="M:CitizenFX.Core.BaseScript.Enable"/> or any other code that guarantees that it is only called once
             </summary>
         </member>
+        <member name="M:CitizenFX.Core.MsgPackDeserializer.DeserializeArray(System.Byte[],System.String)">
+            <summary>
+            Starts deserialization from an array type
+            </summary>
+            <param name="data">a byte array</param>
+            <param name="netSource">from whom came this?</param>
+            <returns>arguments that can be passed into dynamic delegates</returns>
+        </member>
         <member name="M:CitizenFX.Core.MsgPackDeserializer.DeserializeArray(System.Byte*,System.Int64,System.String)">
             <summary>
             Starts deserialization from an array type
@@ -787,6 +810,16 @@
             allows us to directly use `fixed(byte* ptr = cstring)`
             </summary>
             <returns>reference to first byte</returns>
+        </member>
+        <member name="F:CitizenFX.Core.ScriptSharedData.m_scheduledTime">
+            <summary>
+            Next time when our host needs to call in again
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Core.ScriptSharedData.m_scheduledTimeAsLong">
+            <summary>
+            Same as <see cref="F:CitizenFX.Core.ScriptSharedData.m_scheduledTime"/> but used in methods like <see cref="M:System.Threading.Interlocked.CompareExchange(System.Int64@,System.Int64,System.Int64)" /> who miss a <see cref="T:System.UInt64"/> overload.
+            </summary>
         </member>
         <member name="F:CitizenFX.Core.MathUtil.ZeroTolerance">
             <summary>
@@ -7221,6 +7254,13 @@
             This approach is 10x faster than the v1 approach in combination with CString
             </summary>
         </member>
+        <member name="M:CitizenFX.Core.Native.CustomNativeInvoker.NativeStringResultSanitization(System.UInt64,CitizenFX.Core.Native.Argument[],System.UInt64*,System.Int32,System.UInt64*)">
+            <summary>
+            Sanitization for string result types
+            Loops through all values given by the ScRT and deny any that equals the result value which isn't of the string type
+            </summary>
+            <returns>Result from <see cref="M:CitizenFX.Core.ScriptContext.GetResult(System.Type,System.UInt64*,System.UInt64)"/> or null if sanitized</returns>
+        </member>
         <member name="M:CitizenFX.Core.Native.MemoryAccess.Offset(System.IntPtr,System.Int32)">
             <remarks>
             Purely used to circumvent <see cref="T:System.IntPtr"/> operator+'s <see langword="internal"/> accessibility in game libraries
@@ -7316,6 +7356,40 @@
             </summary>
             <param name="name">name of the resource we want to reference</param>
             <remarks>Doesn't guarantee the resource is initialized, active, or has an exports ready.</remarks>
+        </member>
+        <member name="M:CitizenFX.Core.ScriptInterface.RequestTick(System.UInt64)">
+            <summary>
+            Schedule a call-in at the given time, uses CAS to make sure we only overwrite if the given time is earlier than the stored one.
+            </summary>
+            <param name="time">Next time to request a call in</param>
+        </member>
+        <member name="M:CitizenFX.Core.ScriptInterface.RequestTickNextFrame">
+            <summary>
+            Schedule a call-in for the next frame.
+            </summary>
+        </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.AddConvarChangeListener(CitizenFX.Core.CString,System.Delegate)">
+            <summary>
+            Adds a listener for Console Variable changes.
+            
+            The function called expects to match the following signature:
+            
+            ```ts
+            function ConVarChangeListener(conVarName: string, reserved: any);
+            ```
+            
+            *   **conVarName**: The ConVar that changed.
+            *   **reserved**: Currently unused.
+            </summary>
+            <param name="conVarFilter">
+            The Console Variable to listen for, this can be a pattern like "test:\*", or null for any
+            </param>
+            <param name="handler">
+            The handler function.
+            </param>
+            <returns>
+            A cookie to remove the change handler.
+            </returns>
         </member>
         <member name="M:CitizenFX.Shared.Native.Natives.AddStateBagChangeHandler(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Delegate)">
             <summary>
@@ -7421,6 +7495,34 @@
             Returns the convar value if it can be found, otherwise it returns the assigned `default`.
             </returns>
         </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.GetConvarBool(CitizenFX.Core.CString,System.Boolean)">
+            <summary>
+            Can be used to get a console variable casted back to `bool`.
+            </summary>
+            <param name="varName">
+            The console variable to look up.
+            </param>
+            <param name="defaultValue">
+            The default value to set if none is found.
+            </param>
+            <returns>
+            Returns the convar value if it can be found, otherwise it returns the assigned `default`.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.GetConvarFloat(CitizenFX.Core.CString,System.Single)">
+            <summary>
+            This will have floating point inaccuracy.
+            </summary>
+            <param name="varName">
+            The console variable to get
+            </param>
+            <param name="defaultValue">
+            The default value to set, if none are found.
+            </param>
+            <returns>
+            Returns the value set in varName, or `default` if none are specified
+            </returns>
+        </member>
         <member name="M:CitizenFX.Shared.Native.Natives.GetConvarInt(CitizenFX.Core.CString,System.Int32)">
             <summary>
             Can be used to get a console variable casted back to `int` (an integer value).
@@ -7470,6 +7572,10 @@
                 *   2699
                 *   2802
                 *   2944
+                *   3095
+                *   3258
+                *   3323
+                *   3407
             *   RedM
                 *   1311
                 *   1355
@@ -7499,6 +7605,30 @@
             </summary>
             <returns>
             The game the script environment is running in.
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.GetGamePool(CitizenFX.Core.CString)">
+            <summary>
+            Returns a list of entity handles (script GUID) for all entities in the specified pool - the data returned is an array as
+            follows:
+            
+            ```json
+            [ 770, 1026, 1282, 1538, 1794, 2050, 2306, 2562, 2818, 3074, 3330, 3586, 3842, 4098, 4354, 4610, ...]
+            ```
+            
+            ### Supported pools
+            
+            *   `CPed`: Peds (including animals) and players.
+            *   `CObject`: Objects (props), doors, and projectiles.
+            *   `CNetObject`: Networked objects
+            *   `CVehicle`: Vehicles.
+            *   `CPickup`: Pickups.
+            </summary>
+            <param name="poolName">
+            The pool name to get a list of entities from.
+            </param>
+            <returns>
+            An array containing entity handles for each entity in the named pool.
             </returns>
         </member>
         <member name="M:CitizenFX.Shared.Native.Natives.GetInstanceId">
@@ -7591,10 +7721,14 @@
             ```
             [
             {
-            "name": "cmdlist"
+            "name": "cmdlist",
+            "resource": "resource",
+            "arity" = -1,
             },
             {
             "name": "command1"
+            "resource": "resource_2",
+            "arity" = -1,
             }
             ]
             ```
@@ -7612,6 +7746,30 @@
             </param>
             <returns>
             The resource name as a `string`
+            </returns>
+        </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.GetResourceCommands(CitizenFX.Core.CString)">
+            <summary>
+            Returns all commands registered by the specified resource.
+            The data returned adheres to the following layout:
+            
+            ```
+            [
+            {
+            "name": "cmdlist",
+            "resource": "example_resource",
+            "arity" = -1,
+            },
+            {
+            "name": "command1"
+            "resource": "example_resource2",
+            "arity" = -1,
+            }
+            ]
+            ```
+            </summary>
+            <returns>
+            An object containing registered commands.
             </returns>
         </member>
         <member name="M:CitizenFX.Shared.Native.Natives.GetResourceKvpFloat(CitizenFX.Core.CString)">
@@ -7673,6 +7831,17 @@
             The resource state. One of `"missing", "started", "starting", "stopped", "stopping", "uninitialized" or "unknown"`.
             </returns>
         </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.GetStateBagKeys(CitizenFX.Core.CString)">
+            <summary>
+            GET_STATE_BAG_KEYS
+            </summary>
+            <param name="bagName">
+            The name of the bag.
+            </param>
+            <returns>
+            Returns an array containing all keys for which the state bag has associated values.
+            </returns>
+        </member>
         <member name="M:CitizenFX.Shared.Native.Natives.GetStateBagValue(CitizenFX.Core.CString,CitizenFX.Core.CString)">
             <summary>
             Returns the value of a state bag key.
@@ -7691,10 +7860,29 @@
             GET_VEHICLE_STEERING_ANGLE
             </summary>
         </member>
-        <member name="M:CitizenFX.Shared.Native.Natives.InvokeFunctionReference(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Int32,System.Int32@)">
+        <member name="M:CitizenFX.Shared.Native.Natives.GetVehicleType(System.Int32)">
             <summary>
-            INVOKE_FUNCTION_REFERENCE
+            Returns the type of the passed vehicle.
+            
+            For client scripts, reference the more detailed [GET_VEHICLE_TYPE_RAW](#\_0xDE73BC10) native.
+            
+            ### Vehicle types
+            
+            *   automobile
+            *   bike
+            *   boat
+            *   heli
+            *   plane
+            *   submarine
+            *   trailer
+            *   train
             </summary>
+            <param name="vehicle">
+            The vehicle's entity handle.
+            </param>
+            <returns>
+            If the entity is a vehicle, the vehicle type. If it is not a vehicle, the return value will be null.
+            </returns>
         </member>
         <member name="M:CitizenFX.Shared.Native.Natives.IsAceAllowed(CitizenFX.Core.CString)">
             <summary>
@@ -7808,6 +7996,14 @@
             An event name, or "\*" to disable HLL event filtering for this resource.
             </param>
         </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.RemoveConvarChangeListener(System.Int32)">
+            <summary>
+            REMOVE_CONVAR_CHANGE_LISTENER
+            </summary>
+            <param name="cookie">
+            The cookie returned from [ADD_CONVAR_CHANGE_LISTENER](#\_0xAB7F7241)
+            </param>
+        </member>
         <member name="M:CitizenFX.Shared.Native.Natives.RemoveStateBagChangeHandler(System.Int32)">
             <summary>
             **Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
@@ -7867,6 +8063,20 @@
             A KVP find handle to use with [FIND_KVP](#\_0xBD7BEBC5) and close with [END_FIND_KVP](#\_0xB3210203)
             </returns>
         </member>
+        <member name="M:CitizenFX.Shared.Native.Natives.StateBagHasKey(CitizenFX.Core.CString,CitizenFX.Core.CString)">
+            <summary>
+            STATE_BAG_HAS_KEY
+            </summary>
+            <param name="bagName">
+            The name of the bag.
+            </param>
+            <param name="key">
+            The key used to check data existence.
+            </param>
+            <returns>
+            Returns true if the data associated with the specified key exists; otherwise, returns false.
+            </returns>
+        </member>
         <member name="M:CitizenFX.Shared.Native.Natives.TriggerEventInternal(CitizenFX.Core.CString,CitizenFX.Core.CString,System.Int32)">
             <summary>
             The backing function for TriggerEvent.
@@ -7879,6 +8089,20 @@
             <returns>
             A boolean.
             </returns>
+        </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.ADD_CONVAR_CHANGE_LISTENER">
+            <summary>
+            Adds a listener for Console Variable changes.
+            
+            The function called expects to match the following signature:
+            
+            ```ts
+            function ConVarChangeListener(conVarName: string, reserved: any);
+            ```
+            
+            *   **conVarName**: The ConVar that changed.
+            *   **reserved**: Currently unused.
+            </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.ADD_STATE_BAG_CHANGE_HANDLER">
             <summary>
@@ -7948,6 +8172,16 @@
             Can be used to get a console variable of type `char*`, for example a string.
             </summary>
         </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_CONVAR_BOOL">
+            <summary>
+            Can be used to get a console variable casted back to `bool`.
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_CONVAR_FLOAT">
+            <summary>
+            This will have floating point inaccuracy.
+            </summary>
+        </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_CONVAR_INT">
             <summary>
             Can be used to get a console variable casted back to `int` (an integer value).
@@ -7979,6 +8213,10 @@
                 *   2699
                 *   2802
                 *   2944
+                *   3095
+                *   3258
+                *   3323
+                *   3407
             *   RedM
                 *   1311
                 *   1355
@@ -8002,6 +8240,24 @@
             | `fivem`      | FiveM for GTA V                |
             | `libertym`   | LibertyM for GTA IV            |
             | `redm`       | RedM for Red Dead Redemption 2 |
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_GAME_POOL">
+            <summary>
+            Returns a list of entity handles (script GUID) for all entities in the specified pool - the data returned is an array as
+            follows:
+            
+            ```json
+            [ 770, 1026, 1282, 1538, 1794, 2050, 2306, 2562, 2818, 3074, 3330, 3586, 3842, 4098, 4354, 4610, ...]
+            ```
+            
+            ### Supported pools
+            
+            *   `CPed`: Peds (including animals) and players.
+            *   `CObject`: Objects (props), doors, and projectiles.
+            *   `CNetObject`: Networked objects
+            *   `CVehicle`: Vehicles.
+            *   `CPickup`: Pickups.
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_INSTANCE_ID">
@@ -8058,10 +8314,14 @@
             ```
             [
             {
-            "name": "cmdlist"
+            "name": "cmdlist",
+            "resource": "resource",
+            "arity" = -1,
             },
             {
             "name": "command1"
+            "resource": "resource_2",
+            "arity" = -1,
             }
             ]
             ```
@@ -8070,6 +8330,27 @@
         <member name="F:CitizenFX.Shared.Native.Hash.GET_RESOURCE_BY_FIND_INDEX">
             <summary>
             GET_RESOURCE_BY_FIND_INDEX
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_RESOURCE_COMMANDS">
+            <summary>
+            Returns all commands registered by the specified resource.
+            The data returned adheres to the following layout:
+            
+            ```
+            [
+            {
+            "name": "cmdlist",
+            "resource": "example_resource",
+            "arity" = -1,
+            },
+            {
+            "name": "command1"
+            "resource": "example_resource2",
+            "arity" = -1,
+            }
+            ]
+            ```
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_RESOURCE_KVP_FLOAT">
@@ -8098,6 +8379,11 @@
             Returns the current state of the specified resource.
             </summary>
         </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_STATE_BAG_KEYS">
+            <summary>
+            GET_STATE_BAG_KEYS
+            </summary>
+        </member>
         <member name="F:CitizenFX.Shared.Native.Hash.GET_STATE_BAG_VALUE">
             <summary>
             Returns the value of a state bag key.
@@ -8113,9 +8399,22 @@
             GET_VEHICLE_STEERING_ANGLE
             </summary>
         </member>
-        <member name="F:CitizenFX.Shared.Native.Hash.INVOKE_FUNCTION_REFERENCE">
+        <member name="F:CitizenFX.Shared.Native.Hash.GET_VEHICLE_TYPE">
             <summary>
-            INVOKE_FUNCTION_REFERENCE
+            Returns the type of the passed vehicle.
+            
+            For client scripts, reference the more detailed [GET_VEHICLE_TYPE_RAW](#\_0xDE73BC10) native.
+            
+            ### Vehicle types
+            
+            *   automobile
+            *   bike
+            *   boat
+            *   heli
+            *   plane
+            *   submarine
+            *   trailer
+            *   train
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.IS_ACE_ALLOWED">
@@ -8188,6 +8487,11 @@
             An internal function which allows the current resource's HLL script runtimes to receive state for the specified event.
             </summary>
         </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.REMOVE_CONVAR_CHANGE_LISTENER">
+            <summary>
+            REMOVE_CONVAR_CHANGE_LISTENER
+            </summary>
+        </member>
         <member name="F:CitizenFX.Shared.Native.Hash.REMOVE_STATE_BAG_CHANGE_HANDLER">
             <summary>
             **Experimental**: This native may be altered or removed in future versions of CitizenFX without warning.
@@ -8218,6 +8522,11 @@
         <member name="F:CitizenFX.Shared.Native.Hash.START_FIND_KVP">
             <summary>
             START_FIND_KVP
+            </summary>
+        </member>
+        <member name="F:CitizenFX.Shared.Native.Hash.STATE_BAG_HAS_KEY">
+            <summary>
+            STATE_BAG_HAS_KEY
             </summary>
         </member>
         <member name="F:CitizenFX.Shared.Native.Hash.TRIGGER_EVENT_INTERNAL">

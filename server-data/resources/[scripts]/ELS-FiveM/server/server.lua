@@ -5,7 +5,7 @@ local verFile = LoadResourceFile(GetCurrentResourceName(), "version.json")
 local curVersion = 0
 if verFile then
 	local data = json.decode(verFile)
-	if data?.version then
+	if data and version then
 		curVersion = data.version:gsub("%.", "")
 		if tonumber(curVersion) then
 			curVersion = tonumber(curVersion)
@@ -29,7 +29,7 @@ function checkVersion()
 		if err or not response then return end
 
 		local data = json.decode(response)
-        local data_version = data?.version
+        local data_version = data and version
 		local lVer = tonumber(data_version) or 000
 		local latestVersion = data_version:gsub("%.", "")
 			
@@ -80,7 +80,7 @@ RegisterCommand('els', function(source, args)
     if args[1] == 'version' then
         PerformHttpRequest(latestVersionPath, function(err, response, headers)
             local data = json.decode(response)
-            local data_verson = data?.version
+            local data_verson = data and version
             local thisVersion = tonumber(data_verson)
 
             if source > 0 then
