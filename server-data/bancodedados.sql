@@ -73,7 +73,6 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 /* INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VALUES
 	('Bugatti', '2019chiron', 2800000, 'importados', 99),
 	('Camaro', '21camaro', 2000000, 'importados', 99),
-	('Mercedes G63', '22g63', 2200000, 'importados', 99),
 	('Porche 911', '911turbos', 2500000, 'importados', 99),
 	('Adder', 'adder', 620000, 'muscle', 99),
 	('Akuma', 'akuma', 500000, 'motos', 99),
@@ -261,8 +260,6 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 	('Manana', 'manana', 130000, 'classics', 99),
 	('Manchez', 'manchez', 300000, 'motos', 99),
 	('Massacro', 'massacro', 330000, 'sports', 99),
-	('Mazda RX7', 'mazdarx7', 1500000, 'importados', 99),
-	('Mercedes A45', 'mercedesa45', 1500000, 'importados', 99),
 	('Mesa', 'mesa', 150000, 'suvs', 99),
 	('Mesa3', 'mesa3', 200000, 'offroad', 99),
 	('Minivan', 'minivan', 200000, 'vans', 99),
@@ -285,7 +282,6 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 	('Oracle', 'oracle2', 90000, 'coupes', 99),
 	('Osiris', 'osiris', 510000, 'muscle', 99),
 	('Outlaw', 'outlaw', 450000, 'offroad', 99),
-	('Mclaren P1', 'p1', 3000000, 'importados', 99),
 	('Panamera Turbo', 'panamera17turbo', 2800000, 'importados', 99),
 	('Panto', 'panto', 32000, 'compacts', 99),
 	('Paradise', 'paradise', 260000, 'vans', 99),
@@ -424,8 +420,13 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 	('Zombie B', 'zombieb', 300000, 'motos', 99),
 	('Zorrusso', 'zorrusso', 100000, 'muscle', 99),
 	('Zr350', 'zr350', 1350000, 'sports', 99),
+<<<<<<< Updated upstream
 	('Ztype', 'ztype', 400000, 'classics', 99); */
 
+=======
+	('Ztype', 'ztype', 400000, 'classics', 99);
+ */
+>>>>>>> Stashed changes
 -- Copiando estrutura para tabela skips.groups_blacklist
 CREATE TABLE IF NOT EXISTS `groups_blacklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
