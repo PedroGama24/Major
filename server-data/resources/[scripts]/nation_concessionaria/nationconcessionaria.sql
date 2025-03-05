@@ -304,6 +304,7 @@ INSERT INTO `nation_concessionaria` (`vehicle`, `estoque`) VALUES
 	('taipan', 25),
 	('entity2', 25),
 	('cyclone', 25),
+	('PCX', 25),
 	('entityxf', 25),
 	('fmj', 25),
 	('gp1', 25),
@@ -355,12 +356,21 @@ INSERT INTO `nation_concessionaria` (`vehicle`, `estoque`) VALUES
 	('vwbeetlenaj', 25),
 	('defender21', 25),
 	('gcmcorolla20cn', 25),
+<<<<<<< Updated upstream
 	('gcmoutlanderls', 25),
+=======
+	('gcmhighlanderxse', 25),
+>>>>>>> Stashed changes
 	('gcmsentra20', 25),
 	('golfgti7', 25),
 	('jettagli', 25),
+<<<<<<< Updated upstream
 	('pajero4', 25),
+=======
+	('nf17', 25),
+>>>>>>> Stashed changes
 	('polo2018', 25),
+	('club', 25),
 	('savaoriginal', 25),
 	('taigun21', 25),
 	('uptsi', 25),
@@ -404,7 +414,6 @@ INSERT INTO `nation_concessionaria` (`vehicle`, `estoque`) VALUES
 	('macan', 25),
 	('mazdarx7', 25),
 	('mercedesa45', 25),
-	('mers63c', 25),
 	('nissan370z', 25),
 	('nissangtr', 25),
 	('nissanskyliner34', 25),

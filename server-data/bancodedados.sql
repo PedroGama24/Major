@@ -203,7 +203,11 @@ INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VAL
 	('Gauntlet4', 'gauntlet4', 300000, 'muscle', 99),
 	('Gburrito', 'gburrito', 200000, 'vans', 99),
 	('Corolla', 'gcmcorolla20cn', 250000, 'brs', 99),
+<<<<<<< Updated upstream
 	('OutLander', 'gcmoutlanderls', 300000, 'brs', 99),
+=======
+	('HighLander', 'gcmhighlanderxse', 300000, 'brs', 99),
+>>>>>>> Stashed changes
 	('Sentra 2020', 'gcmsentra20', 100000, 'brs', 99),
 	('Glendale', 'glendale', 80000, 'sedans', 99),
 	('Glendale2', 'glendale2', 150000, 'sedans', 99),
@@ -263,7 +267,6 @@ INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VAL
 	('Massacro', 'massacro', 330000, 'sports', 99),
 	('Mazda RX7', 'mazdarx7', 1500000, 'importados', 99),
 	('Mercedes A45', 'mercedesa45', 1500000, 'importados', 99),
-	('Mercedes 63C', 'mers63c', 1700000, 'importados', 99),
 	('Mesa', 'mesa', 150000, 'suvs', 99),
 	('Mesa3', 'mesa3', 200000, 'offroad', 99),
 	('Minivan', 'minivan', 200000, 'vans', 99),
@@ -287,7 +290,6 @@ INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VAL
 	('Osiris', 'osiris', 510000, 'muscle', 99),
 	('Outlaw', 'outlaw', 450000, 'offroad', 99),
 	('Mclaren P1', 'p1', 3000000, 'importados', 99),
-	('Pajero', 'pajero4', 100000, 'brs', 99),
 	('Panamera Turbo', 'panamera17turbo', 2800000, 'importados', 99),
 	('Panto', 'panto', 32000, 'compacts', 99),
 	('Paradise', 'paradise', 260000, 'vans', 99),

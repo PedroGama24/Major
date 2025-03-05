@@ -471,11 +471,19 @@ vehs.vehglobal = {
 	["vwbeetlenaj"] = { ['name'] = "Fusca", ['price'] = 50000, ['tipo'] = "carros",  ['hash'] = GetHashKey("vwbeetlenaj"), ['banned'] = false },
 	["defender21"] = { ['name'] = "Defender 2021", ['price'] = 300000, ['tipo'] = "carros",  ['hash'] = GetHashKey("defender21"), ['banned'] = false },
 	["gcmcorolla20cn"] = { ['name'] = "Corolla", ['price'] = 250000, ['tipo'] = "carros",  ['hash'] = GetHashKey("gcmcorolla20cn"), ['banned'] = false },
+<<<<<<< Updated upstream
 	["gcmoutlanderls"] = { ['name'] = "Outlander", ['price'] = 300000, ['tipo'] = "carros",  ['hash'] = GetHashKey("gcmoutlanderls"), ['banned'] = false },
+=======
+	["gcmhighlanderxse"] = { ['name'] = "HighLander", ['price'] = 300000, ['tipo'] = "carros",  ['hash'] = GetHashKey("gcmhighlanderxse"), ['banned'] = false },
+>>>>>>> Stashed changes
 	["gcmsentra20"] = { ['name'] = "Sentra 2020", ['price'] = 100000, ['tipo'] = "carros",  ['hash'] = GetHashKey("gcmsentra20"), ['banned'] = false },
 	["golfgti7"] = { ['name'] = "Golf GTI", ['price'] = 250000, ['tipo'] = "carros",  ['hash'] = GetHashKey("golfgti7"), ['banned'] = false },
 	["jettagli"] = { ['name'] = "Jetta GLI", ['price'] = 350000, ['tipo'] = "carros",  ['hash'] = GetHashKey("jettagli"), ['banned'] = false },
+<<<<<<< Updated upstream
 	["pajero4"] = { ['name'] = "Pajero", ['price'] = 100000, ['tipo'] = "carros",  ['hash'] = GetHashKey("pajero4"), ['banned'] = false },
+=======
+	["nf17"] = { ['name'] = "Frontier", ['price'] = 270000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nf17"), ['banned'] = false },
+>>>>>>> Stashed changes
 	["polo2018"] = { ['name'] = "Polo Sedan", ['price'] = 80000, ['tipo'] = "carros",  ['hash'] = GetHashKey("polo2018"), ['banned'] = false },
 	["savaoriginal"] = { ['name'] = "Saveiro Surf", ['price'] = 60000, ['tipo'] = "carros",  ['hash'] = GetHashKey("savaoriginal"), ['banned'] = false },
 	["taigun21"] = { ['name'] = "Taigun", ['price'] = 100000, ['tipo'] = "carros",  ['hash'] = GetHashKey("taigun21"), ['banned'] = false },
@@ -519,7 +527,6 @@ vehs.vehglobal = {
 	["macan"] = { ['name'] = "Porsche Macan", ['price'] = 1800000, ['tipo'] = "carros",  ['hash'] = GetHashKey("macan"), ['banned'] = false },
 	["mazdarx7"] = { ['name'] = "Mazda RX7", ['price'] = 1500000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mazdarx7"), ['banned'] = false },
 	["mercedesa45"] = { ['name'] = "Mercedes A45", ['price'] = 1500000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mercedesa45"), ['banned'] = false },
-	["mers63c"] = { ['name'] = "Mercedes 63C", ['price'] = 1700000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mers63c"), ['banned'] = false },
 	["nissan370z"] = { ['name'] = "Nissan 370Z", ['price'] = 1500000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nissan370z"), ['banned'] = false },
 	["nissangtr"] = { ['name'] = "Nissan GTR", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nissangtr"), ['banned'] = false },
 	["nissanskyliner34"] = { ['name'] = "Skyline", ['price'] = 2200000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nissanskyliner34"), ['banned'] = false },
@@ -538,16 +545,18 @@ vehs.vehglobal = {
 	["a80"] = { ['name'] = "Supra22", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("a80"), ['banned'] = false },
 	["2f2fgtr34"] = { ['name'] = "GtrR34", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("2f2fgtr34"), ['banned'] = false },
 	["18performante"] = { ['name'] = "Huracan", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("18performante"), ['banned'] = false },
+<<<<<<< Updated upstream
 	["23s63l"] = { ['name'] = "S63", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("23s63l"), ['banned'] = false },
+=======
+	["22macgt"] = { ['name'] = "Macgt", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("22macgt"), ['banned'] = false },
+>>>>>>> Stashed changes
 	["150"] = { ['name'] = "Cg150", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("150"), ['banned'] = false },
 	["370z"] = { ['name'] = "370z", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("370z"), ['banned'] = false },
 	["675ltsp"] = { ['name'] = "675", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("675ltsp"), ['banned'] = false },
 	["718b"] = { ['name'] = "718", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("718b"), ['banned'] = false },
 	["918s"] = { ['name'] = "918s", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("918s"), ['banned'] = false },
-	["a452"] = { ['name'] = "a452", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("a452"), ['banned'] = false },
 	["africat"] = { ['name'] = "Africa Twin", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("africat"), ['banned'] = false },
 	["agerars"] = { ['name'] = "agerars", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("agerars"), ['banned'] = false },
-	["amggtc"] = { ['name'] = "amggtc", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("amggtc"), ['banned'] = false },
 	["audirs7"] = { ['name'] = "Audirs7", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("audirs7"), ['banned'] = false },
 	["bikelete"] = { ['name'] = "bikelete", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("bikelete"), ['banned'] = false },
 	["bmwi8"] = { ['name'] = "bmwi8", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("bmwi8"), ['banned'] = false },
@@ -563,7 +572,13 @@ vehs.vehglobal = {
 	["civic2016"] = { ['name'] = "civic2016", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("civic2016"), ['banned'] = false },
 	["civictyper"] = { ['name'] = "civictyper", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("civictyper"), ['banned'] = false },
 	["dm1200"] = { ['name'] = "Ducati MultiStrada", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("dm1200"), ['banned'] = false },
+<<<<<<< Updated upstream
 	["er34n"] = { ['name'] = "R34n", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("er34n"), ['banned'] = false },
+=======
+	["ds4"] = { ['name'] = "Citroen Ds4", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("ds4"), ['banned'] = false },
+	["eletran17"] = { ['name'] = "Hyundai elantra 17", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("eletran17"), ['banned'] = false },
+	["etrongt22"] = { ['name'] = "Etrongt22", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("etrongt22"), ['banned'] = false },
+>>>>>>> Stashed changes
 	["evo9"] = { ['name'] = "Evo9", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("evo9"), ['banned'] = false },
 	["f150"] = { ['name'] = "F150", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("f150"), ['banned'] = false },
 	["f850"] = { ['name'] = "Gs850", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("f850"), ['banned'] = false },
@@ -587,16 +602,18 @@ vehs.vehglobal = {
 	["lexuslfa"] = { ['name'] = "lexuslfa", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("lexuslfa"), ['banned'] = false },
 	["m3e46"] = { ['name'] = "M3e46", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("m3e46"), ['banned'] = false },
 	["macanturbo"] = { ['name'] = "Macan Turbo", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("macanturbo"), ['banned'] = false },
+<<<<<<< Updated upstream
 	["mansgt"] = { ['name'] = "Mclaren Gt", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mansgt"), ['banned'] = false },
 	["mbc"] = { ['name'] = "Mbc", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mbc"), ['banned'] = false },
+=======
+	["monza"] = { ['name'] = "monza", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("monza"), ['banned'] = false },
+>>>>>>> Stashed changes
 	["mt07"] = { ['name'] = "Mt07", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("mt07"), ['banned'] = false },
 	["nissangtr"] = { ['name'] = "Nissangtr", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nissangtr"), ['banned'] = false },
 	["nissanskyliner34"] = { ['name'] = "nissanskyliner34", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("nissanskyliner34"), ['banned'] = false },
 	["palio"] = { ['name'] = "Palio", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("palio"), ['banned'] = false },
 	["palio2"] = { ['name'] = "Palio rebaixado", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("palio2"), ['banned'] = false },
 	["panamera17turbo"] = { ['name'] = "panamera17turbo", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("panamera17turbo"), ['banned'] = false },
-	["panigale"] = { ['name'] = "Panigale", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("panigale"), ['banned'] = false },
-	["pboxstergts"] = { ['name'] = "Porche Gts", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("pboxstergts"), ['banned'] = false },
 	["PCX"] = { ['name'] = "PCX", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("PCX"), ['banned'] = false },
 	["pistaspider19"] = { ['name'] = "Spider", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("pistaspider19"), ['banned'] = false },
 	["r1200"] = { ['name'] = "r1200", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("r1200"), ['banned'] = false },
@@ -609,7 +626,6 @@ vehs.vehglobal = {
 	["rmodjesko"] = { ['name'] = "jesko", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodjesko"), ['banned'] = false },
 	["rmodmartin"] = { ['name'] = "Aston Martin DBS", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodmartin"), ['banned'] = false },
 	["rmodsianr"] = { ['name'] = "Sianr", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rmodsianr"), ['banned'] = false },
-	["ram226x6"] = { ['name'] = "Ram226x6", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("ram226x6"), ['banned'] = false },
 	["rs520"] = { ['name'] = "rs520", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("rs520"), ['banned'] = false },
 	["s10"] = { ['name'] = "S10", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("s10"), ['banned'] = false },
 	["s1000rr"] = { ['name'] = "s1000rr", ['price'] = 2000000, ['tipo'] = "carros",  ['hash'] = GetHashKey("s1000rr"), ['banned'] = false },

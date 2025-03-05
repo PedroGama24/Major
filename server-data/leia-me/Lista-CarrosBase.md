@@ -8,7 +8,11 @@
 10 Sentra 2020 (gcmsentra20)
 11 Golf GTI (golfgti7)
 13 Jetta GLI (jettagli)
+<<<<<<< Updated upstream
 15 Pajero full (pajero4)
+=======
+14 Nissan Frontier (nf17) +++
+>>>>>>> Stashed changes
 16 Polo 2018 (polo2018)
 17 Saveiro G4 (savaoriginal)
 18 Taigun (taigun21)
@@ -53,7 +57,6 @@
 19 Porsche Macan (macan)
 20 Mazda RX7 (mazdarx7)
 21 Merce A45 (mercedesa45)
-22 Merce 63C (mers63c)
 23 Nissan 370Z (nissan370z)
 24 Nissan GTR (nissangtr)
 25 Skyline (nissanskyliner34)

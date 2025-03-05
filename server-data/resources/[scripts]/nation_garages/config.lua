@@ -414,11 +414,19 @@ config.vehList = {
 	{ hash = GetHashKey("vwbeetlenaj"), name = 'vwbeetlenaj', price = 50000, banido = false, modelo = 'Fusca', capacidade = 20, tipo = 'carros' },
 	{ hash = GetHashKey("defender21"), name = 'defender21', price = 300000, banido = false, modelo = 'Defender 2021', capacidade = 70, tipo = 'carros' },
 	{ hash = GetHashKey("gcmcorolla20cn"), name = 'gcmcorolla20cn', price = 250000, banido = false, modelo = 'Corolla', capacidade = 60, tipo = 'carros' },
+<<<<<<< Updated upstream
 	{ hash = GetHashKey("gcmoutlanderls"), name = 'gcmoutlanderls', price = 300000, banido = false, modelo = 'OutLander LS', capacidade = 80, tipo = 'carros' },
+=======
+	{ hash = GetHashKey("gcmhighlanderxse"), name = 'gcmhighlanderxse', price = 300000, banido = false, modelo = 'HighLander XSE', capacidade = 80, tipo = 'carros' },
+>>>>>>> Stashed changes
 	{ hash = GetHashKey("gcmsentra20"), name = 'gcmsentra20', price = 100000, banido = false, modelo = 'Sentra 2020', capacidade = 60, tipo = 'carros' },
 	{ hash = GetHashKey("golfgti7"), name = 'golfgti7', price = 250000, banido = false, modelo = 'Golf GTI', capacidade = 45, tipo = 'carros' },
 	{ hash = GetHashKey("jettagli"), name = 'jettagli', price = 350000, banido = false, modelo = 'Jetta GLI', capacidade = 60, tipo = 'carros' },
+<<<<<<< Updated upstream
 	{ hash = GetHashKey("pajero4"), name = 'pajero4', price = 100000, banido = false, modelo = 'Pajero', capacidade = 70, tipo = 'carros' },
+=======
+	{ hash = GetHashKey("nf17"), name = 'nf17', price = 270000, banido = false, modelo = 'Frontier', capacidade = 80, tipo = 'carros' },
+>>>>>>> Stashed changes
 	{ hash = GetHashKey("polo2018"), name = 'polo2018', price = 80000, banido = false, modelo = 'Polo', capacidade = 60, tipo = 'carros' },
 	{ hash = GetHashKey("savaoriginal"), name = 'savaoriginal', price = 60000, banido = false, modelo = 'Saveiro Surf', capacidade = 60, tipo = 'carros' },
 	{ hash = GetHashKey("taigun21"), name = 'taigun21', price = 100000, banido = false, modelo = 'Taigun', capacidade = 60, tipo = 'carros' },
@@ -462,7 +470,6 @@ config.vehList = {
 	{ hash = GetHashKey("macan"), name = 'macan', price = 1800000, banido = false, modelo = 'Porsche Macan', capacidade = 65, tipo = 'import' },
 	{ hash = GetHashKey("mazdarx7"), name = 'mazdarx7', price = 1500000, banido = false, modelo = 'Mazda RX7', capacidade = 40, tipo = 'import' },
 	{ hash = GetHashKey("mercedesa45"), name = 'mercedesa45', price = 1500000, banido = false, modelo = 'Mercedes A45', capacidade = 50, tipo = 'import' },
-	{ hash = GetHashKey("mers63c"), name = 'mers63c', price = 1700000, banido = false, modelo = 'Mercedes 63C', capacidade = 50, tipo = 'import' },
 	{ hash = GetHashKey("nissan370z"), name = 'nissan370z', price = 1500000, banido = false, modelo = 'Nissan 370Z', capacidade = 30, tipo = 'import' },
 	{ hash = GetHashKey("nissangtr"), name = 'nissangtr', price = 2000000, banido = false, modelo = 'Nissan GTR', capacidade = 40, tipo = 'import' },
 	{ hash = GetHashKey("nissanskyliner34"), name = 'nissanskyliner34', price = 2200000, banido = false, modelo = 'Skyline', capacidade = 50, tipo = 'import' },
@@ -575,18 +582,20 @@ config.vehList = {
 	{ hash = GetHashKey("a80"), name = 'a80', price = 800000, banido = false, modelo = 'Supra22', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("2f2fgtr34"), name = '2f2fgtr34', price = 800000, banido = false, modelo = 'GtrR34', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("18performante"), name = '18performante', price = 800000, banido = false, modelo = 'Huracan', capacidade = 30, tipo = 'carros' },
+<<<<<<< Updated upstream
 	{ hash = GetHashKey("23s63l"), name = '23s63l', price = 800000, banido = false, modelo = 'S63', capacidade = 30, tipo = 'carros' },
+=======
+	{ hash = GetHashKey("22macgt"), name = '22macgt', price = 800000, banido = false, modelo = 'Macgt', capacidade = 30, tipo = 'carros' },
+>>>>>>> Stashed changes
 	{ hash = GetHashKey("150"), name = '150', price = 800000, banido = false, modelo = 'Cg150', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("370z"), name = '370z', price = 800000, banido = false, modelo = '370z', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("675ltsp"), name = '675ltsp', price = 800000, banido = false, modelo = '675', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("718b"), name = '718b', price = 800000, banido = false, modelo = '718', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("918s"), name = '918s', price = 800000, banido = false, modelo = '918s', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("a452"), name = 'a452', price = 800000, banido = false, modelo = 'A452', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("adr8"), name = 'adr8', price = 800000, banido = false, modelo = 'R8', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("africat"), name = 'africat', price = 800000, banido = false, modelo = 'Africa Twin', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("agerars"), name = 'agerars', price = 800000, banido = false, modelo = 'Agerars', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("amarok"), name = 'amarok', price = 800000, banido = false, modelo = 'Amarok', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("amggtc"), name = 'amggtc', price = 800000, banido = false, modelo = 'AmgGtc', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("audirs7"), name = 'audirs7', price = 800000, banido = false, modelo = 'Audirs7', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("bikelete"), name = 'bikelete', price = 800000, banido = false, modelo = 'bikelete', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("bmwi8"), name = 'bmwi8', price = 800000, banido = false, modelo = 'I8', capacidade = 30, tipo = 'carros' },
@@ -602,7 +611,13 @@ config.vehList = {
 	{ hash = GetHashKey("civic2016"), name = 'civic2016', price = 800000, banido = false, modelo = 'civic2016', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("civictyper"), name = 'civictyper', price = 800000, banido = false, modelo = 'civictyper', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("dm1200"), name = 'dm1200', price = 800000, banido = false, modelo = 'Ducati MultiStrada', capacidade = 30, tipo = 'carros' },
+<<<<<<< Updated upstream
 	{ hash = GetHashKey("er34n"), name = 'er34n', price = 800000, banido = false, modelo = 'R34n', capacidade = 30, tipo = 'carros' },
+=======
+	{ hash = GetHashKey("ds4"), name = 'ds4', price = 800000, banido = false, modelo = 'Citroen Ds4', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("eletran17"), name = 'eletran17', price = 800000, banido = false, modelo = 'Hyundai elantra 17', capacidade = 30, tipo = 'carros' },
+	{ hash = GetHashKey("etrongt22"), name = 'etrongt22', price = 800000, banido = false, modelo = 'Etrongt22', capacidade = 30, tipo = 'carros' },
+>>>>>>> Stashed changes
 	{ hash = GetHashKey("evo9"), name = 'evo9', price = 800000, banido = false, modelo = 'Evo9', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("f150"), name = 'f150', price = 800000, banido = false, modelo = 'F150', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("f850"), name = 'f850', price = 800000, banido = false, modelo = 'Gs850', capacidade = 30, tipo = 'carros' },
@@ -627,16 +642,18 @@ config.vehList = {
 	{ hash = GetHashKey("lexuslfa"), name = 'lexuslfa', price = 800000, banido = false, modelo = 'lexuslfa', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("m3e46"), name = 'm3e46', price = 800000, banido = false, modelo = 'M3e46', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("macanturbo"), name = 'macanturbo', price = 800000, banido = false, modelo = 'Macan Turbo', capacidade = 30, tipo = 'carros' },
+<<<<<<< Updated upstream
 	{ hash = GetHashKey("mansgt"), name = 'mansgt', price = 800000, banido = false, modelo = 'Mclaren Gt', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("mbc"), name = 'mbc', price = 800000, banido = false, modelo = 'Mcb', capacidade = 30, tipo = 'carros' },
+=======
+	{ hash = GetHashKey("monza"), name = 'monza', price = 800000, banido = false, modelo = 'monza', capacidade = 30, tipo = 'carros' },
+>>>>>>> Stashed changes
 	{ hash = GetHashKey("mt07"), name = 'mt07', price = 800000, banido = false, modelo = 'Mt07', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("nissangtr"), name = 'nissangtr', price = 800000, banido = false, modelo = 'nissangtr', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("nissanskyliner34"), name = 'nissanskyliner34', price = 800000, banido = false, modelo = 'nissanskyliner34', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("palio"), name = 'palio', price = 800000, banido = false, modelo = 'palio', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("palio2"), name = 'palio2', price = 800000, banido = false, modelo = 'Palio rebaixado', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("panamera17turbo"), name = 'panamera17turbo', price = 800000, banido = false, modelo = 'panamera17turbo', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("panigale"), name = 'panigale', price = 800000, banido = false, modelo = 'panigale', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("pboxstergts"), name = 'pboxstergts', price = 800000, banido = false, modelo = 'Porche Gts', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("PCX"), name = 'PCX', price = 800000, banido = false, modelo = 'PCX', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("pistaspider19"), name = 'pistaspider19', price = 800000, banido = false, modelo = 'spider', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("r1200"), name = 'r1200', price = 800000, banido = false, modelo = 'r1200', capacidade = 30, tipo = 'carros' },
@@ -649,7 +666,6 @@ config.vehList = {
 	{ hash = GetHashKey("rmodjesko"), name = 'rmodjesko', price = 800000, banido = false, modelo = 'Jesko', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("rmodmartin"), name = 'rmodmartin', price = 800000, banido = false, modelo = 'Aston Martin DBS', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("rmodsianr"), name = 'rmodsianr', price = 800000, banido = false, modelo = 'Sianr', capacidade = 30, tipo = 'carros' },
-	{ hash = GetHashKey("ram226x6"), name = 'ram226x6', price = 800000, banido = false, modelo = 'ram226x6', capacidade = 130, tipo = 'carros' },
 	{ hash = GetHashKey("rs520"), name = 'rs520', price = 800000, banido = false, modelo = 'Rs520', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("s10"), name = 's10', price = 800000, banido = false, modelo = 's10', capacidade = 30, tipo = 'carros' },
 	{ hash = GetHashKey("s1000rr"), name = 's1000rr', price = 800000, banido = false, modelo = 's1000rr', capacidade = 30, tipo = 'carros' },
