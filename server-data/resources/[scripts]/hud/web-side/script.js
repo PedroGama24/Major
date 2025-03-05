@@ -41,14 +41,14 @@ function setGas(gas){
     let car = document.querySelector('.carHud-container')
 
     if (fill_gas > 77){
-      fill_element.style.backgroundColor = '#fff'
+      fill_element.style.backgroundColor = '#faf30b'
       car.style.filter= ' drop-shadow(0px 0px 2px rgba(255,255,255,0.6))'
       back_fill_element.style.backgroundColor = 'rgba(255,255,255,0.349)' 
     } 
     else if (fill_gas > 25 && fill_gas < 77){
-      fill_element.style.backgroundColor = '#ffc600'
-      car.style.filter = ' drop-shadow(0px 0px 2px rgba(255,198,0,0.6))'
-      back_fill_element.style.backgroundColor = 'rgba(255,198,0,0.349)' 
+      fill_element.style.backgroundColor = '#fb7506'
+      car.style.filter = ' drop-shadow(0px 0px 2px rgba(251, 219, 35, 0.64))'
+      back_fill_element.style.backgroundColor = 'rgba(253, 252, 246, 0.64)' 
 
     }
     else{        
@@ -102,46 +102,46 @@ window.addEventListener('message', ({ data }) => {
     if (data.voice == '1') {
         remove_voices_bars()
         voice_bars[1].classList.add('activeQ')
-        voice_bars[1].style.background = '#ffc600'
+        voice_bars[1].style.background = '#ffff'
 
         talkText.textContent = 'Sussurrando'
     } else if (data.voice == '2') {
         remove_voices_bars()
         voice_bars[1].classList.add('activeQ')
-        voice_bars[1].style.background = '#ffc600'
+        voice_bars[1].style.background = '#ffff'
 
         voice_bars[2].classList.add('activeQ')
-        voice_bars[2].style.background = '#ffc600'
+        voice_bars[2].style.background = '#ffff'
 
         talkText.textContent = 'Normal'
     } else if (data.voice == '3') {
         voice_bars[1].classList.add('activeQ')
-        voice_bars[1].style.background = '#ffc600'
+        voice_bars[1].style.background = '#ffff'
 
         voice_bars[2].classList.add('activeQ')
-        voice_bars[2].style.background = '#ffc600'
+        voice_bars[2].style.background = '#ffff'
 
         voice_bars[3].classList.add('activeQ')
-        voice_bars[3].style.background = '#ffc600'
+        voice_bars[3].style.background = '#ffff'
 
         talkText.textContent = 'Gritando'
     }
-    else{ 
+   /*  else{ 
         voice_bars[1].classList.add('activeQ')
-        voice_bars[1].style.background = '#ffc600'
+        voice_bars[1].style.background = '#ffff'
 
         voice_bars[2].classList.add('activeQ')
-        voice_bars[2].style.background = '#ffc600'
+        voice_bars[2].style.background = '#ffff'
 
         voice_bars[3].classList.add('activeQ')
-        voice_bars[3].style.background = '#ffc600'
+        voice_bars[3].style.background = '#ffff'
 
         voice_bars[4].classList.add('activeQ')
-        voice_bars[4].style.background = '#ffc600'
+        voice_bars[4].style.background = '#ffff'
 
         talkText.textContent = 'Gritando Muito'
 
-    }
+    } */
 
     if (data.talking) {
         talking_voice()

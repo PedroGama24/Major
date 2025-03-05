@@ -35,8 +35,6 @@
 10 Cbr1000RR (hcbr17)
 11 z1000 (z1000)
 12 Yamaha R1 (r1)
-13 BMW F800 (f800)
-14 BMW F310 (gs310)
 15 Suzuki XR (gsxr)
 16 Ninja H2 Carb(h2carb) -----
 17 Hayabusa (hayabusa)
@@ -45,7 +43,6 @@
 20 Bmw S1000 (s1000docandidato) 
 
 ------ Importado: ------ 
-1 Mercedes AMG GTR (amggtr)
 2 Bugatti (2019chiron)
 3 Camaro (21camaro)
 4 Porche 911 (911turbos)

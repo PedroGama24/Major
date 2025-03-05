@@ -285,7 +285,6 @@ local CarrosDesmanches = {
 ["blazer"] = 23000,
 ["blazer4"] = 37000,
 -- ADD-ONS
-["amggtr"] = 1500000,
 	["2019chiron"] = 2800000, 
 	["21camaro"] = 2000000,
 	["911turbos"] = 2500000,
@@ -338,8 +337,6 @@ local CarrosDesmanches = {
 	["hcbr17"] = 260000, 
 	["z1000"] = 20000,
 	["r1"] = 125000,
-	["f800"] =  220000,
-	["gs310"] = 180000,
 	["gsxr"] =  130000,
 	["h2carb"] = 210000, 
 	["hayabusa"] = 230000,

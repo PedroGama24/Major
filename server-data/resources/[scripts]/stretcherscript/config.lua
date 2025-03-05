@@ -17,7 +17,6 @@ Config.Hash = {
 	{hash = "f450ambo", detection = 2.4, depth = -1.0, height = 0.0},
 	{hash = "e450ambo", detection = 2.4, depth = -1.0, height = 0.0},
 	{hash = "16ramambo", detection = 2.4, depth = -1.0, height = 0.0},
-	{hash = "20ramambo", detection = 2.4, depth = -1.0, height = 0.0},
 }
 
 Config.Press = {

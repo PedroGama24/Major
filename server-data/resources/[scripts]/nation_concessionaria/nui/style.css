@@ -770,10 +770,7 @@ body {
     overflow: hidden;
     text-align: center;
     transition: background .5s, transform .3s;
-    margin-left: 5%;*/ 
-
-
-
+    margin-left: 5%;
 }
 
 .menu-compra-alugar:hover {
@@ -1323,7 +1320,7 @@ body {
 .searchBox {
     position: absolute;
     top: 20%; right: 10%;
-    background-color: rgb(255, 0, 0)55, 166, 0, 0.911);
+    background-color: rgba(255, 0, 0, 0.911);
     width: 10%;
     padding: 0 .8%;
     height: 3%;
@@ -1458,7 +1455,7 @@ body {
     height  : 100%;
     width   : 12%;
     border-top: 2px solid  rgb(255, 0, 0);
-    border-bottom: 2px solid  rgb(255, 0, 0)5, 217, 0);
+    border-bottom: 2px solid  rgb(255, 0, 0);
   }
 
 

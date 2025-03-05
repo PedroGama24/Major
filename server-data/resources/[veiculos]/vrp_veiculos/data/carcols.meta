@@ -25878,15 +25878,12 @@
     </Item>
 
     <Item>
-      <kitName>1032_350z_modkit</kitName>
       <id value="1032" />
       <kitType>MKT_SPORT</kitType>
       <visibleMods>
         <Item>
-          <modelName>350z_bumf_1</modelName>
           <modShopLabel>MNU_BUMF1</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_f</Item>
@@ -25903,10 +25900,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumf_2</modelName>
           <modShopLabel>MNU_BUMF2</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_f</Item>
@@ -25923,10 +25918,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumf_3</modelName>
           <modShopLabel>MNU_BUMF3</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_f</Item>
@@ -25943,10 +25936,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumf_4</modelName>
           <modShopLabel>MNU_BUMF4</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_f</Item>
@@ -25963,10 +25954,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumf_5</modelName>
           <modShopLabel>MNU_BUMF5</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_f</Item>
@@ -25983,7 +25972,6 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumf_6</modelName>
           <modShopLabel>MNU_BUMF6</modShopLabel>
           <linkedModels />
           <turnOffBones>
@@ -26000,10 +25988,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumr_1</modelName>
           <modShopLabel>MNU_BUMR</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_r</Item>
@@ -26024,10 +26010,8 @@
           <allowBonnetSlide value="true" />
         </Item>
         <Item>
-          <modelName>350z_bumr_2</modelName>
           <modShopLabel>MNU_BUMR2</modShopLabel>
           <linkedModels>
-            <Item>350z_fenders</Item>
           </linkedModels>
           <turnOffBones>
             <Item>bumper_r</Item>

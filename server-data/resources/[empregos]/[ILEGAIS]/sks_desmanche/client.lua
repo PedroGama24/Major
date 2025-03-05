@@ -19,12 +19,12 @@ vRPclient = Proxy.getInterface("vRP")
 -- CONFIG
 ---------------------------------------------------------------------
 -- FV
-local IniciarServico = {1564.2563476562,3527.7150878906,36.11999130249} -- Onde se inicia o serviço e verifica a existência de um carro
-local LocalDesmancharCarro = {1535.0450439453,3547.3347167969,36.350666046143} -- Onde deve haver o carro que será desmanchado para poder continuar o desmanche
-local LocalFerramentas = {1549.8748779297,3513.2395019531,36.000442504883,207.19} -- Local onde 'pegará' as ferramentas
-local AnuncioChassi = {1556.1536865234,3523.2658691406,36.119976043701,37.79} -- Onde finalizará a missão para entregar o chassi e receber dinheiro e itens
-local GuardarPecas = {1543.52, 3541.02, 35.37,37.79}
-local Computador = {1, 1, 1} -- Local onde ficará o computador de venda
+local IniciarServico = {2338.86,3124.28,48.21} -- Onde se inicia o serviço e verifica a existência de um carro
+local LocalDesmancharCarro = {2349.35,3134.02,48.21} -- Onde deve haver o carro que será desmanchado para poder continuar o desmanche
+local LocalFerramentas = {2358.63,3136.09,48.21} -- Local onde 'pegará' as ferramentas
+local AnuncioChassi = {2340.47,3126.6,48.21} -- Onde finalizará a missão para entregar o chassi e receber dinheiro e itens
+local GuardarPecas = {2358.01,3139.14,48.21}
+local Computador = {2340.56,3127.18,49.06} -- Local onde ficará o computador de venda
 ---------------------------------------------------------------------
 --VARIAVEIS
 ---------------------------------------------------------------------

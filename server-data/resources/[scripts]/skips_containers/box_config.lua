@@ -16,7 +16,6 @@ config.box = {
                 {item = "dinheiro", type="dinheiro", itemName="1KK Limpo", qtd="1000000"},
             }},
             {raridade = "Epico", items = {
-                {item = "gs310", type="carro", itemName="BMW GS310", qtd="1"},
                 {item = "ttrs", type="carro", itemName="Audi TT", qtd="1"},
                 {item = "ak47", type="arma", spawn = "wbody|WEAPON_ASSAULTRIFLE", itemName="AK-47", qtd="1"},
                 {item = "dinheiro", type="dinheiro", itemName="100k Limpo", qtd="100000"},
@@ -56,7 +55,6 @@ config.box = {
                 {item = "dinheiro", type="dinheiro", itemName="1KK Limpo", qtd="1000000"},
             }},
             {raridade = "Epico", items = {
-                {item = "gs310", type="carro", itemName="BMW GS310", qtd="1"},
                 {item = "ttrs", type="carro", itemName="Audi TT", qtd="1"},
                 {item = "ak47", type="arma", spawn = "wbody|WEAPON_ASSAULTRIFLE", itemName="AK-47", qtd="1"},
                 {item = "dinheiro", type="dinheiro", itemName="100k Limpo", qtd="100000"},
