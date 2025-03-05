@@ -3,16 +3,11 @@
 2 Amarok (amarok)
 3 Fusca (vwbeetlenaj)
 4 Land Rover Defender (defender21)
-5 Kia Cerato (gcmcerato18)
-6 Honda City (gcmcity14)
 7 Corolla (gcmcorolla20cn)
-8 HighLander (gcmhighlanderxse) +++
 9 Outlander (gcmoutlanderls)
 10 Sentra 2020 (gcmsentra20)
 11 Golf GTI (golfgti7)
-12 Hilux 2019 (hilux2019)
 13 Jetta GLI (jettagli)
-14 Nissan Frontier (nf17) +++
 15 Pajero full (pajero4)
 16 Polo 2018 (polo2018)
 17 Saveiro G4 (savaoriginal)
@@ -23,15 +18,12 @@
 22 Onibus (mi4)
 
 ------ Motos: ------
-1 Bis (biz25)
-2 Bros (bros60)
 3 Ducati v4S (v4sf)
 4 MT-03 (mt03)
 5 MT-07 (fz07)
 6 R1200 (R1200GS)
 7 TITAN 160 (cg160) -----
 8 XRE 300 (xre300)
-9 CB 500x (500x)
 10 Cbr1000RR (hcbr17)
 11 z1000 (z1000)
 12 Yamaha R1 (r1)
@@ -48,7 +40,6 @@
 4 Porche 911 (911turbos)
 5 Audi RS6 (audirs6)
 6 Audi RS7 (audirs7)
-7 Bratbus B63 (b63s)
 8 BMW M4 CS(bmci)
 9 BMW M3 F80 (bmwm3f80)
 10 BMW M4 GTS (bmwm4gts)}
@@ -57,7 +48,6 @@
 13 Focus RS (focusrs)
 14 Ford Mustang (fordmustang)
 15 Jaguar F-pace (fpacehm)
-16 Lambo Huracan (lamborghinihuracan)
 17 Lance Evo 9 (lancerevolution9)
 18 Lance Evo X (lancerevolutionx)
 19 Porsche Macan (macan)

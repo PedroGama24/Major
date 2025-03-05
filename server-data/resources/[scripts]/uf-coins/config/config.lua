@@ -520,22 +520,7 @@ cfg.products = {
       
     },
 
-    {
-      productType = "car",
-      model = "500x",
-      name = "CB 500x",
-      price = 200,
-      onBuy = function(source,user_id)
-        if isServer then 
-          local veiculo = "500x"
-          local ipva = 0 
-          local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma CB 500x!",8000)
-         vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-        end
-      end
-      
-    },
+  
 
     {
       productType = "car",

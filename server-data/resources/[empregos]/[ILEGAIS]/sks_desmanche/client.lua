@@ -82,7 +82,7 @@ Citizen.CreateThread(function()
                                             -- NOTIFICACAO AQUI
                                             
                                             TriggerEvent('Notify', 'sucesso ', 'Veículo identificado: <br>Veículo: <b>' .. modeloCarro .. ' (' .. nomeCarro.. ')</b><br>Placa: <b>'..placa..'</b><br><br>Continue. Pegue as ferramentas para desmanchar o veículo.')
-                                            etapa = 1
+                                            etapa = 1 
                                             FreezeEntityPosition(veh, true)
                                             SetVehicleDoorsLocked(veh, 4)
                                             

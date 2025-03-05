@@ -23,7 +23,6 @@ cfg.avaiables = {
     [GetHashKey('mt17')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
     [GetHashKey('mt099')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
     [GetHashKey('bbros')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
-    [GetHashKey('cb500x')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
     [GetHashKey('300')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
     [GetHashKey('start160')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
     [GetHashKey('R1200gs')] = true, -- HASH DOS VEICULOS PERMITIDOS NELA
