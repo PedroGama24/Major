@@ -302,7 +302,7 @@ class SpinnerAnimation {
 
 
 
-      if (this.offSet >= 215) {
+      if (this.offSet >= 100) {
         this.recycle = true;
         this.offSet = 0;
         this.tick = true;
@@ -313,7 +313,7 @@ class SpinnerAnimation {
       }
 
       if (this.stopped) {
-        let stopped = false;
+        let stopped = true;
         if (!stopped) this.speed -= this.lowerSpeed;
 
         if (this.speed <= 0) {

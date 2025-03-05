@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela skips.concessionaria: ~370 rows (aproximadamente)
-INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VALUES
+/* INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VALUES
 	('Bugatti', '2019chiron', 2800000, 'importados', 99),
 	('Camaro', '21camaro', 2000000, 'importados', 99),
 	('Mercedes G63', '22g63', 2200000, 'importados', 99),
@@ -424,7 +424,7 @@ INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VAL
 	('Zombie B', 'zombieb', 300000, 'motos', 99),
 	('Zorrusso', 'zorrusso', 100000, 'muscle', 99),
 	('Zr350', 'zr350', 1350000, 'sports', 99),
-	('Ztype', 'ztype', 400000, 'classics', 99);
+	('Ztype', 'ztype', 400000, 'classics', 99); */
 
 -- Copiando estrutura para tabela skips.groups_blacklist
 CREATE TABLE IF NOT EXISTS `groups_blacklist` (
