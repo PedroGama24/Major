@@ -203,11 +203,7 @@ INSERT INTO `concessionaria` (`name`, `model`, `price`, `category`, `stock`) VAL
 	('Gauntlet4', 'gauntlet4', 300000, 'muscle', 99),
 	('Gburrito', 'gburrito', 200000, 'vans', 99),
 	('Corolla', 'gcmcorolla20cn', 250000, 'brs', 99),
-<<<<<<< Updated upstream
 	('OutLander', 'gcmoutlanderls', 300000, 'brs', 99),
-=======
-	('HighLander', 'gcmhighlanderxse', 300000, 'brs', 99),
->>>>>>> Stashed changes
 	('Sentra 2020', 'gcmsentra20', 100000, 'brs', 99),
 	('Glendale', 'glendale', 80000, 'sedans', 99),
 	('Glendale2', 'glendale2', 150000, 'sedans', 99),
