@@ -356,19 +356,11 @@ INSERT INTO `nation_concessionaria` (`vehicle`, `estoque`) VALUES
 	('vwbeetlenaj', 25),
 	('defender21', 25),
 	('gcmcorolla20cn', 25),
-<<<<<<< Updated upstream
 	('gcmoutlanderls', 25),
-=======
-	('gcmhighlanderxse', 25),
->>>>>>> Stashed changes
 	('gcmsentra20', 25),
 	('golfgti7', 25),
 	('jettagli', 25),
-<<<<<<< Updated upstream
 	('pajero4', 25),
-=======
-	('nf17', 25),
->>>>>>> Stashed changes
 	('polo2018', 25),
 	('club', 25),
 	('savaoriginal', 25),

@@ -342,23 +342,13 @@ local CarrosDesmanches = {
 	["vwbeetlenaj"] = 50000,
 	["defender21"] = 300000,
 	["gcmcorolla20cn"] =  250000,
-<<<<<<< Updated upstream
 	["gcmoutlanderls"] = 300000,
-=======
-	["gcmhighlanderxse"] =  300000, 
->>>>>>> Stashed changes
 	["gcmsentra20"] = 100000,
 	["golfgti7"] = 250000,
 	["jettagli"] = 350000, 
-<<<<<<< Updated upstream
 	["pajero4"] = 100000, 
-=======
 	["nf17"] =  270000, 
->>>>>>> Stashed changes
 	["polo2018"] = 80000, 
-	["savaoriginal"] = 60000, 
-	["taigun21"] =  100000,
-	["uptsi"] = 120000,
 	["veloster"] =  80000, 
 	["cox2013"] = 120000, 
 
