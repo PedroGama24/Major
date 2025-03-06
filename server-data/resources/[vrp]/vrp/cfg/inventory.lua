@@ -340,7 +340,6 @@ cfg.chestweight = {
 	["lectro"] = 15,
 	["manchez"] = 15,
 	["nemesis"] = 15,
-	["nightblade"] = 15,
 	["pcj"] = 15,
 	["ruffian"] = 15,
 	["sanchez"] = 15,

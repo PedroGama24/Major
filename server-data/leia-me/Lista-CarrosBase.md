@@ -4,15 +4,9 @@
 3 Fusca (vwbeetlenaj)
 4 Land Rover Defender (defender21)
 7 Corolla (gcmcorolla20cn)
-9 Outlander (gcmoutlanderls)
 10 Sentra 2020 (gcmsentra20)
 11 Golf GTI (golfgti7)
 13 Jetta GLI (jettagli)
-<<<<<<< Updated upstream
-15 Pajero full (pajero4)
-=======
-14 Nissan Frontier (nf17) +++
->>>>>>> Stashed changes
 16 Polo 2018 (polo2018)
 17 Saveiro G4 (savaoriginal)
 18 Taigun (taigun21)
