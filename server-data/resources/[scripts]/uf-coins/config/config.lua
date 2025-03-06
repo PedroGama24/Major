@@ -445,7 +445,7 @@ cfg.products = {
           local veiculo = "rs6c8"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu um Audi R6!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu um Audi R6 2021!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -527,7 +527,7 @@ cfg.products = {
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "Ninja H2 Carb"
+          local veiculo = "h2carb"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
           TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Ninja H2 Carb !", 8000)
@@ -540,14 +540,14 @@ cfg.products = {
     {
       productType = "car",
       model = "mazdarx7",
-      name = "Mazdarx7",
+      name = "Mazda rx7",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "mazdarx7"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Mazdarx7!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Mazda rx7!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -557,14 +557,14 @@ cfg.products = {
     {
       productType = "car",
       model = "xre300",
-      name = "xre300",
+      name = "XRE 300",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "xre300"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma xre300!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma XRE 300!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -595,7 +595,7 @@ cfg.products = {
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "nissan370z"
+          local veiculo = "nissangtr"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
           TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma NissanGTR!",8000)
@@ -608,14 +608,14 @@ cfg.products = {
     {
       productType = "car",
       model = "cayenneturbo",
-      name = "CayenneTurbo",
+      name = "Cayenne Turbo",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "cayenneturbo"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma CayenneTurbo!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Cayenne Turbo!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -693,14 +693,14 @@ cfg.products = {
     {
       productType = "car",
       model = "civic2016",
-      name = "civic2016",
+      name = "Civic 2016",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "civic2016"
+          local veiculo = "Civic 2016"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma civic2016!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Civic 2016!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -710,14 +710,14 @@ cfg.products = {
     {
       productType = "car",
       model = "civictper",
-      name = "CivicTperR",
+      name = "CivicTper R",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "civictper"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma civictper!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma CivicTper R!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -727,14 +727,14 @@ cfg.products = {
     {
       productType = "car",
       model = "ferrariitalia",
-      name = "ferrariitalia",
+      name = "Ferrari 458-italia",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "ferrariitalia"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma ferrariitalia!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Ferrari 458-italia!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -744,14 +744,14 @@ cfg.products = {
     {
       productType = "car",
       model = "hornet",
-      name = "hornet",
+      name = "Hornet",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "hornet"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma hornet!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Hornet!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -778,31 +778,14 @@ cfg.products = {
     {
       productType = "car",
       model = "foxevos",
-      name = "HuracanEvo",
+      name = "HuracanEvos",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "foxevos"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma HuracanEvo!",8000)
-         vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-        end
-      end
-      
-    },
-
-    {
-      productType = "car",
-      model = "foxevos",
-      name = "HuracanEvo",
-      price = 200,
-      onBuy = function(source,user_id)
-        if isServer then 
-          local veiculo = "foxevos"
-          local ipva = 0 
-          local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma HuracanEvo!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma HuracanEvos!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -812,14 +795,14 @@ cfg.products = {
     {
       productType = "car",
       model = "jetta2017",
-      name = "jetta2017",
+      name = "Jetta 2017",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "jetta2017"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma jetta2017!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Jetta 2017!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -829,14 +812,14 @@ cfg.products = {
     {
       productType = "car",
       model = "nissanskyliner34",
-      name = "nissanskyliner34",
+      name = "Skyline GTR R34",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "nissanskyliner34"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma nissanskyliner34!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Skyline GTR R34!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -846,14 +829,14 @@ cfg.products = {
     {
       productType = "car",
       model = "panamera17turbo",
-      name = "panamera17turbo",
+      name = "Porsche Panamera Turbo S",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "panamera17turbo"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma panamera17turbo!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Porsche Panamera Turbo S!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -863,14 +846,14 @@ cfg.products = {
     {
       productType = "car",
       model = "r1200",
-      name = "r1200",
+      name = "R1200",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "r1200"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma r1200!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma R1200!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -880,14 +863,14 @@ cfg.products = {
     {
       productType = "car",
       model = "s1000rr",
-      name = "s1000rr",
+      name = "S1000r",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "s1000rr"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma s1000rr!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma S1000r!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -897,14 +880,14 @@ cfg.products = {
     {
       productType = "car",
       model = "silvia",
-      name = "silvia",
+      name = "Silvia s15",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "silvia"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma silvia!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Silvia s15!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -914,14 +897,14 @@ cfg.products = {
     {
       productType = "car",
       model = "taycan21",
-      name = "taycan21",
+      name = "Porsche Taycan",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "taycan21"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma taycan21!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Porsche Taycan!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -931,14 +914,14 @@ cfg.products = {
     {
       productType = "car",
       model = "tenere1200",
-      name = "tenere1200",
+      name = "Tenere 1200",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "tenere1200"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma tenere1200!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Tenere 1200!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -947,12 +930,12 @@ cfg.products = {
 
     {
       productType = "car",
-      model = "xj6 ",
-      name = "xj6 ",
+      model = "xj6",
+      name = "XJ 6",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "xj6 "
+          local veiculo = "xj6"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
           TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma xj6 !",8000)
@@ -965,14 +948,14 @@ cfg.products = {
     {
       productType = "car",
       model = "bmwr1250rocam",
-      name = "bmwr1250rocam",
+      name = "BMW R 1250",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "bmwr1250rocam"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma bmwr1250rocam!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma BMW R 1250!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -982,14 +965,14 @@ cfg.products = {
     {
       productType = "car",
       model = "agerars",
-      name = "agerars ",
+      name = "Agera RS",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
           local veiculo = "agerars"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma agerars !",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Agera RS!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -1016,14 +999,14 @@ cfg.products = {
     {
       productType = "car",
       model = "armoredgle",
-      name = "armoredgle",
+      name = "AMG GLE 53",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "bmws"
+          local veiculo = "armoredgle"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma armoredgle  !",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma AMG GLE 53  !",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -1033,14 +1016,14 @@ cfg.products = {
     {
       productType = "car",
       model = "bmwi8",
-      name = "bmwi8",
+      name = "BMW i8",
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "bmws"
+          local veiculo = "bmwi8"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma bmwi8!",8000)
+          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma BMW i8!",8000)
          vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
         end
       end
@@ -1054,7 +1037,7 @@ cfg.products = {
       price = 200,
       onBuy = function(source,user_id)
         if isServer then 
-          local veiculo = "nissan370z"
+          local veiculo = "huayrar"
           local ipva = 0 
           local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
           TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma Pagani!",8000)
@@ -1131,22 +1114,7 @@ cfg.products = {
       
     },
 
-    {
-      productType = "car",
-      model = "gs310",
-      name = "GS 310",
-      price = 200,
-      onBuy = function(source,user_id)
-        if isServer then 
-          local veiculo = "gs310"
-          local ipva = 0 
-          local carro = vRP.query("creative/get_vehicles", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-          TriggerClientEvent("Notify",source,"sucesso","Você adquiriu uma GS 310!",8000)
-         vRP.execute("creative/add_vehicle", {user_id = user_id, ipva = ipva, vehicle = veiculo})
-        end
-      end
-      
-    },
+    
 
   
 

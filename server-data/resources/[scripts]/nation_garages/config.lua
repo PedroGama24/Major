@@ -809,12 +809,7 @@ config.garages = {
 		{ vehicle = 'wrsm760', modelo = 'Bwm760' },
 		{ vehicle = 'wrsurus', modelo = 'Urus' },
 		{ vehicle = 'bmwm3', modelo = 'bmwm3' },
-		{ vehicle = 'bmwm4', modelo = 'bmwm4' },
 		{ vehicle = 'bmwm5', modelo = 'bmwm5' },
-	--	{ vehicle = 'paliopmrp1', modelo = 'Palio' },
-		
-		{ vehicle = 'jettagli', modelo = 'jettagli' },
-		{ vehicle = 'nkamarok', modelo = 'nkamarok' },
 		{ vehicle = 'tiger', modelo = 'tiger' },
 	  }
 	},
