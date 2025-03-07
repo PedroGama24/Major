@@ -1,51 +1,113 @@
-var tickInterval = undefined;
-var lastHealth = 300;
-var lastArmour = 300;
-var lastStress = 300;
-var lastHunger = 300;
-var lastOxigen = 300;
-var lastWater = 300;
+var lastRadio = "Offline"
+var voice = "Médio"
+
+function minimalTimers(Seconds){
+	var Days = Math.floor(Seconds / 86400)
+	Seconds = Seconds - Days * 86400
+	var Hours = Math.floor(Seconds / 3600)
+	Seconds = Seconds - Hours * 3600
+	var Minutes = Math.floor(Seconds / 60)
+	Seconds = Seconds - Minutes * 60
+
+	const [D,H,M,S] = [Days,Hours,Minutes,Seconds].map(s => s.toString().padStart(2,0))
+
+    if (Days > 0){
+        return D + ":" + H
+    } else if (Hours > 0){
+        return H + ":" + M
+    } else if (Minutes > 0){
+        return M + ":" + S
+    } else if (Seconds > 0){
+        return "00:" + S
+    }
+}
 
 $(document).ready(function(){
+
+
+
 	window.addEventListener("message",function(event){
-		if (event["data"]["progress"] == true){
-			var timeSlamp = event["data"]["progressTimer"];
 
-			if($("#progressBackground").css("display") === "block"){
-				$("#progressDisplay").css("stroke-dashoffset","100");
-				$("#progressBackground").css("display","none");
-				clearInterval(tickInterval);
-				tickInterval = undefined;
+        var item = event.data
 
-				return
+        if(item.street) $("#rua").html(item.street);
+        $("#radio").html(lastRadio);
+        $("#perolas").html(item.coins);
+        if(item.hour && item.minute) {
+            let hour = item.hour
+            let minute = item.minute
+
+            if (hour < 10) {
+                hour = "0" + hour
+            }
+
+            if (minute < 10) {
+                minute = "0" + minute
+            }
+
+            $("#horas").html(hour + ":" + minute);
+        }
+
+        if (event["data"]["safezone"] !== undefined){
+			if (event["data"]["safezone"] == true){
+				$("#safezone").fadeIn(500);
 			} else {
-				$("#progressBackground").css("display","block");
-				$("#progressDisplay").css("stroke-dashoffset","100");
-			}
-
-			var tickPerc = 100;
-			var tickTimer = (timeSlamp / 100);
-			tickInterval = setInterval(tickFrame,tickTimer);
-
-			function tickFrame(){
-				tickPerc--;
-
-				if (tickPerc <= 0){
-					clearInterval(tickInterval);
-					tickInterval = undefined;
-					$("#progressBackground").css("display","none");
-				} else {
-					timeSlamp = timeSlamp - (timeSlamp / tickPerc);
-				}
-
-				$("#textProgress").html(parseInt(timeSlamp / 1000));
-				$("#progressDisplay").css("stroke-dashoffset",tickPerc);
+				$("#safezone").fadeOut(500);
 			}
 
 			return
 		}
 
-		if (event["data"]["hud"] !== undefined){
+        
+        if (item.isArmed) {
+            $(".bullets span").html(`${item.inClipAmmo}<b>/${item.totalAmmo}</b>`)
+            $(".bullets").show()
+        } else {
+            $(".bullets").hide()
+        }
+
+
+		if (item.health <= 1) {
+			setCircle("0", 'lifeFill')
+		} else {
+			setCircle(item.health - 100, 'lifeFill')
+		}
+
+        if (item.armour <= 0) {
+			setCircle("0", 'ArmourFill')
+		} else {
+            setCircle(item.armour, 'ArmourFill')
+		}
+
+        if (event["data"]["thirst"] !== undefined){
+			setCircle(item.thirst, 'sedeFill')
+		}
+
+        if (event["data"]["hunger"] !== undefined){
+			setCircle(item.hunger, 'HungerFill')
+		}
+
+        if (event["data"]["stress"] !== undefined){
+			setCircle(item.stress, 'stressFill')
+		}
+
+        if (event["data"]["voice"] !== undefined){
+			voice = event["data"]["voice"]
+		}
+
+        if (item.talking !== undefined){
+            if (item.talking == 1){
+                $("#voice").html("<active>" + voice + "</active>");
+            } else {
+                $("#voice").html("<inative>" + voice + "</inative>");
+            }
+        }
+
+		if (item.radio !== undefined){
+			lastRadio = item.radio;
+		}
+
+        if (event["data"]["hud"] !== undefined){
 			if (event["data"]["hud"] == true){
 				$("#displayHud").fadeIn(500);
 			} else {
@@ -55,137 +117,86 @@ $(document).ready(function(){
 			return
 		}
 
-		if (event["data"]["movie"] !== undefined){
-			if (event["data"]["movie"] == true){
-				$("#movieTop").fadeIn(500);
-				$("#movieBottom").fadeIn(500);
-			} else {
-				$("#movieTop").fadeOut(500);
-				$("#movieBottom").fadeOut(500);
-			}
-
-			return
-		}
-
-		if (event["data"]["hood"] !== undefined){
-			if (event["data"]["hood"] == true){
-				$("#hoodDisplay").fadeIn(500);
-			} else {
-				$("#hoodDisplay").fadeOut(500);
-			}
-		}
-
-		if (event["data"]["talking"] == true){
-			$("#voice").css("background","#333 url(images/micOn.png)");
-		} else {
-			$("#voice").css("background","#222 url(images/micOff.png)");
-
-			if (event["data"]["voice"] == 1){
-				$(".voiceDisplay").css("stroke-dashoffset","75");
-			} else if (event["data"]["voice"] == 2){
-				$(".voiceDisplay").css("stroke-dashoffset","50");
-			} else if (event["data"]["voice"] == 3){
-				$(".voiceDisplay").css("stroke-dashoffset","25");
-			} else if (event["data"]["voice"] == 4){
-				$(".voiceDisplay").css("stroke-dashoffset","0");
-			}
-		}
-
-		if (lastHealth !== event["data"]["health"]){
-			lastHealth = event["data"]["health"];
-
-			if (event["data"]["health"] <= 1){
-				$(".healthDisplay").css("stroke-dashoffset","100");
-			} else {
-				$(".healthDisplay").css("stroke-dashoffset",100 - event["data"]["health"]);
-			}
-		}
-
-		if (lastArmour !== event["data"]["armour"]){
-			lastArmour = event["data"]["armour"];
-
-			if (event["data"]["armour"] <= 0){
-				if($(".armourBackground").css("display") === "block"){
-					$(".armourBackground").css("display","none");
-				}
-			} else {
-				if($(".armourBackground").css("display") === "none"){
-					$(".armourBackground").css("display","block");
-				}
-			}
-
-			$(".armourDisplay").css("stroke-dashoffset",100 - event["data"]["armour"]);
-		}
-
-
-
-		if (lastWater !== event["data"]["thirst"]){
-			lastWater = event["data"]["thirst"];
-
-			$(".waterDisplay").css("stroke-dashoffset",100 - event["data"]["thirst"]);
-		}
-
-		if (lastHunger !== event["data"]["hunger"]){
-			lastHunger = event["data"]["hunger"];
-
-			$(".foodDisplay").css("stroke-dashoffset",100 - event["data"]["hunger"]);
-		}
-
-		if (event["data"]["suit"] == undefined){
-			if($(".oxigenBackground").css("display") === "block"){
-				$(".oxigenBackground").css("display","none");
-			}
-		} else {
-			if($(".oxigenBackground").css("display") === "none"){
-				$(".oxigenBackground").css("display","block");
-			}
-		}
-
-		if (lastOxigen !== event["data"]["oxigen"]){
-			lastOxigen = event["data"]["oxigen"];
-
-			$(".oxigenDisplay").css("stroke-dashoffset",100 - event["data"]["oxigen"]);
-		}
-
-		if (event["data"]["vehicle"] !== undefined){
+        if (event["data"]["vehicle"] !== undefined){
 			if (event["data"]["vehicle"] == true){
-				if($("#displayTop").css("display") === "none"){
-					$("#displayTop").css("display","block");
+
+                if ($("#car-container").css("display") === "none"){
+					$("#car-container").css("display","block");
 				}
 
-				if (event["data"]["showbelt"] == false){
-					if($("#hardBelt").css("display") === "block"){
-						$("#hardBelt").css("display","none");
-						$("#seatBelt").css("display","none");
-					}
-				} else {
-					if($("#hardBelt").css("display") === "none"){
-						$("#hardBelt").css("display","block");
-						$("#seatBelt").css("display","block");
-					}
+                $('#rpm').css({ strokeDasharray: (((item.rpm * 100) * 30) / 100) + 31 + 'rem' });
+                $('#fuel').css({ strokeDasharray: 9 + (item.fuel * 7.5) / 100 + 'rem' });
+                const porcent = getPorcent(item.nitro, 2000);
+    
+                $('#nitro').css({ strokeDasharray: 9 + (porcent * 7.5) / 100 + 'rem' });
+        
 
-					if (event["data"]["hardness"] == 1){
-						$("#hardBelt").html("<img src='images/beltOn.png'>");
-					} else {
-						$("#hardBelt").html("<img src='images/beltOff.png'>");
-					}
+                if(item.belt == true) {
+                    $(".Seatbelt").addClass("Green").removeClass("Gray");
+                } else {
+                    $(".Seatbelt").addClass("Gray").removeClass("Green");
+                }
+    
+                if (item.healthcar >= 501){
+                    $(".HealthCar").addClass("Gray").removeClass("Yellow").removeClass("Red");
+                } else if (item.healthcar <= 500 && item.healthcar >= 200 ){
+                    $(".HealthCar").addClass("Yellow").removeClass("Gray").removeClass("Red");
+                } else if (item.healthcar <= 200){
+                    $(".HealthCar").addClass("Red").removeClass("Gray").removeClass("Yellow");
+                }
+             
+                if (item.pneus == 0){
+                    $(".Tyres").addClass("Gray").removeClass("Yellow").removeClass("Red");
+                } else if (item.pneus == 1){
+                    $(".Tyres").addClass("Yellow").removeClass("Gray").removeClass("Red");
+                } else if (item.pneus >= 2){
+                    $(".Tyres").addClass("Red").removeClass("Gray").removeClass("Yellow");
+                }
+    
+                if(item.VHeadlight == false) {
+                    $(".Headlight").addClass("Gray").removeClass("Blue");
+                } else { 
+                    $(".Headlight").addClass("Blue").removeClass("Gray");
+                }
+    
+                if(item.locked == true) {
+                    $(".Locked").addClass("Gray").removeClass("Green");
+                } else { 
+                    $(".Locked").addClass("Green").removeClass("Gray");
+                }
 
-					if (event["data"]["seatbelt"] == 1){
-						$("#seatBelt").html("<img src='images/beltOn.png'>");
-					} else {
-						$("#seatBelt").html("<img src='images/beltOff.png'>");
-					}
-				}
-
-				$("#gasoline").html("GAS <s>" + parseInt(event["data"]["fuel"]) + "</s>");
-				$("#mph").html("KMH <s>" + parseInt(event["data"]["speed"]) + "</s>");
+                if (item.speed < 9) return $('.mileage-frame p').html('<span>00</span>' + item.speed.toFixed(0));
+                if (item.speed < 99) return $('.mileage-frame p').html('<span>0</span>' + item.speed.toFixed(0));
+                $('.mileage-frame p').html(item.speed.toFixed(0));
 			} else {
-				if($("#displayTop").css("display") === "block"){
-					$("#displayTop").css("display","none");
+				if ($("#car-container").css("display") === "block"){
+					$("#car-container").css("display","none");
 				}
 			}
-		}
+        }
+ 
 
-		$("#displayMiddle").html("<text>" + event["data"]["radio"] + event["data"]["direction"] + "<s>:</s>" + event["data"]["street"] + "</text>");
 	});
 });
+
+function setProgressSpeed(value, element) {
+    var circle = document.querySelector(element);
+    var radius = circle.r.baseVal.value;
+    var circumference = radius * 2 * Math.PI;
+    var percent = value * 100 / 220;
+
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+    const offset = circumference - ((-percent * 73) / 100) / 100 * circumference;
+    circle.style.strokeDashoffset = -offset;
+}
+
+function setCircle(percentage, fillClass) {
+    let circle = document.querySelector(`.${fillClass}`)
+    let calc = (125 * (100 - percentage)) / 100
+    circle.style.strokeDashoffset = calc
+}
+
+const getPorcent = (value = 0, maxValue = 0) => {
+    return (value * 100) / maxValue;
+}

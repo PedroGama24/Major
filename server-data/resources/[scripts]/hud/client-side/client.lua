@@ -3,38 +3,45 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
-vRP = Proxy.getInterface("vRP")
-dogz = Tunnel.getInterface("vRP")
-dg = {}
-Tunnel.bindInterface("hud",dg)
+vSERVER = Proxy.getInterface("vRP")
+vRPS = Tunnel.getInterface("vRP")
+vSERVER = Tunnel.getInterface("hud")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
-local voice = 2
-local stress = 0
-local stamina = 0
-local oxigen = 0
-local hunger = 100
-local thirst = 100
-local hardness = {}
+local Experience = 0
 local showHud = false
-local talking = false
+local clientStress = 0
 local showMovie = false
-local radioDisplay = ""
+local Compass = true
+local pauseBreak = false
+local clientHunger = 100
+local clientThirst = 100
 local homeInterior = false
-local hour = nil
-local minute = nil
-local playerActive = false
 
-local hotkey = true
+local Nitro = 0
+local updateFoods = GetGameTimer()
+local wantedTimer = GetGameTimer()
+local reposeTimer = GetGameTimer()
 
+RegisterNetEvent("hud:safezone")
+AddEventHandler("hud:safezone",function(status)
+	SendNUIMessage({ safezone = status })
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- NITRO
+-----------------------------------------------------------------------------------------------------------------------------------------
+local NitroFuel = 0
+local NitroFlame = false
+local NitroButton = GetGameTimer()
+LocalPlayer["state"]["Nitro"] = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
-local beltLock = 0
 local beltSpeed = 0
-local beltVelocity = 0
-local updateFoods = GetGameTimer()
+local beltLock = false
+local beltVelocity = vector3(0,0,0)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DIVINABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -42,210 +49,65 @@ local divingMask = nil
 local divingTank = nil
 local clientOxigen = 100
 local divingTimers = GetGameTimer()
------------------------------------------------------------------------------------------------------------------------------------------
--- CLOCKVARIABLES
------------------------------------------------------------------------------------------------------------------------------------------
-local clockHours = 18
-local clockMinutes = 0
-local timeDate = GetGameTimer()
-local weatherSync = "EXTRASUNNY"
------------------------------------------------------------------------------------------------------------------------------------------
--- VRP:PLAYERACTIVE
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("vrp:playerActive")
-AddEventHandler("vrp:playerActive",function(user_id)
-	playerActive = true
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADGLOBAL
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if playerActive then
-			if divingMask ~= nil then
-				if GetGameTimer() >= divingTimers then
-					divingTimers = GetGameTimer() + 35000
-					clientOxigen = clientOxigen - 1
-					dogz.clientOxigen()
 
-					if clientOxigen <= 0 then
-						ApplyDamageToPed(PlayerPedId(),50,false)
-					end
-				end
-			end
-		end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- LIGHTTRAILS
+-----------------------------------------------------------------------------------------------------------------------------------------
+local LightTrails = {}
+local LightParticles = {}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- PURGESPRAYS
+-----------------------------------------------------------------------------------------------------------------------------------------
+local PurgeSprays = {}
+local PurgeParticles = {}
+local PurgeActive = false
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- MUMBLABLES
+-----------------------------------------------------------------------------------------------------------------------------------------
+local Mumble = false
 
-		Citizen.Wait(5000)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- MUMBLECONNECTED
+-----------------------------------------------------------------------------------------------------------------------------------------
+AddEventHandler("mumbleConnected",function()
+	if not Mumble then
+		SendNUIMessage({ mumble = false })
+		Mumble = true
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- THREADFOODS
+-- MUMBLEDISCONNECTED
 -----------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if playerActive then
-			local ped = PlayerPedId()
-			if GetGameTimer() >= updateFoods and GetEntityHealth(ped) > 101 then
-				updateFoods = GetGameTimer() + 90000
-				thirst = thirst - 1
-				hunger = hunger - 1
-				dogz.clientFoods()
-			end
-		end
-
-		Citizen.Wait(30000)
+AddEventHandler("mumbleDisconnected",function()
+	if Mumble then
+		SendNUIMessage({ mumble = true })
+		Mumble = false
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- THREADGLOBAL
+-- HUD:WANTEDCLIENT
 -----------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if GetGameTimer() >= timeDate then
-			timeDate = GetGameTimer() + 3000
-			clockMinutes = clockMinutes + 2
-
-			if clockMinutes >= 60 then
-				clockHours = clockHours + 1
-				clockMinutes = 0
-
-				if clockHours >= 24 then
-					clockHours = 0
-				end
-			end
-		end
-
-		Citizen.Wait(10000)
-	end
-end)
---[[ -----------------------------------------------------------------------------------------------------------------------------------------
--- THREADTIMERS
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if homeInterior then
-			SetWeatherTypeNow("EXTRASUNNY")
-			SetWeatherTypePersist("EXTRASUNNY")
-			SetWeatherTypeNowPersist("EXTRASUNNY")
-			NetworkOverrideClockTime(12,00,00)
-		else
-			SetWeatherTypeNow(weatherSync)
-			SetWeatherTypePersist(weatherSync)
-			SetWeatherTypeNowPersist(weatherSync)
-			NetworkOverrideClockTime(clockHours,clockMinutes,00)
-		end
-
-		if beltLock >= 1 then
-			DisableControlAction(1,75,true)
-		end
-
-		Citizen.Wait(0)
-	end
-end) ]]
------------------------------------------------------------------------------------------------------------------------------------------
--- VOICETALKING
------------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("hud:userTalking",function(status)
-	talking = status
+RegisterNetEvent("hud:wantedClient")
+AddEventHandler("hud:wantedClient",function(Seconds)
+	wantedTimer = GetGameTimer() + (Seconds * 100)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- PROGRESS
+-- HUD:REPOSECLIENT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("Progress")
-AddEventHandler("Progress",function(progressTimer)
-	SendNUIMessage({ progress = true, progressTimer = parseInt(progressTimer - 500) })
-end)
-
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADHUD
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if showHud then
-			updateDisplayHud()
-		end
-
-		Citizen.Wait(500)
-	end
+RegisterNetEvent("hud:reposeClient")
+AddEventHandler("hud:reposeClient",function(Seconds)
+	reposeTimer = GetGameTimer() + (Seconds * 100)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- UPDATEDISPLAYHUD
+-- HUD:EXP
 -----------------------------------------------------------------------------------------------------------------------------------------
-local streetLast = 0
-local flexDirection = "Norte"
-function updateDisplayHud()
-	local ped = PlayerPedId()
-	local coords = GetEntityCoords(ped)
-	local heading = GetEntityHeading(ped)
-	local armour = GetPedArmour(ped)
-	local health = GetEntityHealth(ped)
-	local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords["x"],coords["y"],coords["z"]))
-
-	if heading >= 315 or heading < 45 then
-		flexDirection = "Norte"
-	elseif heading >= 45 and heading < 135 then
-		flexDirection = "Oeste"
-	elseif heading >= 135 and heading < 225 then
-		flexDirection = "Sul"
-	elseif heading >= 225 and heading < 315 then
-		flexDirection = "Leste"
-	end
-
-	hours = GetClockHours()
-	minutes = GetClockMinutes()
-
-	if hours <= 9 then
-		hours = "0"..hours
-	end
-
-	if minutes <= 9 then
-		minutes = "0"..minutes
-	end
-
-	local horario = hours..":"..minutes
-
-	if IsPedInAnyVehicle(ped) then
-		local vehicle = GetVehiclePedIsUsing(ped)
-		local fuel = GetVehicleFuelLevel(vehicle)
-		local plate = string.gsub(GetVehicleNumberPlateText(vehicle), " ", "")
-		local speed = GetEntitySpeed(vehicle) * 3.6
-		local showBelt = true
-		
-		if GetVehicleClass(vehicle) == 8 and (GetVehicleClass(vehicle) >= 13 and GetVehicleClass(vehicle) <= 16) and GetVehicleClass(vehicle) == 21 then
-			showBelt = false
-		end
-		SendNUIMessage({ vehicle = true, talking = talking, health = health, armour = armour, thirst = thirst, hunger = hunger, stress = stress, stamina = stamina, oxigen = clientOxigen, suit = divingMask, street = streetName, direction = flexDirection, radio = radioDisplay, voice = voice, fuel = fuel, speed = speed, time = horario, showbelt = showBelt, seatbelt = beltLock, hardness = (hardness[plate] or 0), hotkey = hotkey })
-	else
-		SendNUIMessage({ vehicle = false, talking = talking, health = health, armour = armour, thirst = thirst, hunger = hunger, stress = stress, stamina = stamina, oxigen = clientOxigen, suit = divingMask, street = streetName, direction = flexDirection, radio = radioDisplay, voice = voice, time = horario, hotkey = hotkey })
-	end
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- HUD
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("hud",function(source,args)
-	showHud = not showHud
-
-	updateDisplayHud()
-	SendNUIMessage({ hud = showHud })
-end)
-
-Citizen.CreateThread(function()
-	showHud = not showHud
-
-	updateDisplayHud()
-	SendNUIMessage({ hud = showHud })
+RegisterNetEvent("hud:Exp")
+AddEventHandler("hud:Exp",function(Amount)
+	Experience = Amount
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- MOVIE
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("movie",function(source,args)
-	showMovie = not showMovie
-
-	updateDisplayHud()
-	SendNUIMessage({ movie = showMovie })
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADTIMERS
+-- THREADCIRCLE
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	DisplayRadar(false)
@@ -272,6 +134,258 @@ Citizen.CreateThread(function()
 	SetBigmapActive(false,false)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- THREADGLOBAL
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	DisplayRadar(false)
+
+	while true do
+		if LocalPlayer["state"]["Active"] then
+			if divingMask ~= nil then
+				if GetGameTimer() >= divingTimers then
+					SendNUIMessage({ oxigen = clientOxigen - 1, oxigenShow = divingMask })
+					divingTimers = GetGameTimer() + 30000
+					clientOxigen = clientOxigen - 1
+					vRPS.clientOxigen()
+
+					if clientOxigen <= 0 then
+						local ped = PlayerPedId()
+						local health = GetEntityHealth(ped)
+					
+						SetEntityHealth(ped,health - 50)
+					end
+				end
+			end
+		end
+
+		Citizen.Wait(5000)
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- THREADFOODS
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	while true do
+		if LocalPlayer["state"]["Active"] then
+			local ped = PlayerPedId()
+			if GetGameTimer() >= updateFoods and GetEntityHealth(ped) > 101 then
+				SendNUIMessage({ thirst = clientThirst - 1 })
+				SendNUIMessage({ hunger = clientHunger - 1 })
+				updateFoods = GetGameTimer() + 8000
+				clientThirst = clientThirst - 1
+				clientHunger = clientHunger - 1
+				vRPS.Foods()
+			end
+		end
+
+		Citizen.Wait(30000)
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- THREADHUD
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	while true do
+		local timeDistance = 300
+		if LocalPlayer["state"]["Active"] then
+			if IsPauseMenuActive() then
+				SendNUIMessage({ hud = false })
+				pauseBreak = true
+			else
+				if showHud then
+					if pauseBreak then
+						SendNUIMessage({ hud = true })
+						pauseBreak = false
+						displayHud()
+					else
+						displayHud()
+
+						local ped = PlayerPedId()
+						if IsPedInAnyVehicle(ped) then
+							timeDistance = 5
+						end
+					end
+				end
+			end
+		end
+
+		Citizen.Wait(timeDistance)
+	end
+end)
+
+Citizen.CreateThread(function()
+	while true do
+		local timeDistance = 10000
+		if LocalPlayer["state"]["Active"] then
+			local coins = vSERVER.getPerolas()
+			SendNUIMessage({ coins = coins })
+		end
+
+		Citizen.Wait(timeDistance)
+	end
+end)
+
+--[[ CreateThread(function()
+	while true do
+		local ped = PlayerPedId()
+		local isArmed = IsPedArmed(ped, 4)
+		local weapon = GetSelectedPedWeapon(ped)
+		local totalAmmo = GetAmmoInPedWeapon(ped, weapon)
+		local _, inClipAmmo = GetAmmoInClip(ped, weapon)
+
+		SendNUIMessage({ isArmed = isArmed, totalAmmo = totalAmmo, inClipAmmo = inClipAmmo })
+		Wait(300)
+	end
+end) ]]
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DATA E HORA
+-----------------------------------------------------------------------------------------------------------------------------------------
+function CalculateTimeToDisplay()
+	hour = GetClockHours()
+	minute = GetClockMinutes()
+	if hour <= 9 then
+		hour = "0" .. hour
+	end
+	if minute <= 9 then
+		minute = "0" .. minute
+	end
+end
+
+function CalculateDateToDisplay()
+	month = GetClockMonth()
+	dayOfMonth = GetClockDayOfMonth()
+	if month == 0 then
+		month = "Janeiro"
+	elseif month == 1 then
+		month = "Fevereiro"
+	elseif month == 2 then
+		month = "Março"
+	elseif month == 3 then
+		month = "Abril"
+	elseif month == 4 then
+		month = "Maio"
+	elseif month == 5 then
+		month = "Junho"
+	elseif month == 6 then
+		month = "Julho"
+	elseif month == 7 then
+		month = "Agosto"
+	elseif month == 8 then
+		month = "Setembro"
+	elseif month == 9 then
+		month = "Outubro"
+	elseif month == 10 then
+		month = "Novembro"
+	elseif month == 11 then
+		month = "Dezembro"
+	end
+end
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DISPLAYHUD
+-----------------------------------------------------------------------------------------------------------------------------------------
+function displayHud()
+	local pid = PlayerId()
+	local ped = PlayerPedId()
+	local armour = GetPedArmour(ped)
+	local coords = GetEntityCoords(ped)
+	local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords["x"],coords["y"],coords["z"]))
+	CalculateTimeToDisplay()
+	if IsPedInAnyVehicle(ped) then
+
+		if not IsMinimapRendering() then
+			DisplayRadar(true)
+		end
+
+		local vehicle = GetVehiclePedIsUsing(ped)
+		local fuel = GetVehicleFuelLevel(vehicle)
+		local speed = GetEntitySpeed(vehicle) * 3.6
+		rpm = GetVehicleCurrentRpm(vehicle)
+		gear = GetVehicleCurrentGear(vehicle)
+		local vehPlate = GetVehicleNumberPlateText(vehicle)
+
+		healthcar = GetVehicleEngineHealth(vehicle)
+		locked = GetVehicleDoorLockStatus(vehicle)
+		local _,VHeadlight,VHighBeam = GetVehicleLightsState(vehicle)
+
+		local Tyre = 0
+		for i = 0,5 do
+			if IsVehicleTyreBurst(vehicle,i,true) then
+				Tyre = Tyre + 1
+			end
+		end
+
+		if LocalPlayer["state"]["Nitro"] then
+			Nitro = NitroFuel
+		else
+			if (GlobalState["Nitro"][vehPlate] or 0) ~= Nitro then
+				Nitro = GlobalState["Nitro"][vehPlate] or 0
+			end
+		end
+
+		
+		SendNUIMessage({ vehicle = true, minute = tonumber(minute), hour = tonumber(hour), nitro = Nitro, healthcar = healthcar, VHeadlight = VHeadlight, Tyre = Tyre, rpm = rpm, timer = GetGameTimer(), wanted = wantedTimer, repose = reposeTimer, talking = MumbleIsPlayerTalking(pid), health = GetEntityHealth(ped), armour = armour, street = streetName, fuel = fuel, speed = speed, belt = beltLock, locked = GetVehicleDoorLockStatus(vehicle) })
+		
+	else
+		if IsMinimapRendering() then
+			DisplayRadar(false)
+		end
+		SendNUIMessage({ vehicle = false, minute = tonumber(minute), hour = tonumber(hour), timer = GetGameTimer(), wanted = wantedTimer, repose = reposeTimer, talking = MumbleIsPlayerTalking(pid), health = GetEntityHealth(ped), armour = armour, street = streetName })
+	end
+end
+
+CreateThread(function()
+	while true do
+		NetworkOverrideClockTime(GlobalState["Hours"], GlobalState["Minutes"], 00)
+		Wait(1000)
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HUD
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("hud",function(source,args,rawCommand)
+	if MumbleIsConnected() then
+		showHud = not showHud
+
+		displayHud()
+		SendNUIMessage({ hud = showHud })
+
+		if IsMinimapRendering() and not showHud then
+			DisplayRadar(false)
+		end
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- COMPASS
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("compass",function(source,args,rawCommand)
+	if MumbleIsConnected() then
+		local ped = PlayerPedId()
+		if IsPedInAnyVehicle(ped) then
+			Compass = not Compass
+			SendNUIMessage({ compass = Compass, vehicle = 1 })
+
+			if Compass then
+				TriggerEvent("Notify","verde","Compasso ativado.",3000)
+			else
+				TriggerEvent("Notify","verde","Compasso desativado.",3000)
+			end
+		end
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- MOVIE
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("movie",function(source,args,rawCommand)
+	if MumbleIsConnected() then
+		showMovie = not showMovie
+
+		displayHud()
+		SendNUIMessage({ movie = showMovie })
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:TOGGLEHOOD
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:toggleHood")
@@ -287,24 +401,10 @@ AddEventHandler("hud:toggleHood",function()
 	SendNUIMessage({ hood = showHood })
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- HUD:HARDNESS
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:plateHardness")
-AddEventHandler("hud:plateHardness",function(vehPlate,status)
-	hardness[vehPlate] = parseInt(status)
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- HUD:ALLHARDNESS
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:allHardness")
-AddEventHandler("hud:allHardness",function(vehHardness)
-	hardness = vehHardness
-end)
------------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:REMOVEHOOD
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:removeHood")
-AddEventHandler("hud:removeHood",function()
+RegisterNetEvent("hud:RemoveHood")
+AddEventHandler("hud:RemoveHood",function()
 	if showHood then
 		showHood = false
 		SendNUIMessage({ hood = showHood })
@@ -312,25 +412,37 @@ AddEventHandler("hud:removeHood",function()
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- STATUSFOOD
+-- HUD:HUNGER
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("statusHunger", function(statusHunger)
-	hunger = parseInt(statusHunger)
+RegisterNetEvent("hud:Hunger")
+AddEventHandler("hud:Hunger",function(number)
+	SendNUIMessage({ hunger = number })
+	clientHunger = number
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HUD:THIRST
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("hud:Thirst")
+AddEventHandler("hud:Thirst",function(number)
+	SendNUIMessage({ thirst = number })
+	clientThirst = number
 end)
 
-RegisterNetEvent("statusThirst", function(statusThrist)
-	thirst = parseInt(statusThrist)
-end)
-
-RegisterNetEvent("statusStress", function(statusStress)
-	stress = parseInt(statusStress)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HUD:STRESS
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("hud:Stress")
+AddEventHandler("hud:Stress",function(number)
+	SendNUIMessage({ stress = number })
+	clientStress = number
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- STATUSOXIGEN
+-- HUD:OXIGEN
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("statusOxigen")
-AddEventHandler("statusOxigen",function(number)
-	clientOxigen = parseInt(number)
+RegisterNetEvent("hud:Oxigen")
+AddEventHandler("hud:Oxigen",function(number)
+	SendNUIMessage({ oxigen = number, oxigenShow = divingMask })
+	clientOxigen = number
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RECHARGEOXIGEN
@@ -338,48 +450,41 @@ end)
 RegisterNetEvent("hud:rechargeOxigen")
 AddEventHandler("hud:rechargeOxigen",function()
 	TriggerEvent("Notify","verde","Reabastecimento concluído.",3000)
-	dogz.rechargeOxigen()
+	SendNUIMessage({ oxigen = 100, oxigenShow = divingMask })
+	vRPS.rechargeOxigen()
 	clientOxigen = 100
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- HUDACTIVE
+-- HUD:ACTIVE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hudActived")
-AddEventHandler("hudActived",function(status)
+RegisterNetEvent("hud:Active")
+AddEventHandler("hud:Active",function(status)
 	showHud = status
 
-	updateDisplayHud() --testar isso dps
+	displayHud()
 
 	SendNUIMessage({ hud = showHud })
 end)
-
-
-RegisterKeyMapping('shortcuts', 'Atalhos', 'keyboard', 'u')
-RegisterCommand("shortcuts", function() 
-    hotkey = false
-
-end)
-
-
-
-
-
 -----------------------------------------------------------------------------------------------------------------------------------------
--- HUD:VOICEMODE
+-- HUD:RADIO
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("pma-voice:setTalkingMode", function(status)
-	voice = status
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- HUD:RADIODISPLAY
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:RadioDisplay")
-AddEventHandler("hud:RadioDisplay",function(number)
-	if parseInt(number) <= 0 then
-		radioDisplay = ""
+RegisterNetEvent("hud:Radio")
+AddEventHandler("hud:Radio",function(number)
+	if number <= 0 then
+		SendNUIMessage({ radio = "Offline" })
 	else
-		radioDisplay = parseInt(number)
+		SendNUIMessage({ radio = "<text>"..parseInt(number).." Mhz</text>" })
 	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HUD:VOIP
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("hud:Voip")
+AddEventHandler("hud:Voip",function(number)
+	local Number = tonumber(number)
+	local voiceTarget = { "Baixo","Médio","Alto","Muito Alto" }
+
+	SendNUIMessage({ voice = voiceTarget[Number] })
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FOWARDPED
@@ -398,83 +503,78 @@ end
 -- THREADBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
-    while true do
-        local timeDistance = 999
-        if playerActive then
-            local ped = PlayerPedId()
-            if IsPedInAnyVehicle(ped) then
-                if not IsPedOnAnyBike(ped) and not IsPedInAnyHeli(ped) and not IsPedInAnyPlane(ped) then
-                    timeDistance = 1
+	while true do
+		local timeDistance = 999
+		if LocalPlayer["state"]["Active"] then
+			local ped = PlayerPedId()
+			if IsPedInAnyVehicle(ped) then
+				if not IsPedOnAnyBike(ped) and not IsPedInAnyHeli(ped) and not IsPedInAnyPlane(ped) then
+					timeDistance = 1
 
-                    local vehicle = GetVehiclePedIsUsing(ped)
-                    local speed = GetEntitySpeed(vehicle) * 3.6
-                    if speed ~= beltSpeed then
-                        local plate = string.gsub(GetVehicleNumberPlateText(vehicle), " ", "")
+					local vehicle = GetVehiclePedIsUsing(ped)
+					if beltLock then
+						DisableControlAction(1,75,true)
+					end
 
-                        if ((beltSpeed - speed) >= 50 and beltLock == 0) or ((beltSpeed - speed) >= 60 and beltLock == 1 and hardness[plate] == nil and GetPedInVehicleSeat(vehicle,-1) == ped) then
-                            local fowardVeh = fowardPed(ped)
-                            local coords = GetEntityCoords(ped)
-                            SetEntityCoords(ped,coords["x"] + fowardVeh["x"],coords["y"] + fowardVeh["y"],coords["z"] + 1,1,0,0,0)
-                            SetEntityVelocity(ped,beltVelocity["x"],beltVelocity["y"],beltVelocity["z"])
-                            ApplyDamageToPed(ped,50,false)
+					local speed = GetEntitySpeed(vehicle) * 3.6
+					if speed ~= beltSpeed then
+						if (beltSpeed - speed) >= 45 and not beltLock then
+							local fowardVeh = fowardPed(ped)
+							local coords = GetEntityCoords(ped)
+							local health = GetEntityHealth(ped)
+							SetEntityCoords(ped,coords["x"] + fowardVeh["x"],coords["y"] + fowardVeh["y"],coords["z"] + 1,1,0,0,0)
+							SetEntityVelocity(ped,beltVelocity["x"],beltVelocity["y"],beltVelocity["z"])
+							SetEntityHealth(ped,health - 50)
 
-							
+							Citizen.Wait(1)
 
-                            Citizen.Wait(1)
+							SetPedToRagdoll(ped,5000,5000,0,0,0,0)
+						end
 
-                            SetPedToRagdoll(ped,5000,5000,0,0,0,0)
-                        end
+						beltVelocity = GetEntityVelocity(vehicle)
+						beltSpeed = speed
+					end
+				end
+			else
+				if beltSpeed ~= 0 then
+					beltSpeed = 0
+				end
 
-                        beltVelocity = GetEntityVelocity(vehicle)
-                        beltSpeed = speed
-                    end
-                end
-            else
-                if beltSpeed ~= 0 then
-                    beltSpeed = 0
-                end
+				if beltLock then
+					SendNUIMessage({ seatbelt = false })
+					beltLock = false
+				end
+			end
+		end
 
-                if beltLock == 1 then
-                    beltLock = 0
-                end
-            end
-        end
-
-        Citizen.Wait(timeDistance)
-    end
+		Citizen.Wait(timeDistance)
+	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("seatbelt",function(source,args)
-	local ped = PlayerPedId()
-	if IsPedInAnyVehicle(ped) then
-		if not IsPedOnAnyBike(ped) then
-			if beltLock == 1 then
-				TriggerEvent("vrp_sound:source","unbelt",0.5)
-				beltLock = 0
-			else
-				TriggerEvent("vrp_sound:source","belt",0.5)
-				beltLock = 1
+RegisterCommand("seatbelt",function(source,args,rawCommand)
+	if MumbleIsConnected() then
+		local ped = PlayerPedId()
+		if IsPedInAnyVehicle(ped) then
+			if not IsPedOnAnyBike(ped) then
+				if beltLock then
+					TriggerEvent("sounds:source","unbelt",0.5)
+					SendNUIMessage({ seatbelt = false })
+					beltLock = false
+				else
+					TriggerEvent("sounds:source","belt",0.5)
+					SendNUIMessage({ seatbelt = true })
+					beltLock = true
+				end
 			end
 		end
 	end
 end)
-
-
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- KEYMAPPING
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterKeyMapping("seatbelt","Colocar/Retirar o cinto.","keyboard","g")
------------------------------------------------------------------------------------------------------------------------------------------
--- HUD:SYNCTIMERS
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:syncTimers")
-AddEventHandler("hud:syncTimers",function(timer)
-	clockHours = parseInt(timer[2])
-	clockMinutes = parseInt(timer[1])
-	weatherSync = timer[3]
-end)
+RegisterKeyMapping("seatbelt","Colocar/Retirar o cinto.","keyboard","G")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HOMES:HOURS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -486,28 +586,36 @@ end)
 -- THREADHEALTHREDUCE
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
-	while true do
-		local ped = PlayerPedId()
-		if GetEntityHealth(ped) > 101 then
-			if hunger >= 6 and hunger <= 15 then
-				ApplyDamageToPed(ped,1,false)
-				TriggerEvent("Notify","Fome","🍔 Sofrendo com a fome.",5000,"left")
-			elseif hunger <= 5 then
-				ApplyDamageToPed(ped,2,false)
-				TriggerEvent("Notify","Fome","🍔 Sofrendo com a fome.",5000,"left")
-			end
+	local foodTimers = GetGameTimer()
 
-			if thirst >= 6 and thirst <= 15 then
-				ApplyDamageToPed(ped,1,false)
-				TriggerEvent("Notify","Sede","💧 Sofrendo com a sede.",5000,"left")
-			elseif thirst <= 5 then
-				ApplyDamageToPed(ped,2,false)
-				TriggerEvent("Notify","Sede","💧 Sofrendo com a sede.",5000,"left")
+	while true do
+		if LocalPlayer["state"]["Active"] then
+			if GetGameTimer() >= foodTimers then
+				foodTimers = GetGameTimer() + 10000
+
+				local ped = PlayerPedId()
+				local health = GetEntityHealth(ped)
+				if health > 101 then
+					if clientHunger >= 10 and clientHunger <= 20 then
+						SetEntityHealth(ped,health - 1)
+						TriggerEvent("Notify","hunger","Fome","Sofrendo com a fome.","vermelho", 5000)
+					elseif clientHunger <= 9 then
+						SetEntityHealth(ped,health - 2)
+						TriggerEvent("Notify","hunger","Fome","Sofrendo com a fome.","vermelho", 5000)
+					end
+
+					if clientThirst >= 10 and clientThirst <= 20 then
+						SetEntityHealth(ped,health - 1)
+						TriggerEvent("Notify","thirst","Sede","Sofrendo com a sede.","vermelho", 5000)
+					elseif clientThirst <= 9 then
+						SetEntityHealth(ped,health - 2)
+						TriggerEvent("Notify","thirst","Sede","Sofrendo com a sede.","vermelho", 5000)
+					end
+				end
 			end
 		end
 
-
-		Citizen.Wait(15000)
+		Citizen.Wait(1000)
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -516,21 +624,20 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
-		if playerActive then
+		if LocalPlayer["state"]["Active"] then
 			local ped = PlayerPedId()
-			local health = GetEntityHealth(ped)
-
-			if health > 101 then
-				if stress >= 99 then
+			if GetEntityHealth(ped) > 101 then
+				if clientStress >= 99 then
+					timeDistance = 2500
 					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.75)
-				elseif stress >= 80 and stress <= 98 then
-					timeDistance = 9990
+				elseif clientStress >= 80 and clientStress <= 98 then
+					timeDistance = 5000
 					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.50)
-				elseif stress >= 60 and stress <= 79 then
+				elseif clientStress >= 60 and clientStress <= 79 then
 					timeDistance = 7500
 					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.25)
-				elseif stress >= 40 and stress <= 59 then
-					timeDistance = 9990
+				elseif clientStress >= 40 and clientStress <= 59 then
+					timeDistance = 10000
 					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.05)
 				end
 			end
@@ -540,103 +647,310 @@ Citizen.CreateThread(function()
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- REMOVESCUBA
+-- HUD:REMOVESCUBA
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:removeScuba")
-AddEventHandler("hud:removeScuba",function()
+RegisterNetEvent("hud:RemoveScuba")
+AddEventHandler("hud:RemoveScuba",function()
 	local ped = PlayerPedId()
 	if DoesEntityExist(divingMask) or DoesEntityExist(divingTank) then
 		if DoesEntityExist(divingMask) then
-			TriggerServerEvent("tryDeleteObject",NetworkGetNetworkIdFromEntity(divingMask))
+			SendNUIMessage({ oxigen = clientOxigen, oxigenShow = nil })
+			TriggerServerEvent("tryDeleteObject",ObjToNet(divingMask))
 			divingMask = nil
 		end
 
 		if DoesEntityExist(divingTank) then
-			TriggerServerEvent("tryDeleteObject",NetworkGetNetworkIdFromEntity(divingTank))
+			TriggerServerEvent("tryDeleteObject",ObjToNet(divingTank))
 			divingTank = nil
 		end
-		
+
 		SetEnableScuba(ped,false)
 		SetPedMaxTimeUnderwater(ped,10.0)
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- HUD:SETDIVING
+-- HUD:DIVING
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:setDiving")
-AddEventHandler("hud:setDiving",function()
+RegisterNetEvent("hud:Diving")
+AddEventHandler("hud:Diving",function()
 	local ped = PlayerPedId()
 
 	if DoesEntityExist(divingMask) or DoesEntityExist(divingTank) then
 		if DoesEntityExist(divingMask) then
-			TriggerServerEvent("tryDeleteObject",NetworkGetNetworkIdFromEntity(divingMask))
+			SendNUIMessage({ oxigen = clientOxigen, oxigenShow = nil })
+			TriggerServerEvent("tryDeleteObject",ObjToNet(divingMask))
 			divingMask = nil
 		end
 
 		if DoesEntityExist(divingTank) then
-			TriggerServerEvent("tryDeleteObject",NetworkGetNetworkIdFromEntity(divingTank))
+			TriggerServerEvent("tryDeleteObject",ObjToNet(divingTank))
 			divingTank = nil
 		end
 
 		SetEnableScuba(ped,false)
 		SetPedMaxTimeUnderwater(ped,10.0)
 	else
-		local maskModel = GetHashKey("p_s_scuba_mask_s")
-		local tankModel = GetHashKey("p_s_scuba_tank_s")
+		local coords = GetEntityCoords(ped)
+		local myObject,objNet = vRPS.CreateObject("p_s_scuba_tank_s",coords["x"],coords["y"],coords["z"])
+		if myObject then
+			local spawnObjects = 0
+			divingTank = NetworkGetEntityFromNetworkId(objNet)
+			while not DoesEntityExist(divingTank) and spawnObjects <= 1000 do
+				divingTank = NetworkGetEntityFromNetworkId(objNet)
+				spawnObjects = spawnObjects + 1
+				Citizen.Wait(1)
+			end
 
-		RequestModel(tankModel)
-		while not HasModelLoaded(tankModel) do
-			Citizen.Wait(1)
-		end
+			spawnObjects = 0
+			local objectControl = NetworkRequestControlOfEntity(divingTank)
+			while not objectControl and spawnObjects <= 1000 do
+				objectControl = NetworkRequestControlOfEntity(divingTank)
+				spawnObjects = spawnObjects + 1
+				Citizen.Wait(1)
+			end
 
-		RequestModel(maskModel)
-		while not HasModelLoaded(maskModel) do
-			Citizen.Wait(1)
-		end
-
-		if HasModelLoaded(tankModel) then
-			divingTank = CreateObject(tankModel,1.0,1.0,1.0,true,true,false)
 			AttachEntityToEntity(divingTank,ped,GetPedBoneIndex(ped,24818),-0.28,-0.24,0.0,180.0,90.0,0.0,1,1,0,0,2,1)
-			SetEntityAsMissionEntity(divingTank,true,true)
-			SetModelAsNoLongerNeeded(divingTank)
+	
+			SetEntityAsNoLongerNeeded(divingTank)
 		end
 
-		if HasModelLoaded(maskModel) then
-			divingMask = CreateObject(maskModel,1.0,1.0,1.0,true,true,false)
+		local myObject,objNet = vRPS.CreateObject("p_s_scuba_mask_s",coords["x"],coords["y"],coords["z"])
+		if myObject then
+			local spawnObjects = 0
+			divingMask = NetworkGetEntityFromNetworkId(objNet)
+			while not DoesEntityExist(divingMask) and spawnObjects <= 1000 do
+				divingMask = NetworkGetEntityFromNetworkId(objNet)
+				spawnObjects = spawnObjects + 1
+				Citizen.Wait(1)
+			end
+
+			spawnObjects = 0
+			local objectControl = NetworkRequestControlOfEntity(divingMask)
+			while not objectControl and spawnObjects <= 1000 do
+				objectControl = NetworkRequestControlOfEntity(divingMask)
+				spawnObjects = spawnObjects + 1
+				Citizen.Wait(1)
+			end
+
 			AttachEntityToEntity(divingMask,ped,GetPedBoneIndex(ped,12844),0.0,0.0,0.0,180.0,90.0,0.0,1,1,0,0,2,1)
-			SetEntityAsMissionEntity(divingMask,true,true)
-			SetModelAsNoLongerNeeded(divingMask)
+	
+			SetEntityAsNoLongerNeeded(divingMask)
 		end
 
 		SetEnableScuba(ped,true)
 		SetPedMaxTimeUnderwater(ped,2000.0)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
--- 
+-- EXAUSTS
 -----------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
+local exausts = {
+	"exhaust","exhaust_2","exhaust_3","exhaust_4","exhaust_5","exhaust_6","exhaust_7","exhaust_8",
+	"exhaust_9","exhaust_10","exhaust_11","exhaust_12","exhaust_13","exhaust_14","exhaust_15","exhaust_16"
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- FIREEXAUST
+-----------------------------------------------------------------------------------------------------------------------------------------
+function fireExaust(vehicle)
+	for k,v in ipairs(exausts) do
+		local exaustNumber = GetEntityBoneIndexByName(vehicle,v)
 
-		local skips = 1000
-		local ped = PlayerPedId()
-
-		if IsPedInAnyVehicle(ped) and showHud then
-			if not IsMinimapRendering() then
-				DisplayRadar(true)
-			end
-		else
-			if IsMinimapRendering() then
-				DisplayRadar(false)
-			end
+		if exaustNumber > -1 then
+			UseParticleFxAssetNextCall("core")
+			StartParticleFxNonLoopedOnPedBone("veh_backfire",vehicle,0.0,0.0,0.0,0.0,0.0,0.0,exaustNumber,1.75,false,false,false)
 		end
-
-		if beltLock == 1 then
-			skips = 1
-			DisableControlAction(1,75,true) -- não deixa sair do veiculo enquanto estiver de cinto
-		end
-
-		Citizen.Wait(skips)
 	end
-end)
+end
 
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- NITROENABLE
+-----------------------------------------------------------------------------------------------------------------------------------------
+function NitroEnable()
+	if GetGameTimer() >= NitroButton and not IsPauseMenuActive() then
+		local Ped = PlayerPedId()
+		if IsPedInAnyVehicle(Ped) then
+			NitroButton = GetGameTimer() + 1000
+			
+			local Vehicle = GetVehiclePedIsUsing(Ped)
+			if GetPedInVehicleSeat(Vehicle,-1) == Ped then
+				if GetVehicleTopSpeedModifier(Vehicle) < 50.0 then
+					local Plate = GetVehicleNumberPlateText(Vehicle)
+					NitroFuel = GlobalState["Nitro"][Plate] or 0
+					if NitroFuel >= 1 then
+						if GetIsVehicleEngineRunning(Vehicle) then
+							local Speed = GetEntitySpeed(Vehicle) * 3.6
+							if Speed > 10 then
+								LocalPlayer["state"]["Nitro"] = true
+
+								while LocalPlayer["state"]["Nitro"] do
+									if NitroFuel >= 1 then
+										
+										NitroFuel = NitroFuel - 1
+									
+										if not NitroFlame then
+											SetVehicleRocketBoostActive(Vehicle,true)
+											SetVehicleNitroEnabled(Vehicle,true)
+											SetVehicleBoostActive(Vehicle,true)
+											ModifyVehicleTopSpeed(Vehicle,50.0)
+											SetLightTrail(Vehicle,true)
+											NitroFlame = Plate
+										end
+									else
+										if NitroFlame then
+											SetVehicleRocketBoostActive(Vehicle,false)
+											vSERVER.updateNitro(NitroFlame,NitroFuel)
+											SetVehicleNitroEnabled(Vehicle,false)
+											SetVehicleBoostActive(Vehicle,false)
+											ModifyVehicleTopSpeed(Vehicle,0.0)
+											SetLightTrail(Vehicle,false)
+											NitroFlame = false
+
+											LocalPlayer["state"]["Nitro"] = false
+										end
+									end
+
+									Wait(1)
+								end
+							else
+								SetPurgeSprays(Vehicle,true)
+								PurgeActive = true
+							end
+						else
+							SetPurgeSprays(Vehicle,true)
+							PurgeActive = true
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- NITRODISABLE
+-----------------------------------------------------------------------------------------------------------------------------------------
+function NitroDisable()
+	local Vehicle = GetLastDrivenVehicle()
+
+	if NitroFlame then
+		SetVehicleRocketBoostActive(Vehicle,false)
+		vSERVER.updateNitro(NitroFlame,NitroFuel)
+		SetVehicleNitroEnabled(Vehicle,false)
+		SetVehicleBoostActive(Vehicle,false)
+		ModifyVehicleTopSpeed(Vehicle,0.0)
+		SetLightTrail(Vehicle,false)
+		NitroFlame = false
+
+		LocalPlayer["state"]["Nitro"] = false
+	end
+
+	if PurgeActive then
+		SetPurgeSprays(Vehicle,false)
+		PurgeActive = false
+	end
+end
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- ACTIVENITRO
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("+activeNitro",NitroEnable)
+RegisterCommand("-activeNitro",NitroDisable)
+RegisterKeyMapping("+activeNitro","Ativação do nitro.","keyboard","LMENU")
+
+	-----------------------------------------------------------------------------------------------------------------------------------------
+-- SETLIGHTTRAIL
+-----------------------------------------------------------------------------------------------------------------------------------------
+function SetLightTrail(Vehicle,Enable)
+	if LightTrails[Vehicle] == Enable then
+		return
+	end
+
+	if Enable then
+		local Particles = {}
+		local LeftTrail = CreateLightTrail(Vehicle,GetEntityBoneIndexByName(Vehicle,"taillight_l"))
+		local RightTrail = CreateLightTrail(Vehicle,GetEntityBoneIndexByName(Vehicle,"taillight_r"))
+
+		Particles[#Particles + 1] = LeftTrail
+		Particles[#Particles + 1] = RightTrail
+
+		LightTrails[Vehicle] = true
+		LightParticles[Vehicle] = Particles
+	else
+		if LightParticles[Vehicle] and #LightParticles[Vehicle] > 0 then
+			for _,v in ipairs(LightParticles[Vehicle]) do
+				StopLightTrail(v)
+			end
+		end
+
+		LightTrails[Vehicle] = nil
+		LightParticles[Vehicle] = nil
+	end
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- CREATELIGHTTRAIL
+-----------------------------------------------------------------------------------------------------------------------------------------
+function CreateLightTrail(Vehicle,Bone)
+	UseParticleFxAssetNextCall("core")
+	local Particle = StartParticleFxLoopedOnEntityBone("veh_light_red_trail",Vehicle,0.0,0.0,0.0,0.0,0.0,0.0,Bone,1.0,false,false,false)
+	SetParticleFxLoopedEvolution(Particle,"speed",1.0,false)
+
+	return Particle
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- STOPLIGHTTRAIL
+-----------------------------------------------------------------------------------------------------------------------------------------
+function StopLightTrail(Particle)
+	CreateThread(function()
+		local endTime = GetGameTimer() + 500
+		while GetGameTimer() < endTime do 
+			Wait(0)
+			local now = GetGameTimer()
+			local Scale = (endTime - now) / 500
+			SetParticleFxLoopedScale(Particle,Scale)
+			SetParticleFxLoopedAlpha(Particle,Scale)
+		end
+
+		StopParticleFxLooped(Particle)
+	end)
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SETPURGESPRAYS
+-----------------------------------------------------------------------------------------------------------------------------------------
+function SetPurgeSprays(Vehicle,Enable)
+	return true
+	-- if PurgeSprays[Vehicle] == Enable then
+	-- 	return
+	-- end
+
+	-- if Enable then
+	-- 	local Particles = {}
+	-- 	local Bone = GetEntityBoneIndexByName(Vehicle,"bonnet")
+	-- 	local Position = GetWorldPositionOfEntityBone(Vehicle,Bone)
+	-- 	local Offset = GetOffsetFromEntityGivenWorldCoords(Vehicle,Position["x"],Position["y"],Position["z"])
+
+	-- 	for i = 0,3 do
+	-- 		local LeftPurge = CreatePurgeSprays(Vehicle,Offset["x"] - 0.5,Offset["y"] + 0.05,Offset["z"],40.0,-20.0,0.0,0.5)
+	-- 		local RightPurge = CreatePurgeSprays(Vehicle,Offset["x"] + 0.5,Offset["y"] + 0.05,Offset["z"],40.0,20.0,0.0,0.5)
+
+	-- 		Particles[#Particles + 1] = LeftPurge
+	-- 		Particles[#Particles + 1] = RightPurge
+	-- 	end
+
+	-- 	PurgeSprays[Vehicle] = true
+	-- 	PurgeParticles[Vehicle] = Particles
+	-- else
+	-- 	if PurgeParticles[Vehicle] then
+	-- 		RemoveParticleFxFromEntity(Vehicle)
+	-- 	end
+
+	-- 	PurgeSprays[Vehicle] = nil
+	-- 	PurgeParticles[Vehicle] = nil
+	-- end
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- CREATEPURGESPRAYS
+-----------------------------------------------------------------------------------------------------------------------------------------
+function CreatePurgeSprays(Vehicle,xOffset,yOffset,zOffset,xRot,yRot)
+	UseParticleFxAssetNextCall("core")
+	return StartNetworkedParticleFxNonLoopedOnEntity("ent_sht_steam",Vehicle,xOffset,yOffset,zOffset,xRot,yRot,0.0,0.5,false,false,false)
+end

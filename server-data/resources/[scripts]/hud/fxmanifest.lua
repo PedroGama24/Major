@@ -1,4 +1,3 @@
----dependency "flux" client_script "@flux/client.lua" 
 fx_version "bodacious"
 game "gta5"
 
@@ -16,6 +15,5 @@ server_scripts {
 
 files {
 	"web-side/*",
-	"web-side/images/*",
-	"web-side/fonts/*"
-}
+	"web-side/**/*"
+}              
