@@ -3,9 +3,10 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
-vSERVER = Proxy.getInterface("vRP")
+vRP = Proxy.getInterface("vRP")
 vRPS = Tunnel.getInterface("vRP")
-vSERVER = Tunnel.getInterface("hud")
+dg = {}
+Tunnel.getInterface("hud",dg)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -18,12 +19,10 @@ local pauseBreak = false
 local clientHunger = 100
 local clientThirst = 100
 local homeInterior = false
-
 local Nitro = 0
 local updateFoods = GetGameTimer()
 local wantedTimer = GetGameTimer()
 local reposeTimer = GetGameTimer()
-
 RegisterNetEvent("hud:safezone")
 AddEventHandler("hud:safezone",function(status)
 	SendNUIMessage({ safezone = status })
@@ -218,7 +217,7 @@ Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 10000
 		if LocalPlayer["state"]["Active"] then
-			local coins = vSERVER.getPerolas()
+			local coins = vRP.getPerolas()
 			SendNUIMessage({ coins = coins })
 		end
 
@@ -304,9 +303,8 @@ function displayHud()
 		rpm = GetVehicleCurrentRpm(vehicle)
 		gear = GetVehicleCurrentGear(vehicle)
 		local vehPlate = GetVehicleNumberPlateText(vehicle)
-
-		healthcar = GetVehicleEngineHealth(vehicle)
-		locked = GetVehicleDoorLockStatus(vehicle)
+		healthcar = GetVehicleEngineHealth(veh)
+		locked = GetVehicleDoorLockStatus(veh)
 		local _,VHeadlight,VHighBeam = GetVehicleLightsState(vehicle)
 
 		local Tyre = 0
@@ -799,7 +797,7 @@ function NitroEnable()
 									else
 										if NitroFlame then
 											SetVehicleRocketBoostActive(Vehicle,false)
-											vSERVER.updateNitro(NitroFlame,NitroFuel)
+											vRP.updateNitro(NitroFlame,NitroFuel)
 											SetVehicleNitroEnabled(Vehicle,false)
 											SetVehicleBoostActive(Vehicle,false)
 											ModifyVehicleTopSpeed(Vehicle,0.0)
@@ -834,7 +832,7 @@ function NitroDisable()
 
 	if NitroFlame then
 		SetVehicleRocketBoostActive(Vehicle,false)
-		vSERVER.updateNitro(NitroFlame,NitroFuel)
+		vRP.updateNitro(NitroFlame,NitroFuel)
 		SetVehicleNitroEnabled(Vehicle,false)
 		SetVehicleBoostActive(Vehicle,false)
 		ModifyVehicleTopSpeed(Vehicle,0.0)

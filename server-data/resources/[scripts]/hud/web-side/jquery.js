@@ -131,7 +131,7 @@ $(document).ready(function(){
                 $('#nitro').css({ strokeDasharray: 9 + (porcent * 7.5) / 100 + 'rem' });
         
 
-                if(item.belt == true) {
+                if(item.seatbelt == true) {
                     $(".Seatbelt").addClass("Green").removeClass("Gray");
                 } else {
                     $(".Seatbelt").addClass("Gray").removeClass("Green");
@@ -145,7 +145,7 @@ $(document).ready(function(){
                     $(".HealthCar").addClass("Red").removeClass("Gray").removeClass("Yellow");
                 }
              
-                if (item.pneus == 0){
+                if (item.tyres == 0){
                     $(".Tyres").addClass("Gray").removeClass("Yellow").removeClass("Red");
                 } else if (item.pneus == 1){
                     $(".Tyres").addClass("Yellow").removeClass("Gray").removeClass("Red");
