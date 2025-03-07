@@ -107,9 +107,9 @@ end
 local blips = false
 local servico = false
 local selecionado = 0
-local CoordenadaX = 1169.31  
-local CoordenadaY = -291.105
-local CoordenadaZ = 69.021
+local CoordenadaX = 2164.3  
+local CoordenadaY = 5003.55
+local CoordenadaZ = 42.22
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------

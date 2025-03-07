@@ -14,7 +14,7 @@ vCLIENT = Tunnel.getInterface("skips_craft")
 -- VARIAVEIS
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 config = {}
-config.token = "6efb3b8d332c777b0f9a762773b24528"  -- configure aqui seu token [ DEFINA-SEU-TOKEN-AQUI ]
+config.token = "99F538403201389E5A7E7053ED43945B"  -- configure aqui seu token [ DEFINA-SEU-TOKEN-AQUI ]
 config.delayCraft = 5 -- Segundos ( Delay de cada mesa de craft, para evitar floods )
 config.weebdump = "" -- WEEBHOOK QUANDO NEGO TENTAR DUMPAR DESLIGANDO A INTERNET. 
 

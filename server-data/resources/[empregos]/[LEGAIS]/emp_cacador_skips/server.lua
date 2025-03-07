@@ -25,8 +25,8 @@ function emp.checkWeight(mochila)
 	local user_id = vRP.getUserId(source)
 	if true then
 		if user_id then
-			numCouro = math.random(1,2)
-			numCarne = math.random(1,2)
+			numCouro = math.random(1,2,3)
+			numCarne = math.random(1,2,3)
 			if vRP.computeInvWeight(user_id)+vRP.itemWeightList("couro")*numCouro+vRP.itemWeightList("carnecrua")*numCarne <= vRP.getBackpack(user_id) then
 				return true
 			else
