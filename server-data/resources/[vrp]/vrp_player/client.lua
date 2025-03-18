@@ -1452,6 +1452,8 @@ Citizen.CreateThread(function()
 end)
 
 
+
+
 --------- ILHA MAPA DLC--------------
 
 ilha = "h4_fake_islandx"
@@ -1464,4 +1466,85 @@ Citizen.CreateThread(function()
 	until false
   end)
 
- 
+
+
+      -----------------------------------------------------------------------------------------------------------------------------------------
+-- VARIABLES EXTRASUNNY/CLEAR/NEUTRAL/SMOG/FOGGY/OVERCAST/CLOUDS/CLEARING/RAIN/THUNDER/SNOW/BLIZZARD/SNOWLIGHT/XMAS/HALLOWEEN
+-----------------------------------------------------------------------------------------------------------------------------------------
+local minutes = 1
+local hours = 0
+local actualWeather = "CLEAR"
+local weathers = {
+    "EXTRASUNNY",
+    "CLEAR",
+    "NEUTRAL",
+    "SMOG",
+    "FOGGY",
+    "OVERCAST",
+    "CLOUDS",
+    "CLEARING",
+    "RAIN",
+    "THUNDER",
+    "SNOW",
+    "BLIZZARD",
+    "SNOWLIGHT",
+    "XMAS",
+    "HALLOWEEN"
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SYNC : COMMAND
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("noite",function(source,args)
+    minutes = parseInt(00)
+    hours = parseInt(00)
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SYNC : COMMAND
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("dia",function(source,args)
+    minutes = parseInt(00)
+    hours = parseInt(12)
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SYNC : COMMAND
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("hora",function(source,args)
+    if args[1] and args[2] then
+        hours = parseInt(args[1])
+        minutes = parseInt(args[2])
+    else
+        TriggerEvent('Notify', source, 'negado', 'NEGADO', 'Utilize: /hora horas minutos')
+    end
+end)
+--------------------------------------------------------------------------------------------------------------------------------
+-- SYNC : CLIMA
+--------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand('clima', function(source, args)
+    if args[1] then
+        local weather = parseInt(args[1])
+        if weather > 0 then
+            if weathers[weather] then
+                actualWeather = weathers[weather]
+                TriggerEvent('Notify', 'sucesso', 'SUCESSO', 'Você mudou o clima para <b>'..actualWeather..'</b>.')
+            end
+        else
+            TriggerEvent('Notify', 'negado', 'NEGADO', 'Você deve especificar um número de <b>1 a ' .. #weathers .. '</b>.')
+        end
+    else
+        TriggerEvent('Notify', 'negado', 'NEGADO', 'Você deve especificar um número de <b>1 a ' .. #weathers .. '</b>.')
+    end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SYNC : THREADTIMERS
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+    while true do
+        SetWeatherTypeNow(actualWeather)
+        SetWeatherTypePersist(actualWeather)
+        SetWeatherTypeNowPersist(actualWeather)
+        NetworkOverrideClockTime(hours,minutes,00)
+        Citizen.Wait(5)
+    end
+end)
+
+
