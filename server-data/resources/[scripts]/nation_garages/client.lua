@@ -268,7 +268,7 @@ end
 --- FUNÇÃO DE SPAWN DO VEÍCULO -----
 
 function spawnVehicle(vehicleInfo, coords, h)
-	if func.checkAuth() then
+    if func.checkAuth() then
 		local mhash = loadModel(vehicleInfo.vehicle)
 		if not mhash then
 			TriggerEvent("Notify","aviso","Veículo em falta na cidade!",3000)
@@ -289,7 +289,7 @@ function spawnVehicle(vehicleInfo, coords, h)
 			SetVehicleIsStolen(vehicle,false)
 			SetVehicleNeedsToBeHotwired(vehicle,false)
 			SetEntityInvincible(vehicle,false)
-			SetEntityAsMissionEntity(vehicle,true,true)
+    SetEntityAsMissionEntity(vehicle,true,true)
 			SetVehicleHasBeenOwnedByPlayer(vehicle,true)
 			SetVehRadioStation(vehicle,"OFF")
 			TriggerEvent("nation:applymods", vehicle,vehicleInfo.vehicle)
@@ -303,6 +303,20 @@ function spawnVehicle(vehicleInfo, coords, h)
 		end
 		return false
 	end
+	local model = vehicleInfo.model
+    RequestModel(model)
+    while not HasModelLoaded(model) do
+        Citizen.Wait(0)
+    end
+
+    local vehicle = CreateVehicle(model, coords.x, coords.y, coords.z, h, true, false)
+    SetVehicleNumberPlateText(vehicle, vehicleInfo.plate)
+    SetEntityAsMissionEntity(vehicle, true, true)
+    SetModelAsNoLongerNeeded(model)
+
+    -- Aplicar tunagem
+    TriggerServerEvent("tunning:applyTunning", vehicle, vehicleInfo.model, vehicleInfo.plate)
+
 end
 
 ------------------------------------
@@ -601,47 +615,47 @@ end
 RegisterNUICallback("get-tuning", function(data,cb)
 	if data and data.vehicle then
 		local tuning = func.getVehicleTuning(data.vehicle)
-		local tunagem = {}
-		local engine 
-		local brakes 
-		local transmission 
-		local suspention 
-		local armour 
-		local turbo 
-		if tuning then
-			if tuning.engine then
-				engine = verify(tuning.engine)
-				brakes = verify(tuning.brakes)
-				transmission = verify(tuning.transmission)
-				suspention = verify(tuning.suspension)
-				armour = verify(false,tuning.armor)
-				turbo = tuning.turbo
-				if turbo then
-					if type(turbo) == "number" then
-						if turbo > 0 then
-							turbo = "<b>Instalado</b>"
-						else
-							turbo = "<strong>Desinstalado</strong>" 
-						end
-					else 
-						turbo = "<b>Instalado</b>"
-					end
-				else 
-					turbo = "<strong>Desinstalado</strong>"
-				end
-			elseif tuning.mods then
-				engine = verify(tuning.mods['11'].mod)
-				brakes = verify(tuning.mods['12'].mod)
-				transmission = verify(tuning.mods['13'].mod)
-				suspention = verify(tuning.mods['15'].mod)
-				armour = verify(false,tuning.mods['16'].mod)
-				turbo = tuning.mods['18'].mod
-				if turbo < 1 then turbo = "<strong>Desinstalado</strong>" else turbo = "<b>Instalado</b>" end
-			end
-			tunagem = { motor = engine, freios = brakes, transmissao = transmission, suspensao = suspention, blindagem = armour, turbo = turbo }
-		end	
-		cb(tunagem)
-	end
+            local tunagem = {}
+            local engine 
+            local brakes 
+            local transmission 
+            local suspention 
+            local armour 
+            local turbo 
+            if tuning then
+                if tuning.engine then
+                    engine = verify(tuning.modEngine)
+                    brakes = verify(tuning.modBrakes)
+                    transmission = verify(tuning.modTransmission)
+                    suspention = verify(tuning.modSuspension)
+                    armour = verify(false, tuning.modArmor)
+                    turbo = tuning.modTurbo
+                    if turbo then
+                        if type(turbo) == "number" then
+                            if turbo > 0 then
+                                turbo = "<b>Instalado</b>"
+                            else
+                                turbo = "<strong>Desinstalado</strong>" 
+                            end
+                        else 
+                            turbo = "<b>Instalado</b>"
+                        end
+                    else 
+                        turbo = "<strong>Desinstalado</strong>"
+                    end
+                elseif tuning.mods then
+                    engine = verify(tuning.mods['11'].mod)
+                    brakes = verify(tuning.mods['12'].mod)
+                    transmission = verify(tuning.mods['13'].mod)
+                    suspention = verify(tuning.mods['15'].mod)
+                    armour = verify(false, tuning.mods['16'].mod)
+                    turbo = tuning.mods['18'].mod
+                    if turbo < 1 then turbo = "<strong>Desinstalado</strong>" else turbo = "<b>Instalado</b>" end
+                end
+                tunagem = { motor = engine, freios = brakes, transmissao = transmission, suspensao = suspention, blindagem = armour, turbo = turbo }
+            end    
+            cb(tunagem)
+    end
 end) 
 
 -- RETORNA A CAPACIDADE E O ESPAÇO OCUPADO NO PORTA-MALAS DE UM DETERMINADO VEÍCULO ----

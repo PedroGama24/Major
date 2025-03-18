@@ -420,13 +420,8 @@ CREATE TABLE IF NOT EXISTS `concessionaria` (
 	('Zombie B', 'zombieb', 300000, 'motos', 99),
 	('Zorrusso', 'zorrusso', 100000, 'muscle', 99),
 	('Zr350', 'zr350', 1350000, 'sports', 99),
-<<<<<<< Updated upstream
 	('Ztype', 'ztype', 400000, 'classics', 99); */
-
-=======
-	('Ztype', 'ztype', 400000, 'classics', 99);
- */
->>>>>>> Stashed changes
+  
 -- Copiando estrutura para tabela skips.groups_blacklist
 CREATE TABLE IF NOT EXISTS `groups_blacklist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

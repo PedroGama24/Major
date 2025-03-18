@@ -55,6 +55,7 @@ RegisterCommand(cfg.commands.openUi, function()
     event = 'open',
     coins = coin.coins
   })
+  TriggerEvent('uf-coins:sendCoins', coin.coins)
 end)
 
 RegisterNUICallback("loadConfig", function(data,cb) 

@@ -1,9 +1,6 @@
-fx_version 'cerulean'
+fx_version 'adamant'
 
 game 'gta5'
-
-author 'Zoygkos#5869'
-
 
 --Client Scripts-- 
 client_scripts {
@@ -14,7 +11,6 @@ client_scripts {
 server_scripts {
  'Server/*.lua'
 }
-
 
 --UI Part-- 
 ui_page {

@@ -1,12 +1,12 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VRP
 -----------------------------------------------------------------------------------------------------------------------------------------
-local Tunnel = module("vrp","lib/Tunnel")
-local Proxy = module("vrp","lib/Proxy")
+local Tunnel = module("vrp", "lib/Tunnel")
+local Proxy = module("vrp", "lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 vRPS = Tunnel.getInterface("vRP")
 dg = {}
-Tunnel.getInterface("hud",dg)
+Tunnel.getInterface("hud", dg)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -19,12 +19,13 @@ local pauseBreak = false
 local clientHunger = 100
 local clientThirst = 100
 local homeInterior = false
+local radioDisplay = ""
 local Nitro = 0
 local updateFoods = GetGameTimer()
 local wantedTimer = GetGameTimer()
 local reposeTimer = GetGameTimer()
 RegisterNetEvent("hud:safezone")
-AddEventHandler("hud:safezone",function(status)
+AddEventHandler("hud:safezone", function(status)
 	SendNUIMessage({ safezone = status })
 end)
 
@@ -40,7 +41,7 @@ LocalPlayer["state"]["Nitro"] = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 local beltSpeed = 0
 local beltLock = false
-local beltVelocity = vector3(0,0,0)
+local beltVelocity = vector3(0, 0, 0)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DIVINABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -69,7 +70,7 @@ local Mumble = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MUMBLECONNECTED
 -----------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("mumbleConnected",function()
+AddEventHandler("mumbleConnected", function()
 	if not Mumble then
 		SendNUIMessage({ mumble = false })
 		Mumble = true
@@ -78,7 +79,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MUMBLEDISCONNECTED
 -----------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("mumbleDisconnected",function()
+AddEventHandler("mumbleDisconnected", function()
 	if Mumble then
 		SendNUIMessage({ mumble = true })
 		Mumble = false
@@ -88,49 +89,50 @@ end)
 -- HUD:WANTEDCLIENT
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:wantedClient")
-AddEventHandler("hud:wantedClient",function(Seconds)
+AddEventHandler("hud:wantedClient", function(Seconds)
 	wantedTimer = GetGameTimer() + (Seconds * 100)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:REPOSECLIENT
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:reposeClient")
-AddEventHandler("hud:reposeClient",function(Seconds)
+AddEventHandler("hud:reposeClient", function(Seconds)
 	reposeTimer = GetGameTimer() + (Seconds * 100)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:EXP
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Exp")
-AddEventHandler("hud:Exp",function(Amount)
+AddEventHandler("hud:Exp", function(Amount)
 	Experience = Amount
 end)
+-----------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADCIRCLE
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	DisplayRadar(false)
 
-	RequestStreamedTextureDict("circlemap",false)
+	RequestStreamedTextureDict("circlemap", false)
 	while not HasStreamedTextureDictLoaded("circlemap") do
 		Citizen.Wait(100)
 	end
 
-	AddReplaceTexture("platform:/textures/graphics","radarmasksm","circlemap","radarmasksm")
+	AddReplaceTexture("platform:/textures/graphics", "radarmasksm", "circlemap", "radarmasksm")
 
 	SetMinimapClipType(1)
 
-	SetMinimapComponentPosition("minimap","L","B",0.0,0.0,0.158,0.28)
-	SetMinimapComponentPosition("minimap_mask","L","B",0.155,0.12,0.080,0.164)
-	SetMinimapComponentPosition("minimap_blur","L","B",-0.005,0.021,0.240,0.302)
+	SetMinimapComponentPosition("minimap", "L", "B", 0.0, 0.0, 0.158, 0.28)
+	SetMinimapComponentPosition("minimap_mask", "L", "B", 0.155, 0.12, 0.080, 0.164)
+	SetMinimapComponentPosition("minimap_blur", "L", "B", -0.005, 0.021, 0.240, 0.302)
 
 	Citizen.Wait(5000)
 
-	SetBigmapActive(true,false)
+	SetBigmapActive(true, false)
 
 	Citizen.Wait(100)
 
-	SetBigmapActive(false,false)
+	SetBigmapActive(false, false)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADGLOBAL
@@ -150,8 +152,8 @@ Citizen.CreateThread(function()
 					if clientOxigen <= 0 then
 						local ped = PlayerPedId()
 						local health = GetEntityHealth(ped)
-					
-						SetEntityHealth(ped,health - 50)
+
+						SetEntityHealth(ped, health - 50)
 					end
 				end
 			end
@@ -213,17 +215,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
-	while true do
-		local timeDistance = 10000
-		if LocalPlayer["state"]["Active"] then
-			local coins = vRP.getPerolas()
-			SendNUIMessage({ coins = coins })
-		end
 
-		Citizen.Wait(timeDistance)
-	end
-end)
 
 --[[ CreateThread(function()
 	while true do
@@ -250,8 +242,9 @@ function CalculateTimeToDisplay()
 		minute = "0" .. minute
 	end
 end
+	
 
-function CalculateDateToDisplay()
+--[[ function CalculateDateToDisplay()
 	month = GetClockMonth()
 	dayOfMonth = GetClockDayOfMonth()
 	if month == 0 then
@@ -280,7 +273,7 @@ function CalculateDateToDisplay()
 		month = "Dezembro"
 	end
 end
-
+ ]]
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DISPLAYHUD
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -289,10 +282,9 @@ function displayHud()
 	local ped = PlayerPedId()
 	local armour = GetPedArmour(ped)
 	local coords = GetEntityCoords(ped)
-	local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords["x"],coords["y"],coords["z"]))
+	local streetName = GetStreetNameFromHashKey(GetStreetNameAtCoord(coords["x"], coords["y"], coords["z"]))
 	CalculateTimeToDisplay()
 	if IsPedInAnyVehicle(ped) then
-
 		if not IsMinimapRendering() then
 			DisplayRadar(true)
 		end
@@ -303,13 +295,13 @@ function displayHud()
 		rpm = GetVehicleCurrentRpm(vehicle)
 		gear = GetVehicleCurrentGear(vehicle)
 		local vehPlate = GetVehicleNumberPlateText(vehicle)
-		healthcar = GetVehicleEngineHealth(veh)
-		locked = GetVehicleDoorLockStatus(veh)
-		local _,VHeadlight,VHighBeam = GetVehicleLightsState(vehicle)
+		--[[ healthcar = GetVehicleEngineHealth(vehicle)
+		locked = GetVehicleDoorLockStatus(vehicle) ]]
+		local _, VHeadlight, VHighBeam = GetVehicleLightsState(vehicle)
 
 		local Tyre = 0
-		for i = 0,5 do
-			if IsVehicleTyreBurst(vehicle,i,true) then
+		for i = 0, 5 do
+			if IsVehicleTyreBurst(vehicle, i, true) then
 				Tyre = Tyre + 1
 			end
 		end
@@ -322,14 +314,44 @@ function displayHud()
 			end
 		end
 
-		
-		SendNUIMessage({ vehicle = true, minute = tonumber(minute), hour = tonumber(hour), nitro = Nitro, healthcar = healthcar, VHeadlight = VHeadlight, Tyre = Tyre, rpm = rpm, timer = GetGameTimer(), wanted = wantedTimer, repose = reposeTimer, talking = MumbleIsPlayerTalking(pid), health = GetEntityHealth(ped), armour = armour, street = streetName, fuel = fuel, speed = speed, belt = beltLock, locked = GetVehicleDoorLockStatus(vehicle) })
-		
+
+		SendNUIMessage({
+			vehicle = true,
+			minute = minute,
+			hour = hour,
+			nitro = Nitro,
+			healthcar = healthcar,
+			VHeadlight = VHeadlight,
+			Tyre = Tyre,
+			rpm = rpm,
+			timer = GetGameTimer(),
+			wanted = wantedTimer,
+			repose =reposeTimer,
+			talking = MumbleIsPlayerTalking(pid),
+			health = GetEntityHealth(ped),
+			armour = armour,
+			street =streetName,
+			fuel = fuel,
+			speed = speed,
+			belt = beltLock,
+			locked = locked
+		})
 	else
 		if IsMinimapRendering() then
 			DisplayRadar(false)
 		end
-		SendNUIMessage({ vehicle = false, minute = tonumber(minute), hour = tonumber(hour), timer = GetGameTimer(), wanted = wantedTimer, repose = reposeTimer, talking = MumbleIsPlayerTalking(pid), health = GetEntityHealth(ped), armour = armour, street = streetName })
+		SendNUIMessage({
+			vehicle = false,
+			minute = tonumber(minute),
+			hour = tonumber(hour),
+			timer = GetGameTimer(),
+			wanted =wantedTimer,
+			repose = reposeTimer,
+			talking = MumbleIsPlayerTalking(pid),
+			health = GetEntityHealth(ped),
+			armour =armour,
+			street = streetName
+		})
 	end
 end
 
@@ -342,7 +364,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("hud",function(source,args,rawCommand)
+RegisterCommand("hud", function(source, args, rawCommand)
 	if MumbleIsConnected() then
 		showHud = not showHud
 
@@ -357,7 +379,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- COMPASS
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("compass",function(source,args,rawCommand)
+RegisterCommand("compass", function(source, args, rawCommand)
 	if MumbleIsConnected() then
 		local ped = PlayerPedId()
 		if IsPedInAnyVehicle(ped) then
@@ -365,9 +387,9 @@ RegisterCommand("compass",function(source,args,rawCommand)
 			SendNUIMessage({ compass = Compass, vehicle = 1 })
 
 			if Compass then
-				TriggerEvent("Notify","verde","Compasso ativado.",3000)
+				TriggerEvent("Notify", "verde", "Compasso ativado.", 3000)
 			else
-				TriggerEvent("Notify","verde","Compasso desativado.",3000)
+				TriggerEvent("Notify", "verde", "Compasso desativado.", 3000)
 			end
 		end
 	end
@@ -375,7 +397,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MOVIE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("movie",function(source,args,rawCommand)
+RegisterCommand("movie", function(source, args, rawCommand)
 	if MumbleIsConnected() then
 		showMovie = not showMovie
 
@@ -387,13 +409,13 @@ end)
 -- HUD:TOGGLEHOOD
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:toggleHood")
-AddEventHandler("hud:toggleHood",function()
+AddEventHandler("hud:toggleHood", function()
 	showHood = not showHood
 
 	if showHood then
-		SetPedComponentVariation(PlayerPedId(),1,69,0,1)
+		SetPedComponentVariation(PlayerPedId(), 1, 69, 0, 1)
 	else
-		SetPedComponentVariation(PlayerPedId(),1,0,0,1)
+		SetPedComponentVariation(PlayerPedId(), 1, 0, 0, 1)
 	end
 
 	SendNUIMessage({ hood = showHood })
@@ -402,18 +424,18 @@ end)
 -- HUD:REMOVEHOOD
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:RemoveHood")
-AddEventHandler("hud:RemoveHood",function()
+AddEventHandler("hud:RemoveHood", function()
 	if showHood then
 		showHood = false
 		SendNUIMessage({ hood = showHood })
-		SetPedComponentVariation(PlayerPedId(),1,0,0,1)
+		SetPedComponentVariation(PlayerPedId(), 1, 0, 0, 1)
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:HUNGER
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Hunger")
-AddEventHandler("hud:Hunger",function(number)
+AddEventHandler("hud:Hunger", function(number)
 	SendNUIMessage({ hunger = number })
 	clientHunger = number
 end)
@@ -421,7 +443,7 @@ end)
 -- HUD:THIRST
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Thirst")
-AddEventHandler("hud:Thirst",function(number)
+AddEventHandler("hud:Thirst", function(number)
 	SendNUIMessage({ thirst = number })
 	clientThirst = number
 end)
@@ -430,7 +452,7 @@ end)
 -- HUD:STRESS
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Stress")
-AddEventHandler("hud:Stress",function(number)
+AddEventHandler("hud:Stress", function(number)
 	SendNUIMessage({ stress = number })
 	clientStress = number
 end)
@@ -438,7 +460,7 @@ end)
 -- HUD:OXIGEN
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Oxigen")
-AddEventHandler("hud:Oxigen",function(number)
+AddEventHandler("hud:Oxigen", function(number)
 	SendNUIMessage({ oxigen = number, oxigenShow = divingMask })
 	clientOxigen = number
 end)
@@ -446,8 +468,8 @@ end)
 -- RECHARGEOXIGEN
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:rechargeOxigen")
-AddEventHandler("hud:rechargeOxigen",function()
-	TriggerEvent("Notify","verde","Reabastecimento concluído.",3000)
+AddEventHandler("hud:rechargeOxigen", function()
+	TriggerEvent("Notify", "verde", "Reabastecimento concluído.", 3000)
 	SendNUIMessage({ oxigen = 100, oxigenShow = divingMask })
 	vRPS.rechargeOxigen()
 	clientOxigen = 100
@@ -456,7 +478,7 @@ end)
 -- HUD:ACTIVE
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Active")
-AddEventHandler("hud:Active",function(status)
+AddEventHandler("hud:Active", function(status)
 	showHud = status
 
 	displayHud()
@@ -466,21 +488,22 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:RADIO
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("hud:Radio")
-AddEventHandler("hud:Radio",function(number)
-	if number <= 0 then
-		SendNUIMessage({ radio = "Offline" })
+RegisterNetEvent("hud:RadioDisplay")
+AddEventHandler("hud:RadioDisplay",function(number)
+	if parseInt(number) <= 0 then
+		radioDisplay = ""
 	else
-		SendNUIMessage({ radio = "<text>"..parseInt(number).." Mhz</text>" })
+		radioDisplay = parseInt(number)
 	end
+	SendNUIMessage({ voice = radioDisplay })
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:VOIP
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Voip")
-AddEventHandler("hud:Voip",function(number)
+AddEventHandler("hud:Voip", function(number)
 	local Number = tonumber(number)
-	local voiceTarget = { "Baixo","Médio","Alto","Muito Alto" }
+	local voiceTarget = { "Baixo", "Médio", "Alto", "Muito Alto" }
 
 	SendNUIMessage({ voice = voiceTarget[Number] })
 end)
@@ -497,6 +520,7 @@ function fowardPed(ped)
 
 	return { x = math.cos(heading) * 2.0, y = math.sin(heading) * 2.0 }
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -511,7 +535,7 @@ Citizen.CreateThread(function()
 
 					local vehicle = GetVehiclePedIsUsing(ped)
 					if beltLock then
-						DisableControlAction(1,75,true)
+						DisableControlAction(1, 75, true)
 					end
 
 					local speed = GetEntitySpeed(vehicle) * 3.6
@@ -520,13 +544,14 @@ Citizen.CreateThread(function()
 							local fowardVeh = fowardPed(ped)
 							local coords = GetEntityCoords(ped)
 							local health = GetEntityHealth(ped)
-							SetEntityCoords(ped,coords["x"] + fowardVeh["x"],coords["y"] + fowardVeh["y"],coords["z"] + 1,1,0,0,0)
-							SetEntityVelocity(ped,beltVelocity["x"],beltVelocity["y"],beltVelocity["z"])
-							SetEntityHealth(ped,health - 50)
+							SetEntityCoords(ped, coords["x"] + fowardVeh["x"], coords["y"] + fowardVeh["y"],
+								coords["z"] + 1, 1, 0, 0, 0)
+							SetEntityVelocity(ped, beltVelocity["x"], beltVelocity["y"], beltVelocity["z"])
+							SetEntityHealth(ped, health - 50)
 
 							Citizen.Wait(1)
 
-							SetPedToRagdoll(ped,5000,5000,0,0,0,0)
+							SetPedToRagdoll(ped, 5000, 5000, 0, 0, 0, 0)
 						end
 
 						beltVelocity = GetEntityVelocity(vehicle)
@@ -551,17 +576,17 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("seatbelt",function(source,args,rawCommand)
+RegisterCommand("seatbelt", function(source, args, rawCommand)
 	if MumbleIsConnected() then
 		local ped = PlayerPedId()
 		if IsPedInAnyVehicle(ped) then
 			if not IsPedOnAnyBike(ped) then
 				if beltLock then
-					TriggerEvent("sounds:source","unbelt",0.5)
+					TriggerEvent("sounds:source", "unbelt", 0.5)
 					SendNUIMessage({ seatbelt = false })
 					beltLock = false
 				else
-					TriggerEvent("sounds:source","belt",0.5)
+					TriggerEvent("sounds:source", "belt", 0.5)
 					SendNUIMessage({ seatbelt = true })
 					beltLock = true
 				end
@@ -572,12 +597,12 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- KEYMAPPING
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterKeyMapping("seatbelt","Colocar/Retirar o cinto.","keyboard","G")
+RegisterKeyMapping("seatbelt", "Colocar/Retirar o cinto.", "keyboard", "G")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HOMES:HOURS
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("homes:Hours")
-AddEventHandler("homes:Hours",function(status)
+AddEventHandler("homes:Hours", function(status)
 	homeInterior = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -595,19 +620,19 @@ Citizen.CreateThread(function()
 				local health = GetEntityHealth(ped)
 				if health > 101 then
 					if clientHunger >= 10 and clientHunger <= 20 then
-						SetEntityHealth(ped,health - 1)
-						TriggerEvent("Notify","hunger","Fome","Sofrendo com a fome.","vermelho", 5000)
+						SetEntityHealth(ped, health - 1)
+						TriggerEvent("Notify", "hunger", "Fome", "Sofrendo com a fome.", "vermelho", 5000)
 					elseif clientHunger <= 9 then
-						SetEntityHealth(ped,health - 2)
-						TriggerEvent("Notify","hunger","Fome","Sofrendo com a fome.","vermelho", 5000)
+						SetEntityHealth(ped, health - 2)
+						TriggerEvent("Notify", "hunger", "Fome", "Sofrendo com a fome.", "vermelho", 5000)
 					end
 
 					if clientThirst >= 10 and clientThirst <= 20 then
-						SetEntityHealth(ped,health - 1)
-						TriggerEvent("Notify","thirst","Sede","Sofrendo com a sede.","vermelho", 5000)
+						SetEntityHealth(ped, health - 1)
+						TriggerEvent("Notify", "thirst", "Sede", "Sofrendo com a sede.", "vermelho", 5000)
 					elseif clientThirst <= 9 then
-						SetEntityHealth(ped,health - 2)
-						TriggerEvent("Notify","thirst","Sede","Sofrendo com a sede.","vermelho", 5000)
+						SetEntityHealth(ped, health - 2)
+						TriggerEvent("Notify", "thirst", "Sede", "Sofrendo com a sede.", "vermelho", 5000)
 					end
 				end
 			end
@@ -627,16 +652,16 @@ Citizen.CreateThread(function()
 			if GetEntityHealth(ped) > 101 then
 				if clientStress >= 99 then
 					timeDistance = 2500
-					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.75)
+					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE", 0.75)
 				elseif clientStress >= 80 and clientStress <= 98 then
 					timeDistance = 5000
-					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.50)
+					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE", 0.50)
 				elseif clientStress >= 60 and clientStress <= 79 then
 					timeDistance = 7500
-					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.25)
+					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE", 0.25)
 				elseif clientStress >= 40 and clientStress <= 59 then
 					timeDistance = 10000
-					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE",0.05)
+					ShakeGameplayCam("LARGE_EXPLOSION_SHAKE", 0.05)
 				end
 			end
 		end
@@ -648,48 +673,48 @@ end)
 -- HUD:REMOVESCUBA
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:RemoveScuba")
-AddEventHandler("hud:RemoveScuba",function()
+AddEventHandler("hud:RemoveScuba", function()
 	local ped = PlayerPedId()
 	if DoesEntityExist(divingMask) or DoesEntityExist(divingTank) then
 		if DoesEntityExist(divingMask) then
 			SendNUIMessage({ oxigen = clientOxigen, oxigenShow = nil })
-			TriggerServerEvent("tryDeleteObject",ObjToNet(divingMask))
+			TriggerServerEvent("tryDeleteObject", ObjToNet(divingMask))
 			divingMask = nil
 		end
 
 		if DoesEntityExist(divingTank) then
-			TriggerServerEvent("tryDeleteObject",ObjToNet(divingTank))
+			TriggerServerEvent("tryDeleteObject", ObjToNet(divingTank))
 			divingTank = nil
 		end
 
-		SetEnableScuba(ped,false)
-		SetPedMaxTimeUnderwater(ped,10.0)
+		SetEnableScuba(ped, false)
+		SetPedMaxTimeUnderwater(ped, 10.0)
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD:DIVING
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("hud:Diving")
-AddEventHandler("hud:Diving",function()
+AddEventHandler("hud:Diving", function()
 	local ped = PlayerPedId()
 
 	if DoesEntityExist(divingMask) or DoesEntityExist(divingTank) then
 		if DoesEntityExist(divingMask) then
 			SendNUIMessage({ oxigen = clientOxigen, oxigenShow = nil })
-			TriggerServerEvent("tryDeleteObject",ObjToNet(divingMask))
+			TriggerServerEvent("tryDeleteObject", ObjToNet(divingMask))
 			divingMask = nil
 		end
 
 		if DoesEntityExist(divingTank) then
-			TriggerServerEvent("tryDeleteObject",ObjToNet(divingTank))
+			TriggerServerEvent("tryDeleteObject", ObjToNet(divingTank))
 			divingTank = nil
 		end
 
-		SetEnableScuba(ped,false)
-		SetPedMaxTimeUnderwater(ped,10.0)
+		SetEnableScuba(ped, false)
+		SetPedMaxTimeUnderwater(ped, 10.0)
 	else
 		local coords = GetEntityCoords(ped)
-		local myObject,objNet = vRPS.CreateObject("p_s_scuba_tank_s",coords["x"],coords["y"],coords["z"])
+		local myObject, objNet = vRPS.CreateObject("p_s_scuba_tank_s", coords["x"], coords["y"], coords["z"])
 		if myObject then
 			local spawnObjects = 0
 			divingTank = NetworkGetEntityFromNetworkId(objNet)
@@ -707,12 +732,13 @@ AddEventHandler("hud:Diving",function()
 				Citizen.Wait(1)
 			end
 
-			AttachEntityToEntity(divingTank,ped,GetPedBoneIndex(ped,24818),-0.28,-0.24,0.0,180.0,90.0,0.0,1,1,0,0,2,1)
-	
+			AttachEntityToEntity(divingTank, ped, GetPedBoneIndex(ped, 24818), -0.28, -0.24, 0.0, 180.0, 90.0, 0.0, 1, 1,
+				0, 0, 2, 1)
+
 			SetEntityAsNoLongerNeeded(divingTank)
 		end
 
-		local myObject,objNet = vRPS.CreateObject("p_s_scuba_mask_s",coords["x"],coords["y"],coords["z"])
+		local myObject, objNet = vRPS.CreateObject("p_s_scuba_mask_s", coords["x"], coords["y"], coords["z"])
 		if myObject then
 			local spawnObjects = 0
 			divingMask = NetworkGetEntityFromNetworkId(objNet)
@@ -730,13 +756,14 @@ AddEventHandler("hud:Diving",function()
 				Citizen.Wait(1)
 			end
 
-			AttachEntityToEntity(divingMask,ped,GetPedBoneIndex(ped,12844),0.0,0.0,0.0,180.0,90.0,0.0,1,1,0,0,2,1)
-	
+			AttachEntityToEntity(divingMask, ped, GetPedBoneIndex(ped, 12844), 0.0, 0.0, 0.0, 180.0, 90.0, 0.0, 1, 1, 0,
+				0, 2, 1)
+
 			SetEntityAsNoLongerNeeded(divingMask)
 		end
 
-		SetEnableScuba(ped,true)
-		SetPedMaxTimeUnderwater(ped,2000.0)
+		SetEnableScuba(ped, true)
+		SetPedMaxTimeUnderwater(ped, 2000.0)
 	end
 end)
 
@@ -744,19 +771,20 @@ end)
 -- EXAUSTS
 -----------------------------------------------------------------------------------------------------------------------------------------
 local exausts = {
-	"exhaust","exhaust_2","exhaust_3","exhaust_4","exhaust_5","exhaust_6","exhaust_7","exhaust_8",
-	"exhaust_9","exhaust_10","exhaust_11","exhaust_12","exhaust_13","exhaust_14","exhaust_15","exhaust_16"
+	"exhaust", "exhaust_2", "exhaust_3", "exhaust_4", "exhaust_5", "exhaust_6", "exhaust_7", "exhaust_8",
+	"exhaust_9", "exhaust_10", "exhaust_11", "exhaust_12", "exhaust_13", "exhaust_14", "exhaust_15", "exhaust_16"
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FIREEXAUST
 -----------------------------------------------------------------------------------------------------------------------------------------
 function fireExaust(vehicle)
-	for k,v in ipairs(exausts) do
-		local exaustNumber = GetEntityBoneIndexByName(vehicle,v)
+	for k, v in ipairs(exausts) do
+		local exaustNumber = GetEntityBoneIndexByName(vehicle, v)
 
 		if exaustNumber > -1 then
 			UseParticleFxAssetNextCall("core")
-			StartParticleFxNonLoopedOnPedBone("veh_backfire",vehicle,0.0,0.0,0.0,0.0,0.0,0.0,exaustNumber,1.75,false,false,false)
+			StartParticleFxNonLoopedOnPedBone("veh_backfire", vehicle, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, exaustNumber, 1.75,
+				false, false, false)
 		end
 	end
 end
@@ -769,9 +797,9 @@ function NitroEnable()
 		local Ped = PlayerPedId()
 		if IsPedInAnyVehicle(Ped) then
 			NitroButton = GetGameTimer() + 1000
-			
+
 			local Vehicle = GetVehiclePedIsUsing(Ped)
-			if GetPedInVehicleSeat(Vehicle,-1) == Ped then
+			if GetPedInVehicleSeat(Vehicle, -1) == Ped then
 				if GetVehicleTopSpeedModifier(Vehicle) < 50.0 then
 					local Plate = GetVehicleNumberPlateText(Vehicle)
 					NitroFuel = GlobalState["Nitro"][Plate] or 0
@@ -783,25 +811,24 @@ function NitroEnable()
 
 								while LocalPlayer["state"]["Nitro"] do
 									if NitroFuel >= 1 then
-										
 										NitroFuel = NitroFuel - 1
-									
+
 										if not NitroFlame then
-											SetVehicleRocketBoostActive(Vehicle,true)
-											SetVehicleNitroEnabled(Vehicle,true)
-											SetVehicleBoostActive(Vehicle,true)
-											ModifyVehicleTopSpeed(Vehicle,50.0)
-											SetLightTrail(Vehicle,true)
+											SetVehicleRocketBoostActive(Vehicle, true)
+											SetVehicleNitroEnabled(Vehicle, true)
+											SetVehicleBoostActive(Vehicle, true)
+											ModifyVehicleTopSpeed(Vehicle, 50.0)
+											SetLightTrail(Vehicle, true)
 											NitroFlame = Plate
 										end
 									else
 										if NitroFlame then
-											SetVehicleRocketBoostActive(Vehicle,false)
-											vRP.updateNitro(NitroFlame,NitroFuel)
-											SetVehicleNitroEnabled(Vehicle,false)
-											SetVehicleBoostActive(Vehicle,false)
-											ModifyVehicleTopSpeed(Vehicle,0.0)
-											SetLightTrail(Vehicle,false)
+											SetVehicleRocketBoostActive(Vehicle, false)
+											vRP.updateNitro(NitroFlame, NitroFuel)
+											SetVehicleNitroEnabled(Vehicle, false)
+											SetVehicleBoostActive(Vehicle, false)
+											ModifyVehicleTopSpeed(Vehicle, 0.0)
+											SetLightTrail(Vehicle, false)
 											NitroFlame = false
 
 											LocalPlayer["state"]["Nitro"] = false
@@ -811,11 +838,11 @@ function NitroEnable()
 									Wait(1)
 								end
 							else
-								SetPurgeSprays(Vehicle,true)
+								SetPurgeSprays(Vehicle, true)
 								PurgeActive = true
 							end
 						else
-							SetPurgeSprays(Vehicle,true)
+							SetPurgeSprays(Vehicle, true)
 							PurgeActive = true
 						end
 					end
@@ -824,6 +851,7 @@ function NitroEnable()
 		end
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- NITRODISABLE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -831,19 +859,19 @@ function NitroDisable()
 	local Vehicle = GetLastDrivenVehicle()
 
 	if NitroFlame then
-		SetVehicleRocketBoostActive(Vehicle,false)
-		vRP.updateNitro(NitroFlame,NitroFuel)
-		SetVehicleNitroEnabled(Vehicle,false)
-		SetVehicleBoostActive(Vehicle,false)
-		ModifyVehicleTopSpeed(Vehicle,0.0)
-		SetLightTrail(Vehicle,false)
+		SetVehicleRocketBoostActive(Vehicle, false)
+		vRP.updateNitro(NitroFlame, NitroFuel)
+		SetVehicleNitroEnabled(Vehicle, false)
+		SetVehicleBoostActive(Vehicle, false)
+		ModifyVehicleTopSpeed(Vehicle, 0.0)
+		SetLightTrail(Vehicle, false)
 		NitroFlame = false
 
 		LocalPlayer["state"]["Nitro"] = false
 	end
 
 	if PurgeActive then
-		SetPurgeSprays(Vehicle,false)
+		SetPurgeSprays(Vehicle, false)
 		PurgeActive = false
 	end
 end
@@ -851,22 +879,22 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ACTIVENITRO
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("+activeNitro",NitroEnable)
-RegisterCommand("-activeNitro",NitroDisable)
-RegisterKeyMapping("+activeNitro","Ativação do nitro.","keyboard","LMENU")
+RegisterCommand("+activeNitro", NitroEnable)
+RegisterCommand("-activeNitro", NitroDisable)
+RegisterKeyMapping("+activeNitro", "Ativação do nitro.", "keyboard", "LMENU")
 
-	-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- SETLIGHTTRAIL
 -----------------------------------------------------------------------------------------------------------------------------------------
-function SetLightTrail(Vehicle,Enable)
+function SetLightTrail(Vehicle, Enable)
 	if LightTrails[Vehicle] == Enable then
 		return
 	end
 
 	if Enable then
 		local Particles = {}
-		local LeftTrail = CreateLightTrail(Vehicle,GetEntityBoneIndexByName(Vehicle,"taillight_l"))
-		local RightTrail = CreateLightTrail(Vehicle,GetEntityBoneIndexByName(Vehicle,"taillight_r"))
+		local LeftTrail = CreateLightTrail(Vehicle, GetEntityBoneIndexByName(Vehicle, "taillight_l"))
+		local RightTrail = CreateLightTrail(Vehicle, GetEntityBoneIndexByName(Vehicle, "taillight_r"))
 
 		Particles[#Particles + 1] = LeftTrail
 		Particles[#Particles + 1] = RightTrail
@@ -875,7 +903,7 @@ function SetLightTrail(Vehicle,Enable)
 		LightParticles[Vehicle] = Particles
 	else
 		if LightParticles[Vehicle] and #LightParticles[Vehicle] > 0 then
-			for _,v in ipairs(LightParticles[Vehicle]) do
+			for _, v in ipairs(LightParticles[Vehicle]) do
 				StopLightTrail(v)
 			end
 		end
@@ -884,37 +912,41 @@ function SetLightTrail(Vehicle,Enable)
 		LightParticles[Vehicle] = nil
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CREATELIGHTTRAIL
 -----------------------------------------------------------------------------------------------------------------------------------------
-function CreateLightTrail(Vehicle,Bone)
+function CreateLightTrail(Vehicle, Bone)
 	UseParticleFxAssetNextCall("core")
-	local Particle = StartParticleFxLoopedOnEntityBone("veh_light_red_trail",Vehicle,0.0,0.0,0.0,0.0,0.0,0.0,Bone,1.0,false,false,false)
-	SetParticleFxLoopedEvolution(Particle,"speed",1.0,false)
+	local Particle = StartParticleFxLoopedOnEntityBone("veh_light_red_trail", Vehicle, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Bone,
+		1.0, false, false, false)
+	SetParticleFxLoopedEvolution(Particle, "speed", 1.0, false)
 
 	return Particle
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOPLIGHTTRAIL
 -----------------------------------------------------------------------------------------------------------------------------------------
 function StopLightTrail(Particle)
 	CreateThread(function()
 		local endTime = GetGameTimer() + 500
-		while GetGameTimer() < endTime do 
+		while GetGameTimer() < endTime do
 			Wait(0)
 			local now = GetGameTimer()
 			local Scale = (endTime - now) / 500
-			SetParticleFxLoopedScale(Particle,Scale)
-			SetParticleFxLoopedAlpha(Particle,Scale)
+			SetParticleFxLoopedScale(Particle, Scale)
+			SetParticleFxLoopedAlpha(Particle, Scale)
 		end
 
 		StopParticleFxLooped(Particle)
 	end)
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETPURGESPRAYS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function SetPurgeSprays(Vehicle,Enable)
+function SetPurgeSprays(Vehicle, Enable)
 	return true
 	-- if PurgeSprays[Vehicle] == Enable then
 	-- 	return
@@ -945,10 +977,12 @@ function SetPurgeSprays(Vehicle,Enable)
 	-- 	PurgeParticles[Vehicle] = nil
 	-- end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CREATEPURGESPRAYS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function CreatePurgeSprays(Vehicle,xOffset,yOffset,zOffset,xRot,yRot)
+function CreatePurgeSprays(Vehicle, xOffset, yOffset, zOffset, xRot, yRot)
 	UseParticleFxAssetNextCall("core")
-	return StartNetworkedParticleFxNonLoopedOnEntity("ent_sht_steam",Vehicle,xOffset,yOffset,zOffset,xRot,yRot,0.0,0.5,false,false,false)
+	return StartNetworkedParticleFxNonLoopedOnEntity("ent_sht_steam", Vehicle, xOffset, yOffset, zOffset, xRot, yRot, 0.0,
+		0.5, false, false, false)
 end

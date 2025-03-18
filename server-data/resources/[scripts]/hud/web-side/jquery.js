@@ -23,16 +23,12 @@ function minimalTimers(Seconds){
 }
 
 $(document).ready(function(){
-
-
-
 	window.addEventListener("message",function(event){
-
         var item = event.data
 
         if(item.street) $("#rua").html(item.street);
         $("#radio").html(lastRadio);
-        $("#perolas").html(item.coins);
+        $("#coins").html(item.coins);
         if(item.hour && item.minute) {
             let hour = item.hour
             let minute = item.minute
@@ -67,10 +63,10 @@ $(document).ready(function(){
         }
 
 
-		if (item.health <= 1) {
+		if (item.health <= 0) {
 			setCircle("0", 'lifeFill')
 		} else {
-			setCircle(item.health - 100, 'lifeFill')
+			setCircle(item.health, 'lifeFill')
 		}
 
         if (item.armour <= 0) {
@@ -137,33 +133,36 @@ $(document).ready(function(){
                     $(".Seatbelt").addClass("Gray").removeClass("Green");
                 }
     
-                if (item.healthcar >= 501){
+              /*   if (item.healthcar >= 501){
                     $(".HealthCar").addClass("Gray").removeClass("Yellow").removeClass("Red");
                 } else if (item.healthcar <= 500 && item.healthcar >= 200 ){
                     $(".HealthCar").addClass("Yellow").removeClass("Gray").removeClass("Red");
                 } else if (item.healthcar <= 200){
                     $(".HealthCar").addClass("Red").removeClass("Gray").removeClass("Yellow");
-                }
+                } */
              
-                if (item.tyres == 0){
+              /*   if (item.tyres == 0){
                     $(".Tyres").addClass("Gray").removeClass("Yellow").removeClass("Red");
                 } else if (item.pneus == 1){
                     $(".Tyres").addClass("Yellow").removeClass("Gray").removeClass("Red");
                 } else if (item.pneus >= 2){
                     $(".Tyres").addClass("Red").removeClass("Gray").removeClass("Yellow");
-                }
+                } */
     
-                if(item.VHeadlight == false) {
+               /*  if(item.VHeadlight == false) {
                     $(".Headlight").addClass("Gray").removeClass("Blue");
                 } else { 
                     $(".Headlight").addClass("Blue").removeClass("Gray");
-                }
-    
-                if(item.locked == true) {
-                    $(".Locked").addClass("Gray").removeClass("Green");
-                } else { 
-                    $(".Locked").addClass("Green").removeClass("Gray");
-                }
+                } */
+    /* 
+                if (item.locked == 1 ) {
+                    if (item.locked == 2) { // Verifique se o valor é 1 ou 2 para "locked"
+                        $(".Locked").addClass("Green").removeClass("Gray");
+                    } else {
+                        $(".Locked").addClass("Gray").removeClass("Green");
+                    }
+                } */
+            
 
                 if (item.speed < 9) return $('.mileage-frame p').html('<span>00</span>' + item.speed.toFixed(0));
                 if (item.speed < 99) return $('.mileage-frame p').html('<span>0</span>' + item.speed.toFixed(0));
