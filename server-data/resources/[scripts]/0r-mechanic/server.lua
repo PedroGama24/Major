@@ -57,11 +57,26 @@ end)
 
 RegisterServerEvent("tunning:applyTunning")
 AddEventHandler("tunning:applyTunning", function(vehicle, vehname, plate)
+    print("Event: tunning:applyTunning", vehicle, vehname, plate)
+    if not plate then
+        print("Plate is nil")
+        return
+    end
+
+    if not vehname then
+        print("Vehname is nil")
+        return
+    end
+
     local user_id = vRP.getUserByRegistration(plate)
-    local data = vRP.getSData("custom:u"..user_id.."veh_"..tostring(vehname))
-    local custom = json.decode(data)
-    if custom then
-        TriggerClientEvent("tunning:applyTunning", -1, vehicle, custom)
+    if user_id then
+        local data = vRP.getSData("custom:u"..user_id.."veh_"..tostring(vehname))
+        local custom = json.decode(data)
+        if custom then
+            TriggerClientEvent("tunning:applyTunning", -1, vehicle, custom)
+        end
+    else
+        print("User ID not found for plate: " .. tostring(plate))
     end
 end)
 
@@ -79,24 +94,26 @@ Citizen.CreateThread(function()
     src.buyComponent = function(data, mods)
         local source = source
         local xPlayer = GetPlayer(source)
-
+    
         if not xPlayer then
             return
         end
-
+    
         if not data.plate or not data.model then
             Notification(Config.Locale["dont_have_money"])
             return {status = false}
         end
-
+    
         if vRP.tryFullPayment(xPlayer, data.price) then
             local nuser_id = vRP.getUserByRegistration(data.plate)
             if nuser_id then
                 vRP.setSData("custom:u" .. nuser_id .. "veh_" .. tostring(data.model), json.encode(mods))
+                return {status = true}
+            else
+                print("User ID not found for plate: " .. tostring(data.plate))
             end
-            return {status = true}
         end
-
+    
         Notification(Config.Locale["dont_have_money"])
         return {status = false}
     end
@@ -118,20 +135,22 @@ Citizen.CreateThread(function()
                     end
                 end
             end
-
+    
             if not plate or not model then
                 Notification(Config.Locale["dont_have_money"])
                 return {status = false}
             end
-
+    
             if vRP.tryFullPayment(user_id, totalPrice) then
                 local nuser_id = vRP.getUserByRegistration(plate)
                 if nuser_id then
                     vRP.setSData("custom:u" .. nuser_id .. "veh_" .. tostring(model), json.encode(mods))
+                    return {status = true}
+                else
+                    print("User ID not found for plate: " .. tostring(plate))
                 end
-                return {status = true}
             end
-
+    
             Notification(Config.Locale["dont_have_money"])
             return {status = false}
         end

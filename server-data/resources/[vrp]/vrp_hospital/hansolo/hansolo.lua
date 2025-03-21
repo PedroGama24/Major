@@ -17,34 +17,41 @@ emP = Tunnel.getInterface("vrp_hospital")
 --[ REANIMAR ]---------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent('reanimar')
-AddEventHandler('reanimar',function()
-	local handle,ped = FindFirstPed()
-	local finished = false
-	local reviver = nil
-	repeat
-		local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),GetEntityCoords(ped),true)
-		if IsPedDeadOrDying(ped) and not IsPedAPlayer(ped) and distance <= 1.5 and reviver == nil then
-			reviver = ped
-			TriggerEvent("cancelando",true)
-			vRP._playAnim(false,{{"amb@medic@standing@tendtodead@base","base"},{"mini@cpr@char_a@cpr_str","cpr_pumpchest"}},true)
-			TriggerEvent("progress",15000,"reanimando")
-			SetTimeout(15000,function()
-				SetEntityHealth(reviver,110)
-				local newped = ClonePed(reviver,GetEntityHeading(reviver),true,true)
-				TaskWanderStandard(newped,10.0,10)
-				local model = GetEntityModel(reviver)
-				SetModelAsNoLongerNeeded(model)
-				Citizen.InvokeNative(0xAD738C3085FE7E11,reviver,true,true)
-				TriggerServerEvent("trydeleteped",PedToNet(reviver))
-				vRP._stopAnim(false)
-				TriggerServerEvent("reanimar:pagamento")
-				TriggerEvent("cancelando",false)
-			end)
-			finished = true
-		end
-		finished,ped = FindNextPed(handle)
-	until not finished
-	EndFindPed(handle)
+AddEventHandler('reanimar', function()
+    local handle, ped = FindFirstPed()
+    local finished = false
+    local reviver = nil
+    repeat
+        local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), GetEntityCoords(ped), true)
+        if IsPedDeadOrDying(ped) and not IsPedAPlayer(ped) and distance <= 1.5 and reviver == nil then
+            reviver = ped
+            TriggerEvent("cancelando", true)
+            vRP._playAnim(false, {{"amb@medic@standing@tendtodead@base", "base"}, {"mini@cpr@char_a@cpr_str", "cpr_pumpchest"}}, true)
+            TriggerEvent("progress", 15000, "reanimando")
+            SetTimeout(15000, function()
+                SetEntityHealth(reviver, 110)
+                local newped = ClonePed(reviver, GetEntityHeading(reviver), true, true)
+                TaskWanderStandard(newped, 10.0, 10)
+                local model = GetEntityModel(reviver)
+                SetModelAsNoLongerNeeded(model)
+                Citizen.InvokeNative(0xAD738C3085FE7E11, reviver, true, true)
+                TriggerServerEvent("trydeleteped", PedToNet(reviver))
+                vRP._stopAnim(false)
+                TriggerServerEvent("reanimar:pagamento")
+                TriggerEvent("cancelando", false)
+                -- Atualizar o estado do jogador
+                local playerPed = PlayerPedId()
+                if IsEntityDead(playerPed) then
+                    NetworkResurrectLocalPlayer(GetEntityCoords(playerPed), true, true, false)
+                    SetEntityHealth(playerPed, 100) -- Defina a saúde do jogador para um valor positivo
+                    ClearPedTasksImmediately(playerPed)
+                end
+            end)
+            finished = true
+        end
+        finished, ped = FindNextPed(handle)
+    until not finished
+    EndFindPed(handle)
 end)
 
 -- [ COORDINATES ] --

@@ -292,7 +292,8 @@ function spawnVehicle(vehicleInfo, coords, h)
     SetEntityAsMissionEntity(vehicle,true,true)
 			SetVehicleHasBeenOwnedByPlayer(vehicle,true)
 			SetVehRadioStation(vehicle,"OFF")
-			TriggerEvent("nation:applymods", vehicle,vehicleInfo.vehicle)
+			TriggerServerEvent("tunning:applyTunning", vehicle, vehicleInfo.vehicle, plate)
+			print("TriggerServerEvent: tunning:applyTunning", vehicle, vehicleInfo.vehicle, plate)
 			SetVehicleEngineHealth(vehicle, vehicleInfo.engine+0.0)
 			SetVehicleBodyHealth(vehicle, vehicleInfo.body+0.0)
 			SetVehicleFuelLevel(vehicle,vehicleInfo.fuel+0.0)
@@ -315,7 +316,7 @@ function spawnVehicle(vehicleInfo, coords, h)
     SetModelAsNoLongerNeeded(model)
 
     -- Aplicar tunagem
-    TriggerServerEvent("tunning:applyTunning", vehicle, vehicleInfo.model, vehicleInfo.plate)
+   --[[  TriggerServerEvent("tunning:applyTunning", vehicle, vehicleInfo.model, vehicleInfo.plate) ]]
 
 end
 

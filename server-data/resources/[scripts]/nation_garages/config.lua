@@ -727,38 +727,11 @@ config.garages = {
 		[3] = { vec3(44.3,-870.4,30.47), h = 156.36 },
 	  },
 	},
-	[2] = { type = 'public', coords = vec3(596.62,91.2,93.13), perm = nil,
-	  vehiclePositions = {
-		[1] = { vec3(598.34,98.45,92.91), h = 247.07 },
-		[2] = { vec3(599.25,102.28,92.91), h = 247.07 },
-	  },
-	},
-	[3] = { type = 'public', coords = vec3(-340.76,265.97,85.67), perm = nil,
-	  vehiclePositions = {
-		[1] = { vec3(-339.78,279.26,85.56), h = 274.01 },
-		[2] = { vec3(-340.03,283.23,85.47), h = 274.01 },
-		[3] = { vec3(-340.12,286.96,85.47), h = 274.01 },
-	  },
-	},
-	[4] = { type = 'public', coords = vec3(-2030.01,-465.97,11.6), perm = nil,
-	  vehiclePositions = {
-		[1] = { vec3(-2024.02,-471.84,11.41), h = 140.96 },
-		[2] = { vec3(-2021.72,-473.69,11.42), h = 140.96 },
-		[3] = { vec3(-2019.4,-475.67,11.42), h = 140.96 },
-	  },
-	},
 	[5] = { type = 'public', coords = vec3(-1184.92,-1510.0,4.64), perm = nil,
 	  vehiclePositions = {
 		[1] = { vec3(-1183.0,-1495.58,4.38), h = 121.36 },
 		[2] = { vec3(-1184.47,-1492.54,4.38), h = 121.36 },
 		[3] = { vec3(-1186.43,-1490.15,4.38), h = 121.36 },
-	  },
-	},
-	[6] = { type = 'public', coords = vec3(100.99,-1073.55,29.38), perm = nil,
-	  vehiclePositions = {
-		[1] = { vec3(104.26,-1078.98,29.2), h = 342.08 },
-		[2] = { vec3(107.9,-1080.11,29.2), h = 342.08 },
-		[3] = { vec3(111.09,-1081.08,29.2), h = 342.08 },
 	  },
 	},
 	[7] = { type = 'public', coords = vec3(-348.88,-874.02,31.31), perm = nil,
@@ -775,12 +748,6 @@ config.garages = {
 		[3] = { vec3(-771.69,5572.38,33.49), h = 87.87 },
 	  },
 	},
-	[9] = { type = 'public', coords = vec3(541.94, 2663.76, 42.18), perm = nil,
-	  vehiclePositions = {
-		[1] = { vec3(540.34, 2658.19, 41.64), h = 96.83 },
-
-	  },
-	},
 	[10] = { type = 'public', coords = vec3(-423.78332519531,-342.98828125,24.229396820068), perm = nil,
 	  vehiclePositions = {
 		[1] = { vec3(-432.16662597656,-335.10076904297,23.623687744141), h = 197.62 },
@@ -792,6 +759,8 @@ config.garages = {
 	[11] = { type = 'service', coords = vec3(2540.21,-336.15,94.13), perm = 'pmesp.permissao',
 	  vehiclePositions = {
 		[1] = { vec3(  2538.57,  -372.1,  93.0), h = 350.36 },
+		[2] = { vec3( 2542.29, -372.28,93.0), h = 350.36 },
+		[2] = { vec3( 2545.62,-372.79, 93.0), h = 350.36 },
 	  },
 	  vehicles = {
 		{ vehicle = 'a45flkpolice', modelo = 'a45flkpolice' },
@@ -803,30 +772,17 @@ config.garages = {
 		{ vehicle = 'tiger', modelo = 'tiger' },
 	  }
 	},
-	[12] = { type = 'service', coords = vec3(1294.92, -749.1, 65.51), perm = 'grpae.permissao',
+	[12] = { type = 'service', coords = vec3(2505.27,-347.84, 118.03), perm = 'grpae.permissao',
 	  vehiclePositions = {
-		[1] = { vec3(1294.88, -756.54, 65.51), h = 281.79 },
-		[2] = { vec3(1284.72, -751.67, 65.51), h = 281.79 },
+		[1] = { vec3(2510.81, -342.2, 118.19), h = 281.79 },
 	  },
 	  vehicles = {
-		{ vehicle = 'as350', modelo = 'Heli GRPAe [1]' },
 		{ vehicle = 'as3502', modelo = 'Heli GRPAe [2]' },
 	  }
 	},
-	[13] = { type = 'service', coords = vec3(2619.0014648438,5364.3813476562,47.310840606689), perm = 'prf.permissao',
-	  vehiclePositions = {
-		[1] = { vec3(2616.4248046875,5359.8305664062,46.730770111084), h = 105.45 },
-		[2] = { vec3(2617.3598632812,5356.4697265625,46.730632781982), h = 105.06 },
-	  },
-	  vehicles = {
-		{ vehicle = 'africaprf', modelo = 'Africa' },
-		{ vehicle = 'corprf', modelo = 'Corolla' },
-		{ vehicle = 'cruzeprf2', modelo = 'Cruze' },
-		{ vehicle = 'l200prf', modelo = 'L200' },
-		{ vehicle = 'trailprf', modelo = 'Trail' },
-	  }
-	},
-	[14] = { type = 'service', coords = vec3(286.51, -324.13, 46.22), perm = 'pcivil.permissao',
+
+	--Voltar
+--[[ 	[14] = { type = 'service', coords = vec3(286.51, -324.13, 46.22), perm = 'pcivil.permissao',
 	  vehiclePositions = {
 		[1] = { vec3(289.57, -326.04, 45.49 ), h = 248.82 },
 		[2] = { vec3(288.05, -328.76, 45.48 ), h = 248.61 },
@@ -838,7 +794,7 @@ config.garages = {
 		{ vehicle = 'duster20pc', modelo = 'Duster PC' },
 		{ vehicle = 'trail21garra', modelo = 'Trail Garra' },
 	  }
-	},
+	}, ]]
 	[15] = { type = 'service', coords = vec3(1332.23, -726.64, 65.67), perm = 'ft.permissao',
 	  vehiclePositions = {
 		[1] = { vec3(1336.65, -721.15, 65.06), h = 334.33 },

@@ -79,23 +79,25 @@ function vRP.getUsersByPermission(perm)
 	return users
 end
 
-function vRP.removeUserGroup(user_id,group)
-	local user_groups = vRP.getUserGroups(user_id)
-	local groupdef = groups[group]
-	if groupdef and groupdef._config and groupdef._config.onleave then
-		local source = vRP.getUserSource(user_id)
-		if source then
-			groupdef._config.onleave(source)
-		end
-	end
-
-	local gtype = nil
-	if groupdef._config then
-		gtype = groupdef._config.gtype 
-	end
-
-	TriggerEvent("vRP:playerLeaveGroup",user_id,group,gtype)
-	user_groups[group] = nil
+function vRP.removeUserGroup(user_id, group)
+    local user_groups = vRP.getUserGroups(user_id)
+    local groupdef = groups[group]
+    if groupdef then
+        if groupdef._config and groupdef._config.onleave then
+            local source = vRP.getUserSource(user_id)
+            if source then
+                groupdef._config.onleave(source)
+            end
+        end
+        local gtype = nil
+        if groupdef._config then
+            gtype = groupdef._config.gtype 
+        end
+        TriggerEvent("vRP:playerLeaveGroup", user_id, group, gtype)
+        user_groups[group] = nil
+    else
+        print("Group definition for group '" .. group .. "' not found.")
+    end
 end
 
 function vRP.hasGroup(user_id,group)

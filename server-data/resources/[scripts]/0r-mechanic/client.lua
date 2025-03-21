@@ -1728,6 +1728,8 @@ RegisterNUICallback("buyComponent", function(data, cbj)
             return cbj(false)
         end
 
+        TriggerServerEvent("0r-mechanic:server:saveModifications", vehPlate, Model, getVehicleProperties(vehicle))
+
         data.plate = vehPlate
         data.model = Model
         if data.component.modId == 18 then
