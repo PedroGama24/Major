@@ -18,6 +18,7 @@ emP = Tunnel.getInterface("vrp_hospital")
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent('reanimar')
 AddEventHandler('reanimar', function()
+    print("[DEBUG] Evento 'reanimar' chamado")
     local handle, ped = FindFirstPed()
     local finished = false
     local reviver = nil
@@ -25,6 +26,7 @@ AddEventHandler('reanimar', function()
         local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), GetEntityCoords(ped), true)
         if IsPedDeadOrDying(ped) and not IsPedAPlayer(ped) and distance <= 1.5 and reviver == nil then
             reviver = ped
+            print("[DEBUG] Encontrado ped morto a ser reanimado")
             TriggerEvent("cancelando", true)
             vRP._playAnim(false, {{"amb@medic@standing@tendtodead@base", "base"}, {"mini@cpr@char_a@cpr_str", "cpr_pumpchest"}}, true)
             TriggerEvent("progress", 15000, "reanimando")
@@ -42,9 +44,13 @@ AddEventHandler('reanimar', function()
                 -- Atualizar o estado do jogador
                 local playerPed = PlayerPedId()
                 if IsEntityDead(playerPed) then
-                    NetworkResurrectLocalPlayer(GetEntityCoords(playerPed), true, true, false)
+                    print("[DEBUG] Jogador está morto, reanimando")
+                    NetworkResurrectLocalPlayer(GetEntityCoords(playerPed), true, true, true)
                     SetEntityHealth(playerPed, 100) -- Defina a saúde do jogador para um valor positivo
                     ClearPedTasksImmediately(playerPed)
+                    -- Chamar a função Skips:ForceNuiOff para desligar a NUI morto
+                    TriggerEvent("Skips:ForceNuiOff")
+                    print("[DEBUG] Evento 'Skips:ForceNuiOff' disparado")
                 end
             end)
             finished = true

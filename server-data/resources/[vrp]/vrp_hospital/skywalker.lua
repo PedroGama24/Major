@@ -124,63 +124,67 @@ end)
 -- [ RE ] -------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('re',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id,"paramedico.permissao") then
-		local nplayer = vRPclient.getNearestPlayer(source,2)
+    local user_id = vRP.getUserId(source)
+    if vRP.hasPermission(user_id,"paramedico.permissao") then
+        local nplayer = vRPclient.getNearestPlayer(source,2)
 
-		if nplayer then
-		--	if vRPclient.isInComa(nplayer) then
-				local identity_user = vRP.getUserIdentity(user_id)
-				local nuser_id = vRP.getUserId(nplayer)
-				local identity_coma = vRP.getUserIdentity(nuser_id)
+        if nplayer then
+            -- if vRPclient.isInComa(nplayer) then
+                local identity_user = vRP.getUserIdentity(user_id)
+                local nuser_id = vRP.getUserId(nplayer)
+                local identity_coma = vRP.getUserIdentity(nuser_id)
 
-				local set_user = "Departamento Médico"
+                local set_user = "Departamento Médico"
 
-				TriggerClientEvent('cancelando',source,true)
-				vRPclient._playAnim(source,false,{{"amb@medic@standing@tendtodead@base","base"},{"mini@cpr@char_a@cpr_str","cpr_pumpchest"}},true)
-				TriggerClientEvent("progress",source,30000,"reanimando")
+                TriggerClientEvent('cancelando',source,true)
+                vRPclient._playAnim(source,false,{{"amb@medic@standing@tendtodead@base","base"},{"mini@cpr@char_a@cpr_str","cpr_pumpchest"}},true)
+                TriggerClientEvent("progress",source,30000,"reanimando")
 
-				SetTimeout(30000,function()
-					vRPclient.killGod(nplayer)
-					vRPclient._stopAnim(source,false)
-					TriggerClientEvent("resetBleeding",nplayer)
-					TriggerClientEvent('cancelando',source,false)
-				end)
+                SetTimeout(30000,function()
+                    vRPclient.killGod(nplayer)
+                    vRPclient._stopAnim(source,false)
+                    TriggerClientEvent("resetBleeding",nplayer)
+                    TriggerClientEvent('cancelando',source,false)
+                    -- Chamar a função Skips:ForceNuiOff para desligar a NUI morto
+                    TriggerClientEvent("Skips:ForceNuiOff", nplayer)
+                end)
 
-		--	else
-			--	TriggerClientEvent("Notify",source,"importante","A pessoa precisa estar em coma para prosseguir.")
-		--	end
-		else
-			TriggerClientEvent("Notify",source,"importante","Chegue mais perto do paciente.")
-		end
-	elseif vRP.hasPermission(user_id,"policia.permissao") then
-		if Resg.checkServices() then
-			if nplayer then
-				if vRPclient.isInComa(nplayer) then
-					local identity_user = vRP.getUserIdentity(user_id)
-					local nuser_id = vRP.getUserId(nplayer)
-					local identity_coma = vRP.getUserIdentity(nuser_id)
+            -- else
+            --    TriggerClientEvent("Notify",source,"importante","A pessoa precisa estar em coma para prosseguir.")
+            -- end
+        else
+            TriggerClientEvent("Notify",source,"importante","Chegue mais perto do paciente.")
+        end
+    elseif vRP.hasPermission(user_id,"policia.permissao") then
+        if Resg.checkServices() then
+            if nplayer then
+                if vRPclient.isInComa(nplayer) then
+                    local identity_user = vRP.getUserIdentity(user_id)
+                    local nuser_id = vRP.getUserId(nplayer)
+                    local identity_coma = vRP.getUserIdentity(nuser_id)
 
-					local set_user = "Departmanto de Polícia"
+                    local set_user = "Departamento de Polícia"
 
-					TriggerClientEvent('cancelando',source,true)
-					vRPclient._playAnim(source,false,{{"amb@medic@standing@tendtodead@base","base"},{"mini@cpr@char_a@cpr_str","cpr_pumpchest"}},true)
-					TriggerClientEvent("progress",source,30000,"reanimando")
+                    TriggerClientEvent('cancelando',source,true)
+                    vRPclient._playAnim(source,false,{{"amb@medic@standing@tendtodead@base","base"},{"mini@cpr@char_a@cpr_str","cpr_pumpchest"}},true)
+                    TriggerClientEvent("progress",source,30000,"reanimando")
 
-					SetTimeout(30000,function()
-						vRPclient.killGod(nplayer)
-						vRPclient._stopAnim(source,false)
-						TriggerClientEvent("resetBleeding",nplayer)
-						TriggerClientEvent('cancelando',source,false)
-					end)
-				else
-					TriggerClientEvent("Notify",source,"importante","A pessoa precisa estar em coma para prosseguir.")
-				end
-			end
-		else
-			TriggerClientEvent("Notify",source,"negado","Existem membros do Departamento Médico em serviço!")
-		end
-	end
+                    SetTimeout(30000,function()
+                        vRPclient.killGod(nplayer)
+                        vRPclient._stopAnim(source,false)
+                        TriggerClientEvent("resetBleeding",nplayer)
+                        TriggerClientEvent('cancelando',source,false)
+                        -- Chamar a função Skips:ForceNuiOff para desligar a NUI morto
+                        TriggerClientEvent("Skips:ForceNuiOff", nplayer)
+                    end)
+                else
+                    TriggerClientEvent("Notify",source,"importante","A pessoa precisa estar em coma para prosseguir.")
+                end
+            end
+        else
+            TriggerClientEvent("Notify",source,"negado","Existem membros do Departamento Médico em serviço!")
+        end
+    end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 --[ TRATAMENTO ]-------------------------------------------------------------------------------------------------------------------------
