@@ -22,7 +22,11 @@ local locblips = {
 local locplantas = {
 	[1] = { ['x'] = 592.256, ['y'] = -418.8407, ['z'] = 17.623 }, -- 592.25628662109,-418.84072875977,17.623779296875
 	[2] = { ['x'] = 592.205, ['y'] = -420.20, ['z'] = 17.62 }, -- 592.20513916016,-420.2077331543,17.623779296875
-	[3] = { ['x'] = 592.00, ['y'] = -422.82, ['z'] = 17.62 } -- 592.00164794922,-422.82150268555,17.623779296875
+	[3] = { ['x'] = 592.00, ['y'] = -422.82, ['z'] = 17.62 }, -- 592.00164794922,-422.82150268555,17.623779296875
+	[4] = { ['x'] = 591.31, ['y'] = -428.65, ['z'] = 17.63}, -- 592.00164794922,-422.82150268555,17.623779296875
+	[5] = { ['x'] = 591.56, ['y'] = -427.11, ['z'] = 17.63 }, -- 592.00164794922,-422.82150268555,17.623779296875
+	[6] = { ['x'] = 591.77, ['y'] = -424.54, ['z'] = 17.63 } -- 592.00164794922,-422.82150268555,17.623779296875
+
 }
 
 
@@ -91,6 +95,47 @@ Citizen.CreateThread(function()
 			end
 		end
 
+		-- Local 2 Plantar
+		if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),591.38,-429.35,17.63, true ) <= 1 and not plantado and adubo then
+			skips = 1
+			DrawText3D(591.38,-429.35,17.63, "[~r~E~w~] PARA PLANTAR OS PÉS DE ~g~MACONHA~w~.")
+			if IsControlJustPressed(0,38) and emP.checkPermissao() and not plantado then
+				local bowz,cdz = GetGroundZFor_3dCoord(591.38,-429.35,17.63) -- ped 
+				local bowz,cdz = GetGroundZFor_3dCoord(locplantas[4].x,locplantas[4].y,locplantas[4].z) -- planta 
+				pote = CreateObject(GetHashKey("bkr_prop_weed_plantpot_stack_01b"),locplantas[4].x,locplantas[4].y,locplantas[4].z-1.1,true,true,true)
+				pote1 = CreateObject(GetHashKey("bkr_prop_weed_plantpot_stack_01b"),locplantas[5].x,locplantas[5].y,locplantas[5].z-1.1,true,true,true)
+				pote2 = CreateObject(GetHashKey("bkr_prop_weed_plantpot_stack_01b"),locplantas[6].x,locplantas[6].y,locplantas[6].z-1.1,true,true,true)
+				adubo1 = CreateObject(GetHashKey("bkr_prop_weed_bucket_open_01a"),591.15325927734,-417.79821777344,17.623777389526-1.1,true,true,true)
+				vRP._DeletarObjeto(source)
+				vRP._playAnim(false,{{"amb@world_human_gardener_plant@female@base","base_female"}},true)
+				SetEntityHeading(ped,175.9)
+				SetEntityCoords(ped,591.38,-429.35,17.63,false,false,false,false)
+				pronto = false
+				plantado = true
+
+				SetTimeout(5000,function()
+					TriggerEvent("Notify","sucesso","Você plantou um pé de maconha.")
+					DeleteObject(pote)
+					DeleteObject(pote1)
+					DeleteObject(pote2)
+					DeleteObject(adubo1)
+					vRP._stopAnim(source,false)
+					pezinho = CreateObject(GetHashKey("bkr_prop_weed_01_small_01c"),locplantas[4].x,locplantas[4].y,locplantas[4].z-1.1,true,true,true)
+					pezinho1 = CreateObject(GetHashKey("bkr_prop_weed_01_small_01c"),locplantas[5].x,locplantas[5].y,locplantas[5].z-1.1,true,true,true)
+					pezinho2 = CreateObject(GetHashKey("bkr_prop_weed_01_small_01c"),locplantas[6].x,locplantas[6].y,locplantas[6].z-1.1,true,true,true)
+				end)
+				SetTimeout(10000,function()
+					plantado1 = true
+					DeleteObject(pezinho)
+					DeleteObject(pezinho1)
+					DeleteObject(pezinho2)
+					pe2 = CreateObject(GetHashKey("bkr_prop_weed_01_small_01a"),locplantas[6].x,locplantas[6].y,locplantas[6].z-1.1,true,true,true)
+					pe1 = CreateObject(GetHashKey("bkr_prop_weed_01_small_01a"),locplantas[5].x,locplantas[5].y,locplantas[5].z-1.1,true,true,true)
+					pe = CreateObject(GetHashKey("bkr_prop_weed_01_small_01a"),locplantas[4].x,locplantas[4].y,locplantas[4].z-1.1,true,true,true)
+				end)
+			end
+		end
+
 		if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),592.35717773438,-418.28137207031,17.623769760132, true ) <= 1 and plantado1 and not regando then
 			skips = 1
 			DrawText3D(592.35717773438,-418.28137207031,17.623769760132, "[~r~E~w~] PARA REGAR AS ~g~PLANTAS~w~.")
@@ -131,6 +176,47 @@ Citizen.CreateThread(function()
 			end
 		end
 
+		-- Local 2 Regar
+		if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),591.38,-429.35,17.63, true ) <= 1 and plantado1 and not regando then
+			skips = 1
+			DrawText3D(591.38,-429.35,17.63, "[~r~E~w~] PARA REGAR AS ~g~PLANTAS~w~.")
+			if IsControlJustPressed(0,38) then
+				SetEntityHeading(ped,175.9)
+				SetEntityCoords(ped,591.38,-429.35,17.63-1,false,false,false,false)
+				vRP._playAnim(true,{{"amb@prop_human_parking_meter@female@idle_a","idle_a_female"}},true)
+				vRP._CarregarObjeto("","","prop_wateringcan",50,57005,0.45,0.0,0.05,0.0,260.0,140.0)
+				regando = true
+
+				SetTimeout(5000,function()
+					TriggerEvent("Notify","sucesso","Você regou as <b>plantas, aguarde crescer!</b>!")
+					vRP._stopAnim(source,false)
+					vRP._DeletarObjeto(source)
+				end)
+
+				SetTimeout(5000,function()
+					DeleteObject(pe)
+					DeleteObject(pe1)
+					DeleteObject(pe2)
+					pemedio2 = CreateObject(GetHashKey("bkr_prop_weed_med_01a"),locplantas[6].x,locplantas[6].y,locplantas[6].z-3.5,true,true,true)
+					pemedio1 = CreateObject(GetHashKey("bkr_prop_weed_med_01a"),locplantas[5].x,locplantas[5].y,locplantas[5].z-3.5,true,true,true)
+					pemedio = CreateObject(GetHashKey("bkr_prop_weed_med_01a"),locplantas[4].x,locplantas[4].y,locplantas[4].z-3.5,true,true,true)
+				end)
+				
+				SetTimeout(20000,function()
+					DeleteObject(pemedio)
+					DeleteObject(pemedio1)
+					DeleteObject(pemedio2)
+					pezao2 = CreateObject(GetHashKey("bkr_prop_weed_lrg_01a"),locplantas[6].x,locplantas[6].y,locplantas[6].z-3.5,true,true,true)
+					pezao1 = CreateObject(GetHashKey("bkr_prop_weed_lrg_01a"),locplantas[5].x,locplantas[5].y,locplantas[5].z-3.5,true,true,true)
+					pezao = CreateObject(GetHashKey("bkr_prop_weed_lrg_01a"),locplantas[4].x,locplantas[4].y,locplantas[4].z-3.5,true,true,true)
+					pronto = true
+					plantado = true
+					confirma = true
+					TriggerEvent("Notify","sucesso","Seu <b>pé de maconha</b> está pronto.")
+				end)
+			end
+		end
+
 		if confirma then
 			if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),592.35717773438,-418.28137207031,17.623769760132, true ) <= 1 then
 				skips = 1
@@ -159,9 +245,41 @@ Citizen.CreateThread(function()
 					end)
 				end
 			end
+
+			-- Local 2 Colher
+			if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()),591.38,-429.35,17.63, true ) <= 1 then
+				skips = 1
+				DrawText3D(locplantas[4].x,locplantas[4].y,locplantas[4].z, "[~r~E~w~] PARA COLHER A ~g~MACONHA~w~.")
+				if IsControlJustPressed(0,38) then
+					plantaaqui = false
+					pronto = false
+					confirma = false
+					adubo = false
+					plantado1 = false
+					regando = false
+					SetEntityHeading(ped,175.9)
+					SetEntityCoords(ped,591.38,-429.35,17.63-1,false,false,false,false)
+					vRP._playAnim(false,{{"amb@prop_human_parking_meter@female@idle_a", "idle_a_female"}},true)
+					vRP._CarregarObjeto("amb@prop_human_parking_meter@female@idle_a","idle_a_female","p_cs_scissors_s",50,57005,0.055,0.05,0.0,240.0,0.0,0.0) -- 50,28422,0.07,0.1,-0.21,100.0,0.5,0.1
+					SetTimeout(10000,function()
+						plantado = false
+						vRP._stopAnim(source,false)
+						DeleteObject(pezao)
+						DeleteObject(pezao1)
+						DeleteObject(pezao2)
+						TriggerEvent('cancelando',source,true)
+						vRP._DeletarObjeto(source)
+						emP.checkPayment()
+						TriggerEvent("Notify","sucesso","Você colheu <b>3<b> folhas de maconha.")
+					end)
+				end
+			end
+
 		end
 		Citizen.Wait(skips)
 	end
+
+
 end)
 
 

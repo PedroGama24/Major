@@ -478,15 +478,15 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	while true do
-		local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), 1563.1, -66.08, 158.56,true)
+		local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), 1275.69, -254.08, 98.06,true)
 		local skips = 1000
 
 		if distance <= 6 then
 			skips = 1
-			DrawMarker(31,1563.1, -66.08, 158.56-0.6,0,0,0,0.0,0,0,0.8,0.8,0.8,255, 0, 255,100,0,0,0,1)
+			DrawMarker(31,1275.69, -254.08, 98.06-0.6,0,0,0,0.0,0,0,0.8,0.8,0.8,255, 0, 255,100,0,0,0,1)
 		if distance <= 1 then
 			skips = 1
-			DrawText3Ds(1563.1, -66.08, 158.56+0.5,"PRESSIONE ~r~E~w~ PARA COMEÇAR MISSÃO")
+			DrawText3Ds(1275.69, -254.08, 98.06+0.5,"PRESSIONE ~r~E~w~ PARA COMEÇAR MISSÃO")
             if IsControlJustPressed(0,38) then	-- COMEÇAR MISSÃO
 				TriggerEvent('entrega_maconha:permissao')
 				TriggerEvent("Notify","sucesso","Você pegou a rota de serviço, vá até o local para vender!")

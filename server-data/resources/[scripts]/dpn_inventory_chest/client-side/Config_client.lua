@@ -351,7 +351,7 @@ ConfigClient = {
         },
 
         ['Bau-Verdes2'] = {
-            loc = {-2399.82, 1736.41, 197.15},
+            loc = {-2422.29,1742.82,190.81},
             weight = 5000, 
             perm = "verdes.permissao",
             slots = 100, 
@@ -367,7 +367,7 @@ ConfigClient = {
         },
 
         ['Bau-Roxos2'] = {
-            loc = {1260.65, -216.97, 99.99},
+            loc = {1522.43, -109.2, 161.97},
             weight = 5000, 
             perm = "roxos.permissao",
             slots = 100, 
@@ -383,7 +383,7 @@ ConfigClient = {
         },
 
         ['Bau-Amarelos2'] = {
-            loc = {678.92, 2367.31, 51.51},
+            loc = {513.1, 2493.82, 59.01},
             weight = 5000, 
             perm = "amarelos.permissao",
             slots = 100, 
