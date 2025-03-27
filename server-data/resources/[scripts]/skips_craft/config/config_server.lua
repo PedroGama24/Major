@@ -44,7 +44,7 @@ config.table = {
                 requires = {
                     { item = "corpo-ak47", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                     { item = "placademetal", amount = 10 },
-                    { item = "mola", amount = 3 },
+                    { item = "mola", amount = 8 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -59,8 +59,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-pistolmk2", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 3 },
-                    { item = "mola", amount = 1 },
+                    { item = "placademetal", amount = 5 },
+                    { item = "mola", amount = 2 },
                     { item = "gatilho", amount = 1 },
                 }
             },   
@@ -75,8 +75,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-assaultsmg", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 8 },
-                    { item = "mola", amount = 3 },
+                    { item = "placademetal", amount = 9 },
+                    { item = "mola", amount = 7 },
                     { item = "gatilho", amount = 1 },
                 }
             },   
@@ -107,7 +107,7 @@ config.table = {
 
                 requires = {
                     { item = "corpo-mp5", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 5 },
+                    { item = "placademetal", amount = 8 },
                     { item = "mola", amount = 4 },
                     { item = "gatilho", amount = 1 },
                 }
@@ -123,8 +123,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-revolver", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 6 },
-                    { item = "mola", amount = 2 },
+                    { item = "placademetal", amount = 12 },
+                    { item = "mola", amount = 3 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -139,8 +139,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-thompson", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 8 },
-                    { item = "mola", amount = 5 },
+                    { item = "placademetal", amount = 15 },
+                    { item = "mola", amount = 8 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -154,7 +154,7 @@ config.table = {
                 anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
                 requires = {
-                    { item = "pecadearma", amount = 100 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                    { item = "pecadearma", amount = 90 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                 }
             }, 
 
@@ -167,7 +167,7 @@ config.table = {
                 anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
                 requires = {
-                    { item = "pecadearma", amount = 25 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                    { item = "pecadearma", amount = 30 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                 }
             }, 
 
@@ -180,7 +180,7 @@ config.table = {
             anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
             requires = {
-                { item = "pecadearma", amount = 90 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                { item = "pecadearma", amount = 80 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
             }
               }, 
 
@@ -219,7 +219,7 @@ config.table = {
         anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
         requires = {
-            { item = "pecadearma", amount = 40 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+            { item = "pecadearma", amount = 60 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
         }
         }, 
 
@@ -232,7 +232,7 @@ config.table = {
         anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
         requires = {
-            { item = "pecadearma", amount = 105 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+            { item = "pecadearma", amount = 150 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
         }
         }, 
 
@@ -255,7 +255,7 @@ config.table = {
                 requires = {
                     { item = "corpo-ak47", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                     { item = "placademetal", amount = 10 },
-                    { item = "mola", amount = 3 },
+                    { item = "mola", amount = 8 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -270,8 +270,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-pistolmk2", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 3 },
-                    { item = "mola", amount = 1 },
+                    { item = "placademetal", amount = 6 },
+                    { item = "mola", amount = 2 },
                     { item = "gatilho", amount = 1 },
                 }
             },   
@@ -286,8 +286,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-assaultsmg", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 8 },
-                    { item = "mola", amount = 3 },
+                    { item = "placademetal", amount = 9 },
+                    { item = "mola", amount = 7 },
                     { item = "gatilho", amount = 1 },
                 }
             },   
@@ -318,7 +318,7 @@ config.table = {
 
                 requires = {
                     { item = "corpo-mp5", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 5 },
+                    { item = "placademetal", amount = 8 },
                     { item = "mola", amount = 4 },
                     { item = "gatilho", amount = 1 },
                 }
@@ -334,8 +334,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-revolver", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 6 },
-                    { item = "mola", amount = 2 },
+                    { item = "placademetal", amount = 12 },
+                    { item = "mola", amount = 3 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -350,8 +350,8 @@ config.table = {
 
                 requires = {
                     { item = "corpo-thompson", amount = 1 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
-                    { item = "placademetal", amount = 8 },
-                    { item = "mola", amount = 5 },
+                    { item = "placademetal", amount = 15 },
+                    { item = "mola", amount = 8 },
                     { item = "gatilho", amount = 1 },
                 }
             },  
@@ -365,7 +365,7 @@ config.table = {
                 anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
                 requires = {
-                    { item = "pecadearma", amount = 100 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                    { item = "pecadearma", amount = 90 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                 }
             }, 
 
@@ -378,7 +378,7 @@ config.table = {
                 anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
                 requires = {
-                    { item = "pecadearma", amount = 25 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                    { item = "pecadearma", amount = 30 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
                 }
             }, 
 
@@ -391,7 +391,7 @@ config.table = {
             anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
             requires = {
-                { item = "pecadearma", amount = 90 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+                { item = "pecadearma", amount = 80 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
             }
               }, 
 
@@ -430,7 +430,7 @@ config.table = {
         anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
         requires = {
-            { item = "pecadearma", amount = 40 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+            { item = "pecadearma", amount = 60 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
         }
         }, 
 
@@ -443,7 +443,7 @@ config.table = {
         anim = { "amb@prop_human_parking_meter@female@idle_a","idle_a_female" }, -- ANIMAÇÃO DURANTE O CRAFT. (SE O TEMPO ESTIVER 0 DESCONSIDERAR)
 
         requires = {
-            { item = "pecadearma", amount = 105 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
+            { item = "pecadearma", amount = 150 }, -- ITEM / QUANTIDADE ( POR UNIDADE )
         }
         }, 
 
