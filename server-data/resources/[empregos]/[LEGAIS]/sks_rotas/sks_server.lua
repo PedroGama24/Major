@@ -33,8 +33,18 @@ function eG.checkReward(emprego)
 	if user_id then
 		local infos = getInfos(emprego)
 		local payment = math.random(infos.minimo, infos.maximo)
-		if vRP.getInventoryWeight(user_id)+vRP.getItemWeight(infos.item)*payment <= vRP.getInventoryMaxWeight(user_id) then
-			vRP.giveInventoryItem(user_id, infos.item, payment)
+		-- Verifica se 'infos.item' é uma tabela
+		if type(infos.item) == "table" then
+			for _, item in ipairs(infos.item) do
+				if vRP.getInventoryWeight(user_id) + vRP.getItemWeight(item) * payment <= vRP.getInventoryMaxWeight(user_id) then
+					vRP.giveInventoryItem(user_id, item, payment)
+				end
+			end
+		else
+			-- Caso 'infos.item' não seja uma tabela , trata como um único item
+			if vRP.getInventoryWeight(user_id) + vRP.getItemWeight(infos.item) * payment <= vRP.getInventoryMaxWeight(user_id) then
+				vRP.giveInventoryItem(user_id, infos.item, payment)
+			end
 		end
 	end
 end

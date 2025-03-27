@@ -48,8 +48,8 @@ config.empregos = {
     },
 
 
-
-    {emprego = "Bratva", item = "pecadearma", minimo = 1, maximo = 2, onCar = false,
+    -- Usar o Item daqui como example
+    {emprego = "Bratva", item = {"pecadearma", "mola"}, minimo = 1, maximo = 2, onCar = false,
 
         text = "PRESSIONE ~y~E~w~  PARA IR COLETAR AS ~y~PEÇAS DE ARMA",
 
@@ -61,7 +61,7 @@ config.empregos = {
 
 
 
-    {emprego = "Cartel", item = "pecadearma", minimo = 1, maximo = 2, onCar = false,
+    {emprego = "Cartel", item = {"pecadearma", "mola"}, minimo = 1, maximo = 2, onCar = false,
 
         text = "PRESSIONE ~y~E~w~ PARA A ROTA DE ~y~PEÇAS DE ARMA",
 

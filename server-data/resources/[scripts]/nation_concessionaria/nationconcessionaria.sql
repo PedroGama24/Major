@@ -224,7 +224,6 @@ INSERT INTO `nation_concessionaria` (`vehicle`, `estoque`) VALUES
 	('buffalo', 25),
 	('buffalo2', 25),
 	('buffalo3', 25),
-	('PCX ', 25),
 	('carbonizzare', 25),
 	('jester3', 25),
 	('flashgt', 25),
