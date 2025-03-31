@@ -79,8 +79,8 @@ ConfigClient = {
             perm = "contrabandista.permissao",
             itens = {
                ['gatilho'] = {price = 2000},
-               ['mola'] = {price = 1250},
-               ['placademetal'] = {price = 1500},
+               ['mola'] = {price = 1000},
+               ['placademetal'] = {price = 900},
                ['capsula'] = {price = 250},
             },
         }, 	
@@ -392,6 +392,14 @@ ConfigClient = {
 
         ['Bau-Casino'] = {
             loc = {943.21, -1486.78, 23.05},
+            weight = 5000, 
+            perm = "casino.permissao",
+            slots = 100, 
+            webhook = "https://discord.com/api/webhooks/1174175751709392966/NhR4f44PNC-jz2Myncp0VgA0AgDGY3TI_9NM_RpbM9zNovQLPnwdRw8xRJDeMvwYQKAl",
+        },
+
+        ['Bau-Casino2'] = {
+            loc = {-1368.81,-623.96, 30.32},
             weight = 5000, 
             perm = "casino.permissao",
             slots = 100, 
