@@ -231,27 +231,21 @@ Config.Menus = {
 }
 
 Config.Locations = {
-    ["Bennys Workshop"] = {
-        illegalMechanic = true,
-        job = "admin.permissao",
+    ["Slay Mechanic"] = {
+        illegalMechanic = false,
+        job = "mecanico.permissao",
         coords = {
-            vector3(863.11,-2123.24, 30.55),
-         --[[    vector3(940.33,-1022.25,40.84),
-            vector3(940.49,-1015.17,40.84),
-            vector3(951.28,-1040.71,40.17),
-            vector3(939.57,-1044.21,40.98),
-            vector3(939.79,-1037.36,40.93),
-            vector3(951.1,-1025.7,55.55),
-
-            vector3(742.69,-804.8,24.9),
-            vector3(732.72,-808.18,24.9),
-            vector3(732.99,-815.84,24.9), ]]
-            
+            vector3(875.74,-2124.92, 30.56),
+            vector3(887.12,-2125.88, 30.56),
+            vector3(897.89,-2126.54, 30.56),
+            vector3(909.0,-2127.53, 30.56),
+            vector3(888.3,-2102.12, 30.47),
+            vector3(895.9,-2102.74, 30.47),
         },
         showBlip = true,
         blipSprite = 446,
         blipColor = 4,
-        blipCoords = vector3(863.11,-2123.24, 30.55),
+        blipCoords = vector3(886.08,-2114.03, 30.46),
     }
 }
 
@@ -259,13 +253,13 @@ Config.ExtraMenuLocations = {
     ["LSPD"] = {
         job = "admin.permissao",
         coords = {
-            vector3(888.34, -2101.69, 30.47)
+           --[[  vector3(888.34, -2101.69, 30.47) ]]
         },
     } 
 }
 
 Config.Locale = {
-    ["open_mechanic_menu"] = "~INPUT_CONTEXT~ Mechanic Menu",
+    ["open_mechanic_menu"] = "~INPUT_CONTEXT~ Abrir Oficina",
     ["open_extra_menu"] = "~INPUT_CONTEXT~ Extra Menu",
     ["dont_have_money"] = "You don't have enough money",
     ["popcorn_exhaust"] = "Exhaust status: %s",

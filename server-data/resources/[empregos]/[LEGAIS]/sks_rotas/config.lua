@@ -49,7 +49,11 @@ config.empregos = {
 
 
     -- Usar o Item daqui como example
-    {emprego = "Bratva", item = {"pecadearma", "mola"}, minimo = 1, maximo = 2, onCar = false,
+    {emprego = "Bratva", item = {
+        {name = "pecadearma", dropChance = 100},
+        {name = "mola", dropChance = 30},
+        {name = "placademetal", dropChance = 25}
+    },minimo = 1, maximo = 4, onCar = false,
 
         text = "PRESSIONE ~y~E~w~  PARA IR COLETAR AS ~y~PEÇAS DE ARMA",
 
@@ -61,7 +65,11 @@ config.empregos = {
 
 
 
-    {emprego = "Cartel", item = {"pecadearma", "mola"}, minimo = 1, maximo = 2, onCar = false,
+    {emprego = "Cartel", item = {
+        {name = "pecadearma", dropChance = 100},
+        {name = "mola", dropChance = 30},
+        {name = "placademetal", dropChance = 25}
+    }, minimo = 0, maximo = 2, onCar = false,
 
         text = "PRESSIONE ~y~E~w~ PARA A ROTA DE ~y~PEÇAS DE ARMA",
 
@@ -72,7 +80,10 @@ config.empregos = {
     },
 
  
-    {emprego = "SoA", item = "polvora", minimo = 1, maximo = 2, onCar = false,
+    {emprego = "SoA", item = {
+    {name = "polvora", dropChance = 100},
+    {name = "capsula", dropChance = 50},
+    }, minimo = 4, maximo = 9, onCar = false,
 
     text = "PRESSIONE ~y~E~w~ PARA A ROTA DE ~y~POLVORAS",
 
@@ -82,7 +93,10 @@ config.empregos = {
 
     },
 
-    {emprego = "TheLost", item = "polvora", minimo = 1, maximo = 2, onCar = false,
+    {emprego = "TheLost", item = {
+        {name = "polvora", dropChance = 100},
+        {name = "capsula", dropChance = 50},
+        }, minimo = 4, maximo = 9, onCar = false,
 
     text = "PRESSIONE ~y~E~w~ PARA A ROTA DE ~y~POLVORAS",
 

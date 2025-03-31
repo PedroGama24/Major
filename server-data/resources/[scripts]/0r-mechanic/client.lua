@@ -700,9 +700,10 @@ addMod = function(vehicle, modId, stock, modPrice)
         end
     elseif modId == 11 then
         found = true
-        dummy[#dummy + 1] = { modId = 11, label = "Level 2", mod = 0, price = modPrice.basePrice }
-        dummy[#dummy + 1] = { modId = 11, label = "Level 3", mod = 1, price = modPrice.basePrice + (modPrice.increaseby * 2) }
-        dummy[#dummy + 1] = { modId = 11, label = "Level 4", mod = 2, price = modPrice.basePrice + (modPrice.increaseby * 3) }
+        dummy[#dummy + 1] = { modId = 11, label = "Level 1", mod = 0, price = modPrice.basePrice }
+        dummy[#dummy + 1] = { modId = 11, label = "Level 2", mod = 1, price = modPrice.basePrice + (modPrice.increaseby * 2) }
+        dummy[#dummy + 1] = { modId = 11, label = "Level 3", mod = 2, price = modPrice.basePrice + (modPrice.increaseby * 3) }
+        dummy[#dummy + 1] = { modId = 11, label = "Level 4", mod = 3, price = modPrice.basePrice + (modPrice.increaseby * 4) }
         local currentModIndex = GetVehicleMod(vehicle, 11)
         for k,v in pairs(dummy) do
             if v.mod == currentModIndex then
@@ -828,14 +829,14 @@ loadMods = function(vehicle)
     end
 
     modMenu[1] = {
-        label = "Vehicle Customization",
+        label = "Personalização de Veículos",
         img = "vehicle",
         type = "main",
         items = {}
     }
 
     modMenu[2] = {
-        label = "Vehicle Cosmetics",
+        label = "Cosméticos Veículos",
         img = "cosmetic",
         type = "main",
         items = {}
@@ -849,7 +850,7 @@ loadMods = function(vehicle)
     }
 
     modMenu[4] = {
-        label = "Wheels",
+        label = "Rodas",
         img = "wheel",
         type = "main",
         items = {}
@@ -871,20 +872,20 @@ loadMods = function(vehicle)
         }
 
         modMenu[7] = {
-            label = "Vehicle Tunning",
+            label = "Veículo Tunning",
             img = "vehicle_tuning",
             type = "main",
             items = {}
         }
         modMenu[8] = {
-            label = "Repair Vehicle",
+            label = "Reparar Veiculo",
             img = "repair",
             type = "main",
             items = {}
         }
     else
         modMenu[6] = {
-            label = "Repair Vehicle",
+            label = "Reparar Veiculo",
             img = "repair",
             type = "main",
             items = {}
@@ -1347,7 +1348,7 @@ openMechanicMenu = function(state, vehicle)
                     {name = "Cast Iron Silver", colorindex = 10, hex = "#444e54"},
                     {name = "Red", colorindex = 27, hex = "#c00e1a"},
                     {name = "Torino Red", colorindex = 28, hex = "#da1918"},
-                    -- {name = "Formula Red", colorindex = 29, hex = "#b6111b"},
+                    {name = "Formula Red", colorindex = 29, hex = "#b6111b"},
                     {name = "Lava Red", colorindex = 150, hex = "#bc1917"},
                     {name = "Blaze Red", colorindex = 30, hex = "#a51e23"},
                     {name = "Grace Red", colorindex = 31, hex = "#7b1a22"},
@@ -1357,56 +1358,56 @@ openMechanicMenu = function(state, vehicle)
                     {name = "Wine Red", colorindex = 143, hex = "#0e0d14"},
                     {name = "Candy Red", colorindex = 35, hex = "#b60f25"},
                     {name = "Hot Pink", colorindex = 135, hex = "#f21f99"},
-                    -- {name = "Pfsiter Pink", colorindex = 137, hex = "#df5891"},
-                    -- {name = "Salmon Pink", colorindex = 136, hex = "#fdd6cd"},
+                    {name = "Pfsiter Pink", colorindex = 137, hex = "#df5891"},
+                    {name = "Salmon Pink", colorindex = 136, hex = "#fdd6cd"},
                     {name = "Sunrise Orange", colorindex = 36, hex = "#d44a17"},
                     {name = "Orange", colorindex = 38, hex = "#f78616"},
-                    -- {name = "Bright Orange", colorindex = 138, hex = "#f6ae20"},
+                    {name = "Bright Orange", colorindex = 138, hex = "#f6ae20"},
                     {name = "Gold", colorindex = 99, hex = "#ac9975"},
                     {name = "Bronze", colorindex = 90, hex = "#916532"},
                     {name = "Yellow", colorindex = 88, hex = "#ffcf20"},
                     {name = "Race Yellow", colorindex = 89, hex = "#fbe212"},
-                    -- {name = "Dew Yellow", colorindex = 91, hex = "#e0e13d"},
+                    {name = "Dew Yellow", colorindex = 91, hex = "#e0e13d"},
                     {name = "Dark Green", colorindex = 49, hex = "#132428"},
                     {name = "Racing Green", colorindex = 50, hex = "#122e2b"},
                     {name = "Sea Green", colorindex = 51, hex = "#12383c"},
                     {name = "Olive Green", colorindex = 52, hex = "#31423f"},
                     {name = "Bright Green", colorindex = 53, hex = "#155c2d"},
-                    -- {name = "Gasoline Green", colorindex = 54, hex = "#1b6770"},
+                    {name = "Gasoline Green", colorindex = 54, hex = "#1b6770"},
                     {name = "Lime Green", colorindex = 92, hex = "#98d223"},
-                    -- {name = "Midnight Blue", colorindex = 141, hex = "#0a0c17"},
-                    -- {name = "Galaxy Blue", colorindex = 61, hex = "#222e46"},
-                    -- {name = "Dark Blue", colorindex = 62, hex = "#233155"},
-                    -- {name = "Saxon Blue", colorindex = 63, hex = "#304c7e"},
-                    -- {name = "Blue", colorindex = 64, hex = "#47578f"},
-                    -- {name = "Mariner Blue", colorindex = 65, hex = "#637ba7"},
-                    -- {name = "Harbor Blue", colorindex = 66, hex = "#394762"},
-                    -- {name = "Diamond Blue", colorindex = 67, hex = "#d6e7f1"},
-                    -- {name = "Surf Blue", colorindex = 68, hex = "#76afbe"},
-                    -- {name = "Nautical Blue", colorindex = 69, hex = "#345e72"},
+                    {name = "Midnight Blue", colorindex = 141, hex = "#0a0c17"},
+                    {name = "Galaxy Blue", colorindex = 61, hex = "#222e46"},
+                    {name = "Dark Blue", colorindex = 62, hex = "#233155"},
+                    {name = "Saxon Blue", colorindex = 63, hex = "#304c7e"},
+                    {name = "Blue", colorindex = 64, hex = "#47578f"},
+                    {name = "Mariner Blue", colorindex = 65, hex = "#637ba7"},
+                    {name = "Harbor Blue", colorindex = 66, hex = "#394762"},
+                    {name = "Diamond Blue", colorindex = 67, hex = "#d6e7f1"},
+                    {name = "Surf Blue", colorindex = 68, hex = "#76afbe"},
+                    {name = "Nautical Blue", colorindex = 69, hex = "#345e72"},
                     {name = "Racing Blue", colorindex = 73, hex = "#2354a1"},
                     {name = "Ultra Blue", colorindex = 70, hex = "#0b9cf1"},
                     {name = "Light Blue", colorindex = 74, hex = "#6ea3c6"},
-                    -- {name = "Chocolate Brown", colorindex = 96, hex = "#221b19"},
-                    -- {name = "Bison Brown", colorindex = 101, hex = "#402e2b"},
-                    -- {name = "Creeen Brown", colorindex = 95, hex = "#473f2b"},
-                    -- {name = "Feltzer Brown", colorindex = 94, hex = "#503218"},
-                    -- {name = "Maple Brown", colorindex = 97, hex = "#653f23"},
+                    {name = "Chocolate Brown", colorindex = 96, hex = "#221b19"},
+                    {name = "Bison Brown", colorindex = 101, hex = "#402e2b"},
+                    {name = "Creeen Brown", colorindex = 95, hex = "#473f2b"},
+                    {name = "Feltzer Brown", colorindex = 94, hex = "#503218"},
+                    {name = "Maple Brown", colorindex = 97, hex = "#653f23"},
                     {name = "Beechwood Brown", colorindex = 103, hex = "#46231a"},
                     {name = "Sienna Brown", colorindex = 104, hex = "#752b19"},
-                    -- {name = "Saddle Brown", colorindex = 98, hex = "#775c3e"},
-                    -- {name = "Moss Brown", colorindex = 100, hex = "#6c6b4b"},
-                    -- {name = "Woodbeech Brown", colorindex = 102, hex = "#a4965f"},
-                    -- {name = "Straw Brown", colorindex = 99, hex = "#ac9975"},
-                    -- {name = "Sandy Brown", colorindex = 105, hex = "#bfae7b"},
-                    -- {name = "Bleached Brown", colorindex = 106, hex = "#dfd5b2"},
-                    -- {name = "Schafter Purple", colorindex = 71, hex = "#2f2d52"},
-                    -- {name = "Spinnaker Purple", colorindex = 72, hex = "#282c4d"},
-                    -- {name = "Midnight Purple", colorindex = 142, hex = "#0c0d18"},
-                    -- {name = "Bright Purple", colorindex = 145, hex = "#621276"},
-                    -- {name = "Cream", colorindex = 107, hex = "#f7edd5"},
-                    -- {name = "Ice White", colorindex = 111, hex = "#fffff6"},
-                    -- {name = "Frost White", colorindex = 112, hex = "#eaeaea"}
+                    {name = "Saddle Brown", colorindex = 98, hex = "#775c3e"},
+                    {name = "Moss Brown", colorindex = 100, hex = "#6c6b4b"},
+                    {name = "Woodbeech Brown", colorindex = 102, hex = "#a4965f"},
+                    {name = "Straw Brown", colorindex = 99, hex = "#ac9975"},
+                    {name = "Sandy Brown", colorindex = 105, hex = "#bfae7b"},
+                    {name = "Bleached Brown", colorindex = 106, hex = "#dfd5b2"},
+                    {name = "Schafter Purple", colorindex = 71, hex = "#2f2d52"},
+                    {name = "Spinnaker Purple", colorindex = 72, hex = "#282c4d"},
+                    {name = "Midnight Purple", colorindex = 142, hex = "#0c0d18"},
+                    {name = "Bright Purple", colorindex = 145, hex = "#621276"},
+                    {name = "Cream", colorindex = 107, hex = "#f7edd5"},
+                    {name = "Ice White", colorindex = 111, hex = "#fffff6"},
+                    {name = "Frost White", colorindex = 112, hex = "#eaeaea"}
                 },
                 metallicColors = {
                     {name = "Black", colorindex = 0, hex = "#0d1116"},
@@ -2332,7 +2333,7 @@ Citizen.CreateThread(function()
                         sleep = 1
                         if dst <= 3 then
                             if mData.job ~= "none" then
-                                DrawMarker(25, mCoords.x, mCoords.y, mCoords.z - 0.-1, 0, 0, 0, 0, 0, 0, 3.5, 3.5, 3.5, 0, 204, 102, 250, false, false, 2, false, 0, 0, 0, 0)
+                                DrawMarker(25, mCoords.x, mCoords.y, mCoords.z - 0.-1, 0, 0, 0, 0, 0, 0, 3.5, 3.5, 3.5, 76, 0, 153, 250, false, false, 2, false, 0, 0, 0, 0)
                                 ShowHelpNotification(Config.Locale["open_mechanic_menu"])
                                 if IsControlJustPressed(0, 38) and not menuOpened then
                                     if vSERVER.checkPermission(mData.job) then
@@ -2344,7 +2345,7 @@ Citizen.CreateThread(function()
                                 end
                             else
                                 if not menuOpened then
-                                    DrawMarker(1, mCoords.x, mCoords.y, mCoords.z - 0.5, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 204, 102, 250, false, false, 2, false, 0, 0, 0, 0)
+                                    DrawMarker(1, mCoords.x, mCoords.y, mCoords.z - 0.5, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 76, 0, 153, 250, false, false, 2, false, 0, 0, 0, 0)
                                     ShowHelpNotification(Config.Locale["open_mechanic_menu"])
                                     if IsControlJustPressed(0, 38) and not menuOpened then
                                         menuOpened = true

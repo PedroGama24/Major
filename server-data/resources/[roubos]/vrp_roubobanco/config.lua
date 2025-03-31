@@ -55,7 +55,7 @@ Config.Boxes = {Full = 'prop_cash_crate_01', Half = 'hei_prop_cash_crate_half_fu
 Config.BankRobbery = {
     [1] = {
         Coods = vector3(256.10165405273,215.24116516113,105.28686523438),
-        Cops = -1, -- QUANTOS POLICIAIS ONLINE
+        Cops = 12, -- QUANTOS POLICIAIS ONLINE
         Doors = { 
             {Coords = vector3(257.22, 220.72, 106.28), Object = "hei_v_ilev_bk_gate_pris", Heading = -20.0, WeldPosition = {C = vector3(256.88,219.48,105.41), H = 338.38}, Time = 2, Frozen = true}, 
             {Coords = vector3(261.58, 222.05, 106.28), Object = "hei_v_ilev_bk_gate2_pris", Heading = -110.0, WeldPosition = {C = vector3(260.99, 221.90, 105.4), H = 254.73}, Time = 2, Frozen = true}, 

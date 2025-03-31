@@ -46,7 +46,7 @@ function func.checkRobbery(id,x,y,z,head)
 	local identity = vRP.getUserIdentity(user_id)
 	if user_id then
 		local policia = vRP.getUsersByPermission("policia.permissao")
-		if #policia >= 1 then
+		if #policia > 4 then
 			if timers[id] == 0 or not timers[id] then
 				timers[id] = 300
 				TriggerClientEvent('iniciandoregistradora',source,head,x,y,z)

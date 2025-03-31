@@ -83,9 +83,9 @@ $(document).ready(function(){
 			setCircle(item.hunger, 'HungerFill')
 		}
 
-        if (event["data"]["stress"] !== undefined){
+       /*  if (event["data"]["stress"] !== undefined){
 			setCircle(item.stress, 'stressFill')
-		}
+		} */
 
         if (event["data"]["voice"] !== undefined){
 			voice = event["data"]["voice"]
